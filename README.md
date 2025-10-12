@@ -1,18 +1,10 @@
 ## Getting Started
 
-First, run the development server:
+First, run the server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Development [http://localhost:4200](http://localhost:4200)
 
-Open [http://localhost:4200](http://localhost:4200) with your browser to see the result.
+Storybook: [http://localhost:4100](http://localhost:4100)
 
 ## Learn More
 
