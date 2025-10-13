@@ -5,18 +5,19 @@ import {
   Description,
   Stories,
 } from "@storybook/addon-docs/blocks";
+
 import { NextIntlClientProvider } from "next-intl";
 
-import defaultMessages from "../messages/en.json";
-import nextIntl from "./next-intl";
+import { messagesMap, nextIntl } from "./next-intl";
 
 const preview: Preview = {
   decorators: [
-    (Story) => (
+    (Story, { globals: { locale = "en" } }) => (
       <NextIntlClientProvider
-        locale="en"
-        messages={defaultMessages}
-        // ... potentially other config
+        locale={locale}
+        messages={
+          messagesMap[locale as keyof typeof messagesMap] || messagesMap["en"]
+        }
       >
         <Story />
       </NextIntlClientProvider>
@@ -36,13 +37,6 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
-    },
-
-    a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: "todo",
     },
     docs: {
       page: () => (

@@ -1,11 +1,13 @@
-import en from "../messages/en.json";
-import ru from "../messages/en.json";
+import en from "../src/shared/assets/locales/en/en.json";
+import ru from "../src/shared/assets/locales/ru/ru.json";
 
 const messagesByLocale: Record<string, any> = { en, ru };
 
-const nextIntl = {
-  defaultLocale: "en",
-  messagesByLocale,
+export const messagesMap = {
+  en: en,
+  ru: ru,
 };
 
-export default nextIntl;
+export const nextIntl = {
+  messagesByLocale,
+};

@@ -12,6 +12,7 @@
     "i18n:watch": "i18nexus listen"
   },
   "dependencies": {
+    "@emnapi/runtime": "^1.5.0",
     "concurrently": "^9.2.1",
     "next": "15.5.4",
     "next-intl": "^4.3.12",
