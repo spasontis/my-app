@@ -3,13 +3,34 @@ import {
   Title,
   Subtitle,
   Description,
-  Primary,
-  Controls,
   Stories,
 } from "@storybook/addon-docs/blocks";
+import { NextIntlClientProvider } from "next-intl";
+
+import defaultMessages from "../messages/en.json";
+import nextIntl from "./next-intl";
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <NextIntlClientProvider
+        locale="en"
+        messages={defaultMessages}
+        // ... potentially other config
+      >
+        <Story />
+      </NextIntlClientProvider>
+    ),
+  ],
+  initialGlobals: {
+    locale: "en",
+    locales: {
+      en: "English",
+      ru: "Русский",
+    },
+  },
   parameters: {
+    nextIntl,
     controls: {
       matchers: {
         color: /(background|color)$/i,
