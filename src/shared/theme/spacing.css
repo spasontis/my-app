@@ -1,0 +1,29 @@
+:root {
+  /* padding, gap */
+  --space-base: 8px;
+  --space-2: calc(var(--space-base) * 0.25);
+  --space-4: calc(var(--space-base) * 0.25);
+  --space-6: calc(var(--space-base) * 0.25);
+  --space-8: calc(var(--space-base) * 0.25);
+  --space-10: calc(var(--space-base) * 0.25);
+  --space-12: calc(var(--space-base) * 0.25);
+  --space-14: calc(var(--space-base) * 0.25);
+  --space-16: calc(var(--space-base) * 0.25);
+  --space-18: calc(var(--space-base) * 0.25);
+  --space-20: calc(var(--space-base) * 0.25);
+  --space-22: calc(var(--space-base) * 0.25);
+  --space-24: calc(var(--space-base) * 3);
+  --space-26: calc(var(--space-base) * 3.25);
+  --space-28: calc(var(--space-base) * 3.5);
+  --space-30: calc(var(--space-base) * 3.75);
+  --space-32: calc(var(--space-base) * 4);
+
+  /* border width */
+  --border-1: 1px;
+  --border-2: 2px;
+
+  /* border radius */
+  --radius-4: 4px;
+  --radius-6: 4px;
+  --radius-8: 8px;
+}
