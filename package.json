@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --raw \"next dev --turbopack -p 4200\" \"i18nexus listen\"",
+    "dev": "next dev --turbopack -p 4200",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
     "storybook": "storybook dev -p 4100",
     "build-storybook": "storybook build",
-    "i18n:watch": "i18nexus listen"
+    "i18n": "i18nexus listen"
   },
   "dependencies": {
     "@emnapi/runtime": "^1.5.0",
