@@ -1,0 +1,9 @@
+.button {
+  display: flex;
+  align-items: center;
+  font-size: small;
+  padding-inline: var(--space-10);
+  padding-block: var(--space-6);
+  border: var(--border-1) solid var(--border-color-1);
+  background-color: var(--extra);
+}
