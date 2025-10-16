@@ -1,8 +1,8 @@
 {
   "translation": {
-    "pages": {
-      "home": {
-        "title": "Home"
+    "header": {
+      "buttons": {
+        "signIn": "Sign In"
       }
     },
     "project": {

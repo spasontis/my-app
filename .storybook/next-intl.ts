@@ -1,5 +1,5 @@
-import en from "../src/shared/assets/locales/en/en.json";
-import ru from "../src/shared/assets/locales/ru/ru.json";
+import en from '../src/shared/assets/locales/en/en.json';
+import ru from '../src/shared/assets/locales/ru/ru.json';
 
 const messagesByLocale: Record<string, any> = { en, ru };
 

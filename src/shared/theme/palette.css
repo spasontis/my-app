@@ -1,7 +1,9 @@
 :root {
+  --red-500: #b9212e;
   --base-300: #161616;
   --base-200: #1e1e1e;
   --base-100: #2d2d2d;
+  --base-75: #535353;
   --base-50: #898989;
   --base-25: #eaeaea;
   --black: #000;
@@ -9,6 +11,7 @@
   --primary: var(--base-300);
   --secondary: var(--base-200);
   --tertiary: var(--base-100);
+  --extra: var(--base-75);
   --content-1: var(--base-50);
   --content-2: var(--base-300);
   --border-color-1: var(--base-50);
@@ -16,4 +19,5 @@
   --background-color-1: var(--base-100);
   --background-color-2: var(--base-50);
   --background-color-3: var(--base-300);
+  --error: var(--red-500);
 }

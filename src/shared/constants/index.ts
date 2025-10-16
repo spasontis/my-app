@@ -1,1 +1,1 @@
-export const PROJECT_NAME = "My app";
+export const BRAND = 'My app';
