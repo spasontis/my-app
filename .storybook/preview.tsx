@@ -1,33 +1,26 @@
-import type { Preview } from "@storybook/nextjs-vite";
-import {
-  Title,
-  Subtitle,
-  Description,
-  Stories,
-} from "@storybook/addon-docs/blocks";
+import type { Preview } from '@storybook/nextjs-vite';
+import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
 
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from 'next-intl';
 
-import { messagesMap, nextIntl } from "./next-intl";
+import { messagesMap, nextIntl } from './next-intl';
 
 const preview: Preview = {
   decorators: [
-    (Story, { globals: { locale = "en" } }) => (
+    (Story, { globals: { locale = 'en' } }) => (
       <NextIntlClientProvider
         locale={locale}
-        messages={
-          messagesMap[locale as keyof typeof messagesMap] || messagesMap["en"]
-        }
+        messages={messagesMap[locale as keyof typeof messagesMap] || messagesMap['en']}
       >
         <Story />
       </NextIntlClientProvider>
     ),
   ],
   initialGlobals: {
-    locale: "en",
+    locale: 'en',
     locales: {
-      en: "English",
-      ru: "Русский",
+      en: 'English',
+      ru: 'Русский',
     },
   },
   parameters: {

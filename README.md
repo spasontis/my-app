@@ -1,11 +1,11 @@
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Query](https://img.shields.io/badge/React%20Query-000000?style=for-the-badge&logo=reactquery&logoColor=white&color=%23FF4154)
+![Storybook](https://img.shields.io/badge/Storybook-000000?style=for-the-badge&logo=storybook&logoColor=white&color=%23FF4785)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-000000?style=for-the-badge&logo=reacthookform&logoColor=white&color=%23EC5990)
+![Zod](https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=white&color=%23408AFF)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white&color=%230064a5)
 ![Prisma ORM](https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma&logoColor=white&color=%232d3748)
-![Storybook](https://img.shields.io/badge/Storybook-000000?style=for-the-badge&logo=storybook&logoColor=white&color=%23FF4785)
-![Zod](https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=white&color=%23408AFF)
-![Tanstack Query](https://img.shields.io/badge/React%20Query-000000?style=for-the-badge&logo=reactquery&logoColor=white&color=%23FF4154)
-![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-000000?style=for-the-badge&logo=reacthookform&logoColor=white&color=%23EC5990)
 
 ## Getting Started
 
