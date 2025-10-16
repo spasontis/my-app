@@ -1,0 +1,19 @@
+.primary {
+  color: var(--primary);
+}
+
+.black {
+  color: var(--black);
+}
+
+.content1 {
+  color: var(--content-1);
+}
+
+.content2 {
+  color: var(--content-2);
+}
+
+.error {
+  color: var(--error);
+}
