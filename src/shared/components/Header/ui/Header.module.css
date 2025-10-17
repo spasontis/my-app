@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: var(--space-20);
+  align-items: center;
+  font-size: small;
+  min-height: 44px;
+  border-bottom: var(--border-1) solid var(--border-color-1);
+  background-color: var(--background-color-3);
+}
