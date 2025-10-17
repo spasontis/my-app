@@ -4,6 +4,9 @@ import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blo
 import { NextIntlClientProvider } from 'next-intl';
 
 import { messagesMap, nextIntl } from './next-intl';
+import { themes } from 'storybook/internal/theming';
+
+import '../src/shared/theme/index';
 
 const preview: Preview = {
   decorators: [
@@ -17,6 +20,7 @@ const preview: Preview = {
     ),
   ],
   initialGlobals: {
+    backgrounds: 'dark',
     locale: 'en',
     locales: {
       en: 'English',
@@ -25,10 +29,23 @@ const preview: Preview = {
   },
   parameters: {
     nextIntl,
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
+      },
+    },
+    backgrounds: {
+      options: {
+        dark: {
+          name: 'Dark',
+          value: '#161616',
+        },
+        light: {
+          name: 'light',
+          value: '#eaeaea',
+        },
       },
     },
     docs: {
@@ -40,6 +57,9 @@ const preview: Preview = {
           <Stories />
         </>
       ),
+      theme: {
+        ...themes.dark,
+      },
     },
   },
 };
