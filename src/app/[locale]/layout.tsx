@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { routing } from '@/shared/configs/i18n/configs/routing';
 
-import '@/shared/theme/styles/index.css';
+import '@/shared/theme/index.css';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
