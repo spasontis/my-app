@@ -62,14 +62,14 @@ To start the project, follow these steps:
 - [Monaco Editor](https://www.npmjs.com/package/@monaco-editor/react#editor) - code Editor with sandbox features
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) - docs for TanStack Query to manage server state in React.
 - [Zod](https://zod.dev) - docs + AI for Zod library for schema validation in TypeScript.
-- [Prisma ORM](https://www.prisma.io) - modern ORM for TypeScript and Node.js for easy database access.
+- [Prisma ORM](https://www.prisma.io/docs) - docs for modern ORM for TypeScript and Node.js for easy database access.
 - [PostgreSQL](postgresql.org) - database
 
 ## Fast AI translations
 
 - [i18nexus](https://i18nexus.com) - platform for fast AI translations, managing translation keys, and storing multilingual content.
 
-- [My App Project](https://app.i18nexus.com/projects/qyQoBfVgqsxHM2mn5b25Aj) - through this project, you can translate app content, store translation keys, and manage multiple languages efficiently.
+- [My App Project](https://app.i18nexus.com/projects/qyQoBfVgqsxHM2mn5b25Aj/strings) - through this project, you can translate app content, store translation keys, and manage multiple languages efficiently.
 
 ## Code executing
 

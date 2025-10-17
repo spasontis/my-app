@@ -2,8 +2,9 @@ import { clsx } from 'clsx';
 import { DEFAULT_SIZE, DEFAULT_ICON_SIDE } from '../constants';
 import { ButtonProps } from '../types';
 
-import SpinnerIcon from '@/shared/assets/icons/spinner.svg';
 import { Text } from '@/shared/components/Text';
+
+import { Loader } from 'lucide-react';
 
 import styles from './Button.module.css';
 import Link from 'next/link';
@@ -59,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
       {icon && iconSide === 'end' && (
         <span className={clsx(styles.icon, { [styles.transparent]: loading })}>{icon}</span>
       )}
-      {loading && <SpinnerIcon aria-hidden className={styles.spinnet}></SpinnerIcon>}
+      {loading && <Loader aria-hidden className={styles.spinnet}></Loader>}
     </button>
   );
 };
