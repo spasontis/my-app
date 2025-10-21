@@ -1,0 +1,19 @@
+.wrapper {
+  block-size: 6px;
+  border-radius: var(--radius-12);
+}
+
+.fill {
+  block-size: 6px;
+  border-radius: var(--border-radius-12);
+  background-color: var(--primary);
+  transition: inline-size 0.15s ease;
+}
+
+.circle {
+  inline-size: 6px;
+}
+
+.white {
+  background-color: var(--white);
+}
