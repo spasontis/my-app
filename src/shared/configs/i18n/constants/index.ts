@@ -1,2 +1,6 @@
-export const DEFAULT_LOCALE = 'en';
-export const LOCALES = ['en', 'ru'];
+export enum Locale {
+  En = 'en',
+  Ru = 'ru',
+}
+
+export const DEFAULT_LOCALE = Locale.En;
