@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { Button } from '../ui/Button';
 import { useTranslations } from 'next-intl';
+
 import { DEFAULT_ICON_SIDE, DEFAULT_SIZE } from '../constants';
+import { Button } from '../ui';
 
 import { Loader, Loader2, LogIn } from 'lucide-react';
 

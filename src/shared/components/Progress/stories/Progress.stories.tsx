@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Progress } from '../ui/Progress';
+import { Progress } from '../ui';
 
 const meta = {
   title: 'Example/Progress',

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { routing } from '@/shared/configs/i18n/configs/routing';
 
-import '@/shared/theme/styles/index.css';
+import '@/shared/theme/index.css';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -17,6 +17,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
