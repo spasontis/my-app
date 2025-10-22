@@ -1,13 +1,14 @@
+import Link from 'next/link';
+
 import { clsx } from 'clsx';
-import { DEFAULT_SIZE, DEFAULT_ICON_SIDE } from '../constants';
-import { ButtonProps } from '../types';
+import { Loader } from 'lucide-react';
 
 import { Text } from '@/shared/components/Text';
 
-import { Loader } from 'lucide-react';
+import { DEFAULT_SIZE, DEFAULT_ICON_SIDE } from '../constants';
+import { ButtonProps } from '../types';
 
 import styles from './Button.module.css';
-import Link from 'next/link';
 
 export const Button: React.FC<ButtonProps> = ({
   size = DEFAULT_SIZE,

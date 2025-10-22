@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { Header } from '../ui/Header';
-import { useTranslations } from 'next-intl';
-
-import { Loader, Loader2, LogIn } from 'lucide-react';
+import { Header } from '../ui';
 
 const meta = {
   title: 'Example/Header',

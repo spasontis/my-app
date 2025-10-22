@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { Text } from '../ui/Text';
 import { DEFAULT_ELEMENT } from '../constants';
+import { Text } from '../ui';
 
 import { useTranslations } from 'next-intl';
 

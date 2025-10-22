@@ -1,9 +1,9 @@
+import { useTranslations } from 'next-intl';
+
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 
 import { BRAND } from '@/shared/constants';
-
-import { useTranslations } from 'next-intl';
 
 import styles from './Header.module.css';
 
