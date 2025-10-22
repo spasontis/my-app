@@ -1,13 +1,28 @@
 import { ComponentProps, HTMLAttributes } from 'react';
 
-export type TextColor = 'black' | 'white' | 'content1' | 'content2' | 'error';
+export type TextVariant =
+  | 'title1'
+  | 'title2'
+  | 'title3'
+  | 'title4'
+  | 'title5'
+  | 'text1'
+  | 'text2'
+  | 'caption'
+  | 'button';
+
+export type TextColor = 'primary' | 'black' | 'white' | 'content1' | 'content2' | 'error';
+
+export type TextWeight = 400 | 500 | 600 | 700;
 
 type HeadingElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type TextElement = HeadingElement | 'p' | 'span';
 
 export interface BaseTextProps {
+  variant?: TextVariant;
   color?: TextColor;
+  weight?: TextWeight;
   as?: TextElement;
 }
 

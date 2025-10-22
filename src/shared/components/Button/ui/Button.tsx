@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
   const content = (
     <>
       {icon && iconSide === 'start' && <span className={styles.icon}>{icon}</span>}
-      <Text as='span' className={styles[`${size}Text`]}>
+      <Text as='span' variant='button' className={styles[`${size}Text`]}>
         {children}
       </Text>
       {icon && iconSide === 'end' && <span className={styles.icon}>{icon}</span>}
@@ -55,7 +55,11 @@ export const Button: React.FC<ButtonProps> = ({
       {icon && iconSide === 'start' && (
         <span className={clsx(styles.icon, { [styles.transparent]: loading })}>{icon}</span>
       )}
-      <Text as='span' className={clsx(styles[`${size}Text`], { [styles.transparent]: loading })}>
+      <Text
+        as='span'
+        variant='button'
+        className={clsx(styles[`${size}Text`], { [styles.transparent]: loading })}
+      >
         {children}
       </Text>
       {icon && iconSide === 'end' && (

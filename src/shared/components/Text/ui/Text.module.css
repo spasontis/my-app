@@ -1,3 +1,67 @@
+.title1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+  letter-spacing: 0;
+}
+
+.title2 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+.title3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+
+.title4 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.title5 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.text1 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.text2 {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.caption {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.primary {
+  color: var(--primary);
+}
+
 .black {
   color: var(--black);
 }
