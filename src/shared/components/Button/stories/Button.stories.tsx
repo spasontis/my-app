@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { useTranslations } from 'next-intl';
-
 import { DEFAULT_ICON_SIDE, DEFAULT_SIZE } from '../constants';
 import { Button } from '../ui';
 
@@ -34,6 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    variant: 'primary',
     children: 'Button',
     as: 'button',
     size: DEFAULT_SIZE,
@@ -44,23 +43,39 @@ export const Default: Story = {
   },
 };
 
-export const With_translations: Story = {
-  render: (args) => {
-    const t = useTranslations('translation');
-    return (
-      <Button icon={args.icon} size={args.size} iconSide={args.iconSide} fullWidth={args.fullWidth}>
-        {t(args.children as string)}
-      </Button>
-    );
-  },
+export const With_Icon: Story = {
   args: {
-    children: 'header.buttons.signIn',
-    as: 'button',
+    children: 'Sign In',
     size: 'md',
     icon: <LogIn />,
     iconSide: 'end',
-    fullWidth: false,
-    loading: false,
-    disabled: false,
+  },
+};
+
+export const WhitePrimary: Story = {
+  args: {
+    variant: 'whitePrimary',
+    children: 'Button',
+  },
+};
+
+export const TransparentPrimary: Story = {
+  args: {
+    variant: 'transparentPrimary',
+    children: 'Button',
+  },
+};
+
+export const TransparentWhite: Story = {
+  args: {
+    variant: 'transparentWhite',
+    children: 'Button',
+  },
+};
+
+export const TransparentGray: Story = {
+  args: {
+    variant: 'transparentGray',
+    children: 'Button',
   },
 };

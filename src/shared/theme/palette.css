@@ -21,7 +21,7 @@
   --base-25: #eaeaea;
   --black: #000;
   --white: #fff;
-  --primary: var(--purple-400);
+  --primary: var(--purple-500);
   --secondary: var(--base-200);
   --tertiary: var(--base-100);
   --extra: var(--base-75);
@@ -32,6 +32,6 @@
   --border-color-3: var(--primary);
   --background-color-1: var(--base-100);
   --background-color-2: var(--base-50);
-  --background-color-3: var(--purple-400);
+  --background-color-3: var(--purple-500);
   --error: var(--red-500);
 }
