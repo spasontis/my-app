@@ -5,12 +5,13 @@ import { Loader } from 'lucide-react';
 
 import { Text } from '@/shared/components/Text';
 
-import { DEFAULT_SIZE, DEFAULT_ICON_SIDE } from '../constants';
+import { DEFAULT_SIZE, DEFAULT_ICON_SIDE, DEFAULT_VARIANT } from '../constants';
 import { ButtonProps } from '../types';
 
 import styles from './Button.module.css';
 
 export const Button: React.FC<ButtonProps> = ({
+  variant = DEFAULT_VARIANT,
   size = DEFAULT_SIZE,
   icon,
   iconSide = DEFAULT_ICON_SIDE,
@@ -19,7 +20,13 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const classes = clsx(styles.button, styles[size], fullWidth && styles.fullWidth, className);
+  const classes = clsx(
+    styles.button,
+    styles[variant],
+    styles[size],
+    fullWidth && styles.fullWidth,
+    className,
+  );
 
   const content = (
     <>
