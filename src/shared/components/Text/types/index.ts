@@ -1,6 +1,7 @@
 import { ComponentProps, HTMLAttributes } from 'react';
 
 export type TextVariant =
+  | 'label'
   | 'title1'
   | 'title2'
   | 'title3'

@@ -59,6 +59,15 @@ export const With_translations: Story = {
   },
 };
 
+export const Label: Story = {
+  args: {
+    as: DEFAULT_ELEMENT,
+    variant: 'label',
+    color: 'primary',
+    children: 'Text',
+  },
+};
+
 export const Title1: Story = {
   args: {
     as: DEFAULT_ELEMENT,

@@ -9,32 +9,32 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 
 export const Header = () => {
-  const t = useTranslations('translation');
+  const t = useTranslations('translation.header');
 
   return (
     <header className={styles.header}>
       <div className={styles.side}>
         <div className={styles.title}>
-          <Image src='/big-logo.png' alt='logo' width={128} height={36} className={styles.logo} />
+          <Image src='/big-logo.png' alt='logo' width={128} height={56} className={styles.logo} />
         </div>
         <div className={styles.nav}>
           <Link href={'./blog'}>
-            <Text>{t('header.buttons.blog')}</Text>
+            <Text>{t('buttons.blog')}</Text>
           </Link>
           <Link href={'./for-educators'}>
-            <Text>{t('header.buttons.forEducators')}</Text>
+            <Text>{t('buttons.forEducators')}</Text>
           </Link>
           <Link href={'./for-companies'}>
-            <Text> {t('header.buttons.forCompanies')}</Text>
+            <Text> {t('buttons.forCompanies')}</Text>
           </Link>
         </div>
       </div>
       <div className={styles.side}>
         <Button variant='transparentWhite' size='sm'>
-          {t('header.buttons.signIn')}
+          {t('buttons.signIn')}
         </Button>
         <Button size='sm' className={styles.join}>
-          {t('header.buttons.join')}
+          {t('buttons.join')}
         </Button>
       </div>
     </header>

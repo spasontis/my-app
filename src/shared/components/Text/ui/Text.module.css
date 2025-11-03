@@ -1,3 +1,10 @@
+.label {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 78px;
+  letter-spacing: 0;
+}
+
 .title1 {
   font-weight: 700;
   font-size: 30px;

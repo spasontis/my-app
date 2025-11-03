@@ -9,6 +9,19 @@
         "signIn": "Sign In"
       }
     },
+    "home": {
+      "button": {
+        "getStarted": "Get started"
+      },
+      "description": {
+        "partOne": "Improve your development skills by training with your peers on code tasks that",
+        "partTwo": "continously challenge and push your coding practice."
+      },
+      "label": {
+        "achieveMastery": "Achieve Mastery",
+        "throughChallenge": "through challenge"
+      }
+    },
     "project": {
       "name": "My App"
     }
