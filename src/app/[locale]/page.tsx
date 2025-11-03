@@ -1,9 +1,5 @@
-import { Header } from '@/shared/components/Header';
+import { Home } from '@/features/Home';
 
-export default function Home() {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+export default function HomePage() {
+  return <Home />;
 }

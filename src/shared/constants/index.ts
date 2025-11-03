@@ -1,1 +1,1 @@
-export const BRAND = 'My app';
+export const BRAND = 'codeway';

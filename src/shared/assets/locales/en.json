@@ -2,6 +2,10 @@
   "translation": {
     "header": {
       "buttons": {
+        "blog": "Blog",
+        "forCompanies": "For Companies",
+        "forEducators": "For Educators",
+        "join": "Join",
         "signIn": "Sign In"
       }
     },
