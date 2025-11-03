@@ -39,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (props.as === 'Link') {
-    const { as, ...rest } = props;
+    const { ...rest } = props;
     return (
       <Link className={classes} {...rest}>
         {content}
@@ -48,7 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   if (props.as === 'a') {
-    const { as, ...rest } = props;
+    const { ...rest } = props;
     return (
       <a className={classes} {...rest}>
         {content}
@@ -56,7 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  const { as, loading, disabled, ...rest } = props;
+  const { loading, disabled, ...rest } = props;
   return (
     <button className={classes} disabled={disabled || loading} aria-busy={loading} {...rest}>
       {icon && iconSide === 'start' && (
