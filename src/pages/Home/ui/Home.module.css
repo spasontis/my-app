@@ -1,16 +1,11 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
-
   flex: 1;
-  background-image: url('/home-background.png');
+  height: 100vh;
+  background-image: url('/noise.png');
+  background-color: black;
 }
 
 .welcome {
@@ -18,6 +13,11 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  width: 1380;
+  height: 768;
+  background-image: url('/light.png');
+  background-repeat: no-repeat;
+
   gap: 16px;
 }
 

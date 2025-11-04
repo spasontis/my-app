@@ -1,15 +1,23 @@
+'use client';
+
 import { Header } from '@/shared/components/Header';
 import { Text } from '@/shared/components/Text';
 
 import styles from './Home.module.css';
 import { Button } from '@/shared/components/Button';
 import { useTranslations } from 'next-intl';
+import { useEffect } from 'react';
 
 export const Home = () => {
   const t = useTranslations('translation.home');
 
+  useEffect(() => {
+    document.body.style.backgroundImage = "url('/blur2.png')";
+    document.body.style.backgroundSize = '200px 200px';
+  }, []);
+
   return (
-    <div className={styles.page}>
+    <>
       <Header />
       <main className={styles.content}>
         <div className={styles.welcome}>
@@ -31,6 +39,6 @@ export const Home = () => {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };

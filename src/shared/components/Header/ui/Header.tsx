@@ -15,7 +15,9 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.side}>
         <div className={styles.title}>
-          <Image src='/big-logo.png' alt='logo' width={128} height={56} className={styles.logo} />
+          <Link href={'./'}>
+            <Image src='/big-logo.png' alt='logo' width={360} height={56} className={styles.logo} />
+          </Link>
         </div>
         <div className={styles.nav}>
           <Link href={'./blog'}>
