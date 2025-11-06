@@ -22,3 +22,24 @@ export const Default: Story = {
     children: 'Button',
   },
 };
+
+export const Warning: Story = {
+  args: {
+    variant: 'warning',
+    children: 'Button',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    variant: 'error',
+    children: 'Button',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    variant: 'success',
+    children: 'Button',
+  },
+};
