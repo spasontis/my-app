@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
 
-import styles from './Hint.module.css';
+import { Text } from '@/shared/components/Text';
 import { HintProps } from '../types';
 import { DEFAULT_VARIANT, ICON } from '../constants';
 
-import { Text } from '@/shared/components/Text';
+import styles from './Hint.module.css';
 
 export const Hint: FC<HintProps> = ({ variant = DEFAULT_VARIANT, children, ...props }) => {
   const IconComponent = variant !== 'default' ? ICON[variant] : undefined;
