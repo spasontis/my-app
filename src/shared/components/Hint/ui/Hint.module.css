@@ -1,0 +1,27 @@
+.hint {
+  display: flex;
+  gap: var(--space-4);
+  align-items: start;
+  cursor: default;
+}
+
+.icon {
+  inline-size: 14px;
+  flex-shrink: 0;
+}
+
+.default {
+  color: var(--base-50);
+}
+
+.warning {
+  color: var(--yellow-500);
+}
+
+.error {
+  color: var(--red-500);
+}
+
+.success {
+  color: var(--green-500);
+}
