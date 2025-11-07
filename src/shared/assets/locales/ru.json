@@ -1,5 +1,27 @@
 {
   "translation": {
+    "auth": {
+      "button": {
+        "hidePassword": "Скрыть пароль",
+        "showPassword": "Показать пароль",
+        "signIn": "Войти"
+      },
+      "label": {
+        "enterLogin": "Введите логин",
+        "enterPassword": "Введите пароль",
+        "login": "Вход",
+        "password": "Пароль"
+      },
+      "text": {
+        "agreement": "Соглашение",
+        "forgotPassword": "Забыли пароль",
+        "noAccount": "Нет аккаунта?",
+        "signUp": "Зарегистрироваться"
+      },
+      "title": {
+        "signIn": "Войти"
+      }
+    },
     "header": {
       "buttons": {
         "blog": "Блог",

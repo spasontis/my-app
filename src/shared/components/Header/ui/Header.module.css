@@ -9,6 +9,7 @@
   min-height: 72px;
   border-bottom: var(--border-1) solid var(--border-color-1);
   background-color: var(--black);
+  z-index: 1000;
 }
 
 .side {
