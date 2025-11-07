@@ -1,5 +1,27 @@
 {
   "translation": {
+    "auth": {
+      "button": {
+        "hidePassword": "Hide password",
+        "showPassword": "Show password",
+        "signIn": "Sign in"
+      },
+      "label": {
+        "enterLogin": "Enter login",
+        "enterPassword": "Enter Password",
+        "login": "Login",
+        "password": "Password"
+      },
+      "text": {
+        "agreement": "Agreement",
+        "forgotPassword": "Forgot password",
+        "noAccount": "No account?",
+        "signUp": "Sign up"
+      },
+      "title": {
+        "signIn": "Sign in"
+      }
+    },
     "header": {
       "buttons": {
         "blog": "Blog",

@@ -7,8 +7,9 @@ import styles from './Home.module.css';
 import { Button } from '@/shared/components/Button';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
-export const Home = () => {
+export const HomePage = () => {
   const t = useTranslations('translation.home');
 
   useEffect(() => {
@@ -33,9 +34,11 @@ export const Home = () => {
             {t('description.partTwo')}
           </Text>
           <div>
-            <Button size='md' className={styles.start}>
-              <Text className={styles.get_started}>{t('button.getStarted')}</Text>
-            </Button>
+            <Link href={'./sign-up'}>
+              <Button size='md' className={styles.start}>
+                <Text className={styles.get_started}>{t('button.getStarted')}</Text>
+              </Button>
+            </Link>
           </div>
         </div>
       </main>

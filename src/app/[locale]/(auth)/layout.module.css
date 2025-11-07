@@ -1,0 +1,17 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.main {
+  padding-inline: var(--space-16);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-inline-size: 446px;
+  margin-inline: auto;
+}

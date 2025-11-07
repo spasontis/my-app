@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { useArgs } from 'storybook/internal/preview-api';
 
 import { TextInput } from '../ui/TextInput';
 import { DEFAULT_TYPE } from '../constants';
@@ -21,6 +22,16 @@ const meta = {
         SuccessIcon: <CheckCircle />,
       },
     },
+  },
+  render: (args) => {
+    const [{ value }, updateArgs] = useArgs();
+    return (
+      <TextInput
+        {...args}
+        value={value}
+        onChange={(event) => updateArgs({ value: event.target.value })}
+      />
+    );
   },
 } satisfies Meta<typeof TextInput>;
 

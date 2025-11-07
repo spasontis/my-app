@@ -30,9 +30,11 @@ export const Header = () => {
         </div>
       </div>
       <div className={styles.side}>
-        <Button variant='transparentWhite' size='sm'>
-          {t('buttons.signIn')}
-        </Button>
+        <Link href={'./sign-in'}>
+          <Button variant='transparentWhite' size='sm'>
+            {t('buttons.signIn')}
+          </Button>
+        </Link>
         <Button size='sm' className={styles.join}>
           {t('buttons.join')}
         </Button>

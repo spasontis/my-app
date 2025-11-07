@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, useId, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -28,7 +30,7 @@ export const TextInput: FC<TextInputProps> = ({
   const classes = clsx(styles.wrapper, className, disabled && styles.disabled);
   const [showPassword, setShowPassword] = useState(false);
 
-  const t = useTranslations('');
+  const t = useTranslations('translation');
   const inputId = useId();
 
   const isPassword = type === 'password';
@@ -58,7 +60,7 @@ export const TextInput: FC<TextInputProps> = ({
               onClick={handleClick}
               className={styles.button}
               aria-label={
-                showPassword ? t('auth.button.hide.Password') : t('auth.button.showPassword')
+                showPassword ? t('auth.button.hidePassword') : t('auth.button.showPassword')
               }
             >
               {PasswordIcon}
