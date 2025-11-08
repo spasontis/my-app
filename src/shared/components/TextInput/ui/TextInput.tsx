@@ -34,7 +34,7 @@ export const TextInput: FC<TextInputProps> = ({
   const inputId = useId();
 
   const isPassword = type === 'password';
-  const PasswordIcon = showPassword ? <Eye /> : <EyeOff />;
+  const PasswordIcon = showPassword ? <Eye height={14} /> : <EyeOff height={14} />;
   const inputType = isPassword && showPassword ? 'text' : type;
 
   const handleClick = () => {
