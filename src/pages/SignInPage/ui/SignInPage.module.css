@@ -6,10 +6,14 @@
 
 .card {
   inline-size: 100%;
-  background-color: var(--background-color-1);
-  padding: var(--space-6);
-  border: var(--border-1) solid var(--border-colo-1);
+  padding: var(--space-8);
+  border: var(--border-1) solid var(--border-color-1);
   border-radius: var(--space-10);
+}
+
+.content {
+  padding-inline: 20px;
+  margin-top: 12px;
 }
 
 .title {
@@ -18,13 +22,36 @@
   padding-inline: var(--space-16);
 }
 
-.content {
-  margin-block-start: 12px;
-  padding-inline: var(--space-12);
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-38);
+  padding-top: var(--space-20);
 }
 
-.input {
-  margin-block-start: 12px;
+.line {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-block: 16px;
+  color: var(--base-75);
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--base-75);
+  }
+}
+
+.or {
+  padding-inline: 8px;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .container {
@@ -35,7 +62,7 @@
 
 .button {
   color: var(--white);
-  margin-block-start: 16px;
+  margin-block-start: 28px;
 }
 
 .footer {

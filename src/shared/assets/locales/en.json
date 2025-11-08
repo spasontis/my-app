@@ -13,9 +13,10 @@
         "password": "Password"
       },
       "text": {
-        "agreement": "Agreement",
-        "forgotPassword": "Forgot password",
-        "noAccount": "No account?",
+        "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
+        "forgotPassword": "Forgot password?",
+        "noAccount": "Don't have an account?",
+        "or": "Or",
         "signUp": "Sign up"
       },
       "title": {

@@ -17,6 +17,21 @@
   --space-28: calc(var(--space-base) * 3.5);
   --space-30: calc(var(--space-base) * 3.75);
   --space-32: calc(var(--space-base) * 4);
+  --space-34: calc(var(--space-base) * 4.25);
+  --space-36: calc(var(--space-base) * 4.5);
+  --space-38: calc(var(--space-base) * 4.75);
+  --space-40: calc(var(--space-base) * 5);
+  --space-42: calc(var(--space-base) * 5.25);
+  --space-44: calc(var(--space-base) * 5.5);
+  --space-46: calc(var(--space-base) * 5.75);
+  --space-48: calc(var(--space-base) * 5);
+  --space-50: calc(var(--space-base) * 5.25);
+  --space-52: calc(var(--space-base) * 5.5);
+  --space-56: calc(var(--space-base) * 5.75);
+  --space-58: calc(var(--space-base) * 6);
+  --space-60: calc(var(--space-base) * 6.25);
+  --space-62: calc(var(--space-base) * 6.5);
+  --space-64: calc(var(--space-base) * 6.75);
 
   /* border width */
   --border-1: 1px;
