@@ -17,7 +17,15 @@ export const SignInPage = () => {
   return (
     <form className={styles.form} noValidate>
       <div className={styles.logo}>
-        <Image width={254} height={52} src='/big-logo.png' alt='big-logo' className={styles.img} />
+        <Link href={'./'}>
+          <Image
+            width={254}
+            height={52}
+            src='/big-logo.png'
+            alt='big-logo'
+            className={styles.img}
+          />
+        </Link>
       </div>
       <div className={styles.card}>
         <div className={styles.content}>
