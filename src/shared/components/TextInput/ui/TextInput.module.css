@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  min-block-size: 48px;
+  min-block-size: 42px;
   margin-top: 2px;
   border-radius: var(--border-radius-4);
   padding-inline: var(--space-16);

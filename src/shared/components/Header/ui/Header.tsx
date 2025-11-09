@@ -4,9 +4,9 @@ import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from './Header.module.css';
-import Link from 'next/link';
 
 export const Header = () => {
   const t = useTranslations('translation.header');
@@ -14,9 +14,9 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.side}>
-        <div className={styles.title}>
+        <Link href={'./'}>
           <Image src='/big-logo.png' alt='logo' width={460} height={78} className={styles.logo} />
-        </div>
+        </Link>
         <div className={styles.nav}>
           <Link href={'./blog'}>
             <Text>{t('buttons.blog')}</Text>
