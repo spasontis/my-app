@@ -4,6 +4,17 @@
   gap: var(--space-12);
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.img {
+  width: 160px;
+}
+
 .card {
   inline-size: 100%;
   padding: var(--space-8);

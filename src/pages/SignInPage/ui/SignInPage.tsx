@@ -1,18 +1,24 @@
+import { FaGoogle, FaYandex } from 'react-icons/fa';
+
+import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
 import { Text } from '@/shared/components/Text';
 
 import { useTranslations } from 'next-intl';
 
-import styles from './SignInPage.module.css';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/shared/components/Button';
-import { FaGoogle, FaYandex } from 'react-icons/fa';
+
+import styles from './SignInPage.module.css';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');
 
   return (
     <form className={styles.form} noValidate>
+      <div className={styles.logo}>
+        <Image width={254} height={52} src='/big-logo.png' alt='big-logo' className={styles.img} />
+      </div>
       <div className={styles.card}>
         <div className={styles.content}>
           <Text variant='title1' className={styles.title}>
