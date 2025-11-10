@@ -1,8 +1,18 @@
+'use client';
+
+import { useEffect } from 'react';
 import { FaGoogle, FaYandex } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
 import { Text } from '@/shared/components/Text';
+
+import { DEFAULT_SIGN_IN_VALUES } from '../constants';
+import { signInSchema } from '../model';
+import { SignInFields } from '../types';
 
 import { useTranslations } from 'next-intl';
 
@@ -14,8 +24,26 @@ import styles from './SignInPage.module.css';
 export const SignInPage = () => {
   const t = useTranslations('translation');
 
+  const {
+    register,
+    setFocus,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignInFields>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: DEFAULT_SIGN_IN_VALUES,
+  });
+
+  const onSubmit = handleSubmit((values) => {
+    console.log(values);
+  });
+
+  useEffect(() => {
+    setFocus('login');
+  });
+
   return (
-    <form className={styles.form} noValidate>
+    <form onSubmit={onSubmit} className={styles.form} noValidate>
       <div className={styles.logo}>
         <Link href={'./'}>
           <Image
@@ -47,11 +75,17 @@ export const SignInPage = () => {
             <TextInput
               label={t('auth.label.login')}
               placeholder={t('auth.label.enterLogin')}
+              invalid={!!errors.login}
+              hint={errors.login?.message && t(errors.login.message)}
+              {...register('login')}
             ></TextInput>
             <TextInput
               label={t('auth.label.password')}
               type='password'
               placeholder={t('auth.label.enterPassword')}
+              invalid={!!errors.password}
+              hint={errors.password?.message && t(errors.password.message)}
+              {...register('password')}
             ></TextInput>
           </div>
           <div className={styles.container}>
@@ -59,7 +93,7 @@ export const SignInPage = () => {
               <Link href={'./recover'}>{t('auth.text.forgotPassword')}</Link>
             </Text>
           </div>
-          <Button size='md' variant='primary' type='submit' className={styles.button} fullWidth>
+          <Button size='md' variant='primary' className={styles.button} fullWidth>
             {t('auth.button.signIn')}
           </Button>
           <div className={styles.footer}>

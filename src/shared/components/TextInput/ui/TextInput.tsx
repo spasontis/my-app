@@ -70,7 +70,7 @@ export const TextInput: FC<TextInputProps> = ({
           )}
         </div>
       </label>
-      {hint && <Hint variant={invalid ? 'error' : 'default'}></Hint>}
+      {hint && <Hint variant={invalid ? 'error' : 'default'}>{hint}</Hint>}
     </div>
   );
 };
