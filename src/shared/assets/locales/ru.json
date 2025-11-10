@@ -12,6 +12,12 @@
         "login": "Вход",
         "password": "Пароль"
       },
+      "placehlolder": {
+        "enterLogin": "Введите логин"
+      },
+      "placeholder": {
+        "enterPassword": "Введите пароль"
+      },
       "text": {
         "agreement": "Продолжая, вы соглашаетесь с <privacy >политикой конфиденциальности</privacy > и <cookie >политикой использования файлов cookie</cookie >, а также принимаете <terms>условия лицензионного соглашения</terms>.",
         "forgotPassword": "Забыли пароль?",
