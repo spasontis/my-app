@@ -1,0 +1,14 @@
+import { DEFAULT_API_TIMEOUT } from '../constants';
+import { Api } from '../artifacts';
+
+export const publicApi = new Api({
+  baseURL: process.env.API_URL_BASE,
+  withCredentials: true,
+  timeout: DEFAULT_API_TIMEOUT,
+});
+
+export const api = new Api({
+  baseURL: process.env.API_URL_BASE,
+  withCredentials: true,
+  timeout: DEFAULT_API_TIMEOUT,
+});
