@@ -4,8 +4,7 @@
 ![Storybook](https://img.shields.io/badge/Storybook-000000?style=for-the-badge&logo=storybook&logoColor=white&color=FF4785&link=https%3A%2F%2Fstorybook.js.org)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-000000?style=for-the-badge&logo=reacthookform&logoColor=white&color=EC5990&link=https%3A%2F%2Freact-hook-form.com)
 ![Zod](https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=white&color=408AFF&link=https%3A%2F%2Fzod.dev)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white&color=0064A5&link=https%3A%2F%2Fwww.postgresql.org)
-![Prisma ORM](https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma&logoColor=white&color=2D3748&link=https%3A%2F%2Fwww.prisma.io)
+![Axios](https://img.shields.io/badge/Axios-000000?style=for-the-badge&logo=axios&color=%235A29E4&link=https%3A%2F%2Faxios-http.com)
 
 ## Getting Started
 
@@ -58,12 +57,12 @@ To start the project, follow these steps:
 
 - [Next.js](https://nextjs.org/docs) - doc of Next.js features and API.
 - [Storybook](https://storybook.js.org/docs) - is a frontend workshop for building UI components and pages in isolation.
-- [Next.js Internationalization](https://next-intl.dev/docs) - docs for adding multilingual support in Next.js apps.
+- [Next Intl](https://next-intl.dev/docs) - docs for adding multilingual support in Next.js apps.
 - [Monaco Editor](https://www.npmjs.com/package/@monaco-editor/react#editor) - code Editor with sandbox features
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) - docs for TanStack Query to manage server state in React.
 - [Zod](https://zod.dev) - docs + AI for Zod library for schema validation in TypeScript.
-- [Prisma ORM](https://www.prisma.io/docs) - docs for modern ORM for TypeScript and Node.js for easy database access.
-- [PostgreSQL](postgresql.org) - database
+- [Zustand](zustand.docs.pmnd.rs) - docs for small, fast, and scalable state management library.
+- [Axios](https://axios-http.com/docs/intro) - docs for a promise-based HTTP client for the browser and Node.js
 
 ## Fast AI translations
 

@@ -1,7 +1,7 @@
 import en from '../src/shared/assets/locales/en.json';
 import ru from '../src/shared/assets/locales/ru.json';
 
-const messagesByLocale: Record<string, any> = { en, ru };
+const messagesByLocale: Record<string, typeof en> = { en, ru };
 
 export const messagesMap = {
   en: en,
