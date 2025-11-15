@@ -20,6 +20,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignInPage.module.css';
+import { usePageTitle } from '@/shared/hooks';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');
@@ -41,6 +42,8 @@ export const SignInPage = () => {
   useEffect(() => {
     setFocus('login');
   });
+
+  usePageTitle(t('auth.title.signIn'));
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
