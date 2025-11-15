@@ -29,6 +29,9 @@
         "signIn": "Sign in"
       }
     },
+    "common": {
+      "close": "Close"
+    },
     "header": {
       "buttons": {
         "blog": "Blog",
