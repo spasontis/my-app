@@ -3,27 +3,27 @@
 import { useEffect } from 'react';
 import { FaGoogle, FaYandex } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
-
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
 import { Text } from '@/shared/components/Text';
+import { usePageTitle } from '@/shared/hooks';
 
 import { DEFAULT_SIGN_IN_VALUES } from '../constants';
 import { signInSchema } from '../model';
 import { SignInFields } from '../types';
-
-import { useTranslations } from 'next-intl';
+import { useSignIn } from '../api';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignInPage.module.css';
-import { usePageTitle } from '@/shared/hooks';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');
+  const signInMutation = useSignIn();
 
   const {
     register,
@@ -36,12 +36,12 @@ export const SignInPage = () => {
   });
 
   const onSubmit = handleSubmit((values) => {
-    console.log(values);
+    signInMutation.mutate(values);
   });
 
   useEffect(() => {
     setFocus('login');
-  });
+  }, [setFocus, t]);
 
   usePageTitle(t('auth.title.signIn'));
 

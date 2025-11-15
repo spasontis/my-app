@@ -41,6 +41,11 @@ export interface RegisterDto {
   password: string;
 }
 
+export interface TokensResponse {
+  /** JWT token */
+  accessToken: string;
+}
+
 import type {
   AxiosInstance,
   AxiosRequestConfig,
@@ -235,15 +240,16 @@ export class Api<
      * @name AuthControllerLogin
      * @summary User login
      * @request POST:/api/auth/login
-     * @response `200` `void` User successful autheticated
+     * @response `200` `TokensResponse` User successful autheticated
      * @response `401` `void` Wrong user credentials
      */
     authControllerLogin: (data: LoginDto, params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<TokensResponse, void>({
         path: `/api/auth/login`,
         method: "POST",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -254,15 +260,16 @@ export class Api<
      * @name AuthControllerRegister
      * @summary User registration
      * @request POST:/api/auth/register
-     * @response `200` `void` User successful registered
+     * @response `200` `TokensResponse` User successful registered
      * @response `400` `void` Validation error
      */
     authControllerRegister: (data: RegisterDto, params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<TokensResponse, void>({
         path: `/api/auth/register`,
         method: "POST",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
   };

@@ -51,6 +51,12 @@
         "throughChallenge": "through challenge"
       }
     },
+    "notifications": {
+      "internalServer": "Internal server",
+      "invalidCredentials": "Invalid credentials",
+      "rateLimitExceeded": "Rate limit exceeded",
+      "unknownError": "Something happened and it's like unknown error"
+    },
     "project": {
       "name": "My App"
     }

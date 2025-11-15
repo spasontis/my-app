@@ -51,6 +51,12 @@
         "throughChallenge": "через вызов"
       }
     },
+    "notifications": {
+      "internalServer": "Внутренний сервер",
+      "invalidCredentials": "Неверные учетные данные",
+      "rateLimitExceeded": "Превышен лимит запросов",
+      "unknownError": "Что-то произошло, и это похоже на неизвестную ошибку"
+    },
     "project": {
       "name": "My App"
     }
