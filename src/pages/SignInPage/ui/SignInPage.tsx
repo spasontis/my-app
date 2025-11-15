@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect } from 'react';
 import { FaGoogle, FaYandex } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
@@ -20,6 +18,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignInPage.module.css';
+import { Toast } from '@/shared/components/Toast';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');

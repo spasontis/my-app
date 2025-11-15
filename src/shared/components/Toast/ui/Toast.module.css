@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  padding-block: var(--space-12);
+  padding-inline: var(--space-14);
+  gap: var(--space-12);
+  border-radius: var(--border-radius-12);
+  position: relative;
+  block-size: auto;
+  background-color: var(--background-color-1);
+}
+
+.default {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.success {
+  background-color: var(--green-500);
+}
+
+.failed {
+  background-color: var(--red-500);
+}
+
+.iconWrapper {
+  inline-size: 24px;
+  block-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  inline-size: 24px;
+  block-size: 24px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-4);
+  inline-size: 264px;
+}
