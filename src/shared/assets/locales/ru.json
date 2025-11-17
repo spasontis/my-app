@@ -2,7 +2,6 @@
   "translation": {
     "auth": {
       "button": {
-        "continue": "Продолжить",
         "hidePassword": "Скрыть пароль",
         "showPassword": "Показать пароль",
         "signIn": "Войти",
@@ -35,7 +34,8 @@
       }
     },
     "common": {
-      "close": "Закрыть"
+      "close": "Закрыть",
+      "continue": "Продолжить"
     },
     "header": {
       "buttons": {
@@ -67,6 +67,11 @@
     },
     "project": {
       "name": "My App"
+    },
+    "shared": {
+      "text": {
+        "progress": "Прогресс"
+      }
     }
   }
 }
