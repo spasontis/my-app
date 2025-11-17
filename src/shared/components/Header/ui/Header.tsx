@@ -35,9 +35,11 @@ export const Header = () => {
             {t('buttons.signIn')}
           </Button>
         </Link>
-        <Button size='sm' className={styles.join}>
-          {t('buttons.join')}
-        </Button>
+        <Link href={'./sign-up'}>
+          <Button size='sm' className={styles.join}>
+            {t('buttons.join')}
+          </Button>{' '}
+        </Link>
       </div>
     </header>
   );
