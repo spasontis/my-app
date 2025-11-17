@@ -1,0 +1,44 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.img {
+  width: 160px;
+}
+
+.card {
+  inline-size: 100%;
+  margin-top: var(--space-14);
+  padding: var(--space-8);
+  border: var(--border-1) solid var(--border-color-1);
+  border-radius: var(--space-10);
+}
+
+.content {
+  padding-inline: 20px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--space-16);
+  margin-top: 12px;
+}
+
+.agreement {
+  margin-top: var(--space-12);
+  text-align: center;
+  color: rgb(from var(--content-1) r g b/44%);
+}
+
+.link {
+  color: rgb(from var(--content-1) r g b/70%);
+}

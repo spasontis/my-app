@@ -4,35 +4,6 @@
   gap: var(--space-12);
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.img {
-  width: 160px;
-}
-
-.card {
-  inline-size: 100%;
-  padding: var(--space-8);
-  border: var(--border-1) solid var(--border-color-1);
-  border-radius: var(--space-10);
-}
-
-.content {
-  padding-inline: 20px;
-  margin-top: 12px;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  padding-inline: var(--space-16);
-}
-
 .socials {
   display: flex;
   justify-content: center;
@@ -88,13 +59,4 @@
   flex-wrap: wrap;
   margin: 16px;
   gap: var(--space-8);
-}
-
-.agreement {
-  text-align: center;
-  color: rgb(from var(--content-1) r g b/44%);
-}
-
-.link {
-  color: rgb(from var(--content-1) r g b/70%);
 }
