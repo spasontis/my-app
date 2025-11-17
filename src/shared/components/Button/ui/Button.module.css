@@ -44,7 +44,7 @@
 }
 
 .primary {
-  color: var(--black);
+  color: var(--white);
   background-color: var(--purple-500);
 
   @media (hover: hover) {
