@@ -2,31 +2,36 @@
   "translation": {
     "auth": {
       "button": {
+        "continue": "Продолжить",
         "hidePassword": "Скрыть пароль",
         "showPassword": "Показать пароль",
-        "signIn": "Войти"
+        "signIn": "Войти",
+        "signUp": "Зарегистрироваться"
       },
       "label": {
-        "enterLogin": "Введите логин",
-        "enterPassword": "Введите пароль",
+        "email": "Электронная почта",
         "login": "Вход",
         "password": "Пароль"
       },
-      "placehlolder": {
-        "enterLogin": "Введите логин"
-      },
       "placeholder": {
+        "email": "Неверный адрес электронной почты",
+        "enterEmail": "Введите электронную почту",
+        "enterLogin": "Введите логин",
         "enterPassword": "Введите пароль"
       },
       "text": {
         "agreement": "Продолжая, вы соглашаетесь с <privacy >политикой конфиденциальности</privacy > и <cookie >политикой использования файлов cookie</cookie >, а также принимаете <terms>условия лицензионного соглашения</terms>.",
         "forgotPassword": "Забыли пароль?",
+        "haveAccount": "Уже есть аккаунт?",
         "noAccount": "Нет аккаунта?",
         "or": "Или",
+        "passwordRequirements": "Пароль должен содержать более 6 символов",
+        "signIn": "Войти",
         "signUp": "Зарегистрироваться"
       },
       "title": {
-        "signIn": "Войти"
+        "signIn": "Войти",
+        "signUp": "Зарегистрироваться"
       }
     },
     "common": {

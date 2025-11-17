@@ -18,7 +18,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignInPage.module.css';
-import { Toast } from '@/shared/components/Toast';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');
@@ -40,7 +39,7 @@ export const SignInPage = () => {
 
   useEffect(() => {
     setFocus('login');
-  }, [setFocus, t]);
+  }, [setFocus]);
 
   usePageTitle(t('auth.title.signIn'));
 
@@ -76,7 +75,7 @@ export const SignInPage = () => {
           <div className={styles.inputs}>
             <TextInput
               label={t('auth.label.login')}
-              placeholder={t('auth.label.enterLogin')}
+              placeholder={t('auth.placeholder.enterLogin')}
               invalid={!!errors.login}
               hint={errors.login?.message && t(errors.login.message)}
               {...register('login')}
@@ -84,7 +83,7 @@ export const SignInPage = () => {
             <TextInput
               label={t('auth.label.password')}
               type='password'
-              placeholder={t('auth.label.enterPassword')}
+              placeholder={t('auth.placeholder.enterPassword')}
               invalid={!!errors.password}
               hint={errors.password?.message && t(errors.password.message)}
               {...register('password')}
@@ -95,7 +94,7 @@ export const SignInPage = () => {
               <Link href={'./recover'}>{t('auth.text.forgotPassword')}</Link>
             </Text>
           </div>
-          <Button size='md' variant='primary' className={styles.button} fullWidth>
+          <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
             {t('auth.button.signIn')}
           </Button>
           <div className={styles.footer}>

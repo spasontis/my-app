@@ -2,31 +2,36 @@
   "translation": {
     "auth": {
       "button": {
+        "continue": "Continue",
         "hidePassword": "Hide password",
         "showPassword": "Show password",
-        "signIn": "Sign in"
+        "signIn": "Sign in",
+        "signUp": "Sign up"
       },
       "label": {
-        "enterLogin": "Enter login",
-        "enterPassword": "Enter Password",
+        "email": "Email",
         "login": "Login",
         "password": "Password"
       },
-      "placehlolder": {
-        "enterLogin": "Enter login"
-      },
       "placeholder": {
+        "email": "Invalid email address",
+        "enterEmail": "Enter email",
+        "enterLogin": "Enter login",
         "enterPassword": "Enter password"
       },
       "text": {
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
         "forgotPassword": "Forgot password?",
+        "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
         "or": "Or",
+        "passwordRequirements": "Password must be more then 6 symbols",
+        "signIn": "Sign in",
         "signUp": "Sign up"
       },
       "title": {
-        "signIn": "Sign in"
+        "signIn": "Sign in",
+        "signUp": "Sign up"
       }
     },
     "common": {

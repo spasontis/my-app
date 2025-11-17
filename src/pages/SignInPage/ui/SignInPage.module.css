@@ -59,6 +59,7 @@
 .or {
   padding-inline: 8px;
 }
+
 .inputs {
   display: flex;
   flex-direction: column;

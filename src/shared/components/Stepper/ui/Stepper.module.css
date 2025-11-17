@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.step {
+  inline-size: 30px;
+  block-size: 6px;
+  background-color: var(--background-color-1);
+  border-radius: var(--border-radius-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  block-size: 100%;
+  border-radius: var(--border-radius-12);
+}
+
+.incomplete {
+  inline-size: 50%;
+}
+
+.passed {
+  inline-size: 100%;
+  background-color: var(--background-color-3);
+}
