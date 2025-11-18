@@ -8,8 +8,8 @@
         "signUp": "Sign up"
       },
       "label": {
-        "accountLogin": "Login ",
         "email": "Email",
+        "login": "Login ",
         "password": "Password"
       },
       "placeholder": {
@@ -24,7 +24,12 @@
         "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
         "or": "Or",
-        "passwordRequirements": "Password must be more then 6 symbols",
+        "passwordLatin": "Only Latin letters and digits are allowed",
+        "passwordLength": "Must must contain at least 8 characters",
+        "passwordLowerCase": "Must contain at least one lowercase letter",
+        "passwordNumber": "Must contain at least one digit",
+        "passwordRequirements": "Must contain 8 characters, lowercase and uppercase Latin letters, and numbers",
+        "passwordUpperCase": "Must contain at least one uppercase letter",
         "signIn": "Sign in",
         "signUp": "Sign up"
       },

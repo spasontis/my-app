@@ -74,7 +74,9 @@ export const SignUpPage = () => {
           ></TextInput>
         </div>
         <div className={styles.container}>
-          <Text color='content1'>{t('auth.text.passwordRequirements')}</Text>
+          <Text variant='text2' color='content1'>
+            {t('auth.text.passwordRequirements')}
+          </Text>
         </div>
         <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
           {t('common.continue')}
