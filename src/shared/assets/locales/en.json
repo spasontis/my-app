@@ -8,8 +8,8 @@
         "signUp": "Sign up"
       },
       "label": {
+        "accountLogin": "Login ",
         "email": "Email",
-        "login": "Login",
         "password": "Password"
       },
       "placeholder": {
