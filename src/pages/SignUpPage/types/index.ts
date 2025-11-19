@@ -7,8 +7,6 @@ export type EmailFields = z.infer<typeof emailSchema>;
 export type CodeFields = z.infer<typeof codeSchema>;
 
 export interface SignUpData {
-  login: string;
   email: string;
-  password: string;
   code: string;
 }
