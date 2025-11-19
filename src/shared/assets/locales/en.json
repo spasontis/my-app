@@ -8,34 +8,49 @@
         "signUp": "Sign up"
       },
       "label": {
-        "accountLogin": "Login ",
+        "code": "Code",
         "email": "Email",
-        "password": "Password"
+        "login": "Login ",
+        "password": "Password",
+        "repeatPassword": "Repeat password"
       },
       "placeholder": {
         "email": "Invalid email address",
+        "enterCode": "Enter code",
         "enterEmail": "Enter email",
         "enterLogin": "Enter login",
         "enterPassword": "Enter password"
       },
       "text": {
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
+        "codeRequirements": "Please check your email and enter the code below",
+        "emailWrong": "Email must be real",
+        "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address.",
         "forgotPassword": "Forgot password?",
         "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
         "or": "Or",
-        "passwordRequirements": "Password must be more then 6 symbols",
+        "passwordLatin": "Only Latin letters and digits are allowed",
+        "passwordLength": "Must must contain at least 8 characters",
+        "passwordLowerCase": "Must contain at least one lowercase letter",
+        "passwordNumber": "Must contain at least one digit",
+        "passwordRequirements": "Must contain 8 characters, lowercase and uppercase Latin letters, and numbers",
+        "passwordUpperCase": "Must contain at least one uppercase letter",
         "signIn": "Sign in",
         "signUp": "Sign up"
       },
       "title": {
         "signIn": "Sign in",
-        "signUp": "Sign up"
+        "signUp": "Sign up",
+        "verifyEmail": "Verify email",
+        "account": "Account"
       }
     },
     "common": {
       "close": "Close",
-      "continue": "Continue"
+      "continue": "Continue",
+      "accept": "Continue",
+      "send": "Send"
     },
     "header": {
       "buttons": {

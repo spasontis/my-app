@@ -45,7 +45,14 @@
 
 .stepper {
   justify-content: center;
-  margin-top: 24px;
+  margin-block-start: 24px;
+}
+
+.captcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 16px;
 }
 
 .button {
@@ -56,6 +63,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 16px;
+  margin-block-start: 16px;
   gap: var(--space-8);
 }
