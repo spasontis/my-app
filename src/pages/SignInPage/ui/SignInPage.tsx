@@ -55,7 +55,7 @@ export const SignInPage = () => {
           </Button>
         </div>
         <div className={styles.line}>
-          <Text className={styles.or}>{t('auth.text.or')}</Text>
+          <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
         </div>
         <div className={styles.inputs}>
           <TextInput

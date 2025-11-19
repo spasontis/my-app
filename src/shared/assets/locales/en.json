@@ -10,7 +10,7 @@
       "label": {
         "code": "Code",
         "email": "Email",
-        "login": "Login ",
+        "login": "Login",
         "password": "Password",
         "repeatPassword": "Repeat password"
       },
@@ -18,21 +18,25 @@
         "email": "Invalid email address",
         "enterCode": "Enter code",
         "enterEmail": "Enter email",
-        "enterLogin": "Enter login",
+        "enterLogin": "Enter account name",
         "enterPassword": "Enter password"
       },
       "text": {
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
+        "captchaInvalid": "You must complete the CAPTCHA",
         "codeRequirements": "Please check your email and enter the code below",
-        "emailWrong": "Email must be real",
-        "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address.",
+        "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address",
+        "loginRequirements": "Account name must contain at least 6 characters and include both letters and numbers",
+        "loginSymbols": "Account name may contain only Latin letters and numbers.",
+        "emailWrong": "Email must be valid",
         "forgotPassword": "Forgot password?",
         "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
-        "or": "Or",
+        "orContinueWith": "Or continue with",
         "passwordLatin": "Only Latin letters and digits are allowed",
         "passwordLength": "Must must contain at least 8 characters",
         "passwordLowerCase": "Must contain at least one lowercase letter",
+        "passwordMismatch": "Passwords must match",
         "passwordNumber": "Must contain at least one digit",
         "passwordRequirements": "Must contain 8 characters, lowercase and uppercase Latin letters, and numbers",
         "passwordUpperCase": "Must contain at least one uppercase letter",
@@ -40,16 +44,16 @@
         "signUp": "Sign up"
       },
       "title": {
+        "account": "Account",
         "signIn": "Sign in",
         "signUp": "Sign up",
-        "verifyEmail": "Verify email",
-        "account": "Account"
+        "verifyEmail": "Verify email"
       }
     },
     "common": {
+      "accept": "Continue",
       "close": "Close",
       "continue": "Continue",
-      "accept": "Continue",
       "send": "Send"
     },
     "header": {
@@ -66,7 +70,7 @@
         "getStarted": "Get started"
       },
       "description": {
-        "partOne": "Improve your development skills by training with your peers on code tasks that",
+        "partOne": "Improve your development skills by training on code tasks that",
         "partTwo": "continously challenge and push your coding practice."
       },
       "label": {

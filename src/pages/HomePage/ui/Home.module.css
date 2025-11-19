@@ -10,8 +10,6 @@
   align-items: center;
   flex: 1;
   height: 100vh;
-  background-color: var(--black);
-  background-image: url('/noise.avif');
 }
 
 .welcome {

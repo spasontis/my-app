@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  background-color: black;
   font-family: 'Geologica Variable', sans-serif;
   scroll-behavior: smooth;
   line-height: normal;
