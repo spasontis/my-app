@@ -20,6 +20,7 @@
   padding: var(--space-8);
   border: var(--border-1) solid var(--border-color-1);
   border-radius: var(--space-10);
+  padding-block: 24px;
 }
 
 .content {
@@ -30,7 +31,6 @@
   display: flex;
   justify-content: center;
   padding-inline: var(--space-16);
-  margin-top: 12px;
 }
 
 .agreement {

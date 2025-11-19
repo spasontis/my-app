@@ -8,18 +8,24 @@
         "signUp": "Sign up"
       },
       "label": {
+        "code": "Code",
         "email": "Email",
         "login": "Login ",
-        "password": "Password"
+        "password": "Password",
+        "repeatPassword": "Repeat password"
       },
       "placeholder": {
         "email": "Invalid email address",
+        "enterCode": "Enter code",
         "enterEmail": "Enter email",
         "enterLogin": "Enter login",
         "enterPassword": "Enter password"
       },
       "text": {
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
+        "codeRequirements": "Please check your email and enter the code below",
+        "emailWrong": "Email must be real",
+        "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address.",
         "forgotPassword": "Forgot password?",
         "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
@@ -35,12 +41,16 @@
       },
       "title": {
         "signIn": "Sign in",
-        "signUp": "Sign up"
+        "signUp": "Sign up",
+        "verifyEmail": "Verify email",
+        "account": "Account"
       }
     },
     "common": {
       "close": "Close",
-      "continue": "Continue"
+      "continue": "Continue",
+      "accept": "Continue",
+      "send": "Send"
     },
     "header": {
       "buttons": {
