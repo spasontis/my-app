@@ -15,13 +15,15 @@ export const HomePage = () => {
   return (
     <>
       <Header />
-      <main className={styles.content}>
+      <main className={styles.main}>
         <div className={styles.welcome}>
           <div className={styles.label}>
-            <Text variant='label' className={styles.gradient}>
+            <Text variant='label' weight={800} className={styles.gradient}>
               {t('label.achieveMastery')}
             </Text>
-            <Text variant='label'> {t('label.throughChallenge')}</Text>
+            <Text variant='label' weight={800}>
+              {t('label.throughChallenge')}
+            </Text>
           </div>
           <Text variant='title3' className={styles.description}>
             {t('description.partOne')}

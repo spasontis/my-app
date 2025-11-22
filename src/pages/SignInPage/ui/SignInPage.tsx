@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import { FaGoogle, FaYandex } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+
+import GoogleImg from '@/shared/assets/icons/google.png';
+import YandexImg from '@/shared/assets/icons/yandex.png';
 
 import { AuthLayout } from '@/shared/components/AuthLayout';
 import { Button } from '@/shared/components/Button';
@@ -15,6 +17,7 @@ import { signInSchema } from '../model';
 import { SignInFields } from '../types';
 import { useSignIn } from '../api';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignInPage.module.css';
@@ -47,10 +50,20 @@ export const SignInPage = () => {
     <form onSubmit={onSubmit} className={styles.form} noValidate>
       <AuthLayout title={t('auth.title.signIn')}>
         <div className={styles.socials}>
-          <Button icon={<FaGoogle />} variant='transparentWhite' size='sm' fullWidth>
+          <Button
+            icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
+            variant='transparentWhite'
+            size='sm'
+            fullWidth
+          >
             <Text>Google</Text>
           </Button>
-          <Button icon={<FaYandex />} variant='transparentWhite' size='sm' fullWidth>
+          <Button
+            icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
+            variant='transparentWhite'
+            size='sm'
+            fullWidth
+          >
             <Text>Яндекс</Text>
           </Button>
         </div>

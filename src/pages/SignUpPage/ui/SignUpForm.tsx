@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { FaGoogle, FaYandex } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+
+import GoogleImg from '@/shared/assets/icons/google.png';
+import YandexImg from '@/shared/assets/icons/yandex.png';
 
 import { AuthLayout } from '@/shared/components/AuthLayout';
 import { TextInput } from '@/shared/components/TextInput';
@@ -11,19 +13,21 @@ import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 
-import { DEFAULT_EMAIL_VALUES } from '../constants';
-import { emailSchema } from '../model';
-import { EmailFields, SignUpData } from '../types';
+import { DEFAULT_SIGN_UP_VALUES } from '../constants';
+import { signUpSchema } from '../model';
 
+import { SignUpFields, NewAccountData } from '../types';
+
+import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './SignUpPage.module.css';
 
-export const EmailForm = ({
-  setSignUpData,
+export const SignUpForm = ({
+  setNewAccountData,
   onNext,
 }: {
-  setSignUpData: React.Dispatch<React.SetStateAction<SignUpData>>;
+  setNewAccountData: React.Dispatch<React.SetStateAction<NewAccountData>>;
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
@@ -36,15 +40,15 @@ export const EmailForm = ({
     setFocus,
     handleSubmit,
     formState: { errors },
-  } = useForm<EmailFields>({
-    resolver: zodResolver(emailSchema),
-    defaultValues: DEFAULT_EMAIL_VALUES,
+  } = useForm<SignUpFields>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: DEFAULT_SIGN_UP_VALUES,
   });
 
   const onEmailSubmit = handleSubmit((values) => {
     if (recaptchaValue) {
       console.log(values);
-      setSignUpData((prev) => ({ ...prev, email: values.email }));
+      setNewAccountData((prev) => ({ ...prev, email: values.email }));
       onNext();
     } else {
       setRecaptchaInvalid(true);
@@ -57,10 +61,20 @@ export const EmailForm = ({
     <form onSubmit={onEmailSubmit} className={styles.form} noValidate>
       <AuthLayout title={t('auth.title.signUp')}>
         <div className={styles.socials}>
-          <Button icon={<FaGoogle />} variant='transparentWhite' size='sm' fullWidth>
+          <Button
+            icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
+            variant='transparentWhite'
+            size='sm'
+            fullWidth
+          >
             <Text>Google</Text>
           </Button>
-          <Button icon={<FaYandex />} variant='transparentWhite' size='sm' fullWidth>
+          <Button
+            icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
+            variant='transparentWhite'
+            size='sm'
+            fullWidth
+          >
             <Text>Яндекс</Text>
           </Button>
         </div>

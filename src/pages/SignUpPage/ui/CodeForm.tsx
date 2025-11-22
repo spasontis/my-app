@@ -11,17 +11,17 @@ import { Stepper } from '@/shared/components/Stepper';
 
 import { DEFAULT_CODE_VALUES } from '../constants';
 import { codeSchema } from '../model';
-import { CodeFields, SignUpData } from '../types';
+import { CodeFields, NewAccountData } from '../types';
 
 import styles from './SignUpPage.module.css';
 
 export const CodeForm = ({
-  signUpData,
-  setSignUpData,
+  newAccountData,
+  setNewAccountData,
   onNext,
 }: {
-  signUpData: SignUpData;
-  setSignUpData: React.Dispatch<React.SetStateAction<SignUpData>>;
+  newAccountData: NewAccountData;
+  setNewAccountData: React.Dispatch<React.SetStateAction<NewAccountData>>;
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
@@ -37,8 +37,8 @@ export const CodeForm = ({
   });
 
   const onCodeSubmit = handleSubmit((values) => {
-    console.log({ email: signUpData.email, ...values });
-    setSignUpData((prev) => ({ ...prev, code: values.code }));
+    console.log({ email: newAccountData.email, ...values });
+    setNewAccountData((prev) => ({ ...prev, code: values.code }));
     onNext();
   });
 

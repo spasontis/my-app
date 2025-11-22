@@ -6,7 +6,7 @@
 .socials {
   display: flex;
   justify-content: center;
-  gap: var(--space-38);
+  gap: 38px;
   padding-top: var(--space-20);
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding-block: 16px;
+  padding-block: var(--space-16);
   color: var(--base-75);
 
   &::before,
@@ -27,7 +27,7 @@
 }
 
 .or {
-  padding-inline: 8px;
+  padding-inline: var(--space-8);
 }
 
 .inputs {
@@ -39,17 +39,17 @@
 .container {
   display: flex;
   justify-content: flex-end;
-  margin-block-start: 4px;
+  margin-top: 4px;
 }
 
 .button {
-  margin-block-start: 28px;
+  margin-top: var(--space-28);
 }
 
 .footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 16px;
-  gap: var(--space-8);
+  margin: var(--space-16);
+  gap: 8px;
 }

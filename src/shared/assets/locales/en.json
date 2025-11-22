@@ -44,7 +44,7 @@
         "signUp": "Sign up"
       },
       "title": {
-        "account": "Account",
+        "createAccount": "Сreate Account",
         "signIn": "Sign in",
         "signUp": "Sign up",
         "verifyEmail": "Verify email"

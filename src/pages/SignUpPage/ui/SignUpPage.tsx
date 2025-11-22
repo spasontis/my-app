@@ -3,18 +3,18 @@ import { useTranslations } from 'next-intl';
 
 import { usePageTitle } from '@/shared/hooks';
 
-import { DEFAULT_SIGN_UP_DATA } from '../constants';
-import { SignUpData } from '../types';
+import { DEFAULT_NEW_ACCOUNT_DATA } from '../constants';
+import { NewAccountData } from '../types';
 
-import { EmailForm } from './EmailForm';
+import { SignUpForm } from './SignUpForm';
 import { CodeForm } from './CodeForm';
-import { AccountForm } from './AccountForm';
+import { CreateAccountForm } from './CreateAccountForm';
 
 export const SignUpPage = () => {
   const t = useTranslations('translation');
 
   const [step, setStep] = useState<number>(1);
-  const [signUpData, setSignUpData] = useState<SignUpData>(DEFAULT_SIGN_UP_DATA);
+  const [newAccountData, setNewAccountData] = useState<NewAccountData>(DEFAULT_NEW_ACCOUNT_DATA);
 
   const onNext = () => setStep((prev) => prev + 1);
 
@@ -22,11 +22,15 @@ export const SignUpPage = () => {
 
   return (
     <span>
-      {step === 1 && <EmailForm setSignUpData={setSignUpData} onNext={onNext} />}
+      {step === 1 && <SignUpForm setNewAccountData={setNewAccountData} onNext={onNext} />}
       {step === 2 && (
-        <CodeForm signUpData={signUpData} setSignUpData={setSignUpData} onNext={onNext} />
+        <CodeForm
+          newAccountData={newAccountData}
+          setNewAccountData={setNewAccountData}
+          onNext={onNext}
+        />
       )}
-      {step === 3 && <AccountForm signUpData={signUpData} />}
+      {step === 3 && <CreateAccountForm newAccountData={newAccountData} />}
     </span>
   );
 };

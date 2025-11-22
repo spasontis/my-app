@@ -9,13 +9,13 @@ import { Text } from '@/shared/components/Text';
 import { Button } from '@/shared/components/Button';
 import { Stepper } from '@/shared/components/Stepper';
 
-import { DEFAULT_SIGN_UP_VALUES } from '../constants';
-import { signUpSchema } from '../model';
-import { SignUpData, SignUpFields } from '../types';
+import { DEFAULT_ACCOUNT_VALUES } from '../constants';
+import { accountSchema } from '../model';
+import { NewAccountData, AccountFields } from '../types';
 
 import styles from './SignUpPage.module.css';
 
-export const AccountForm = ({ signUpData }: { signUpData: SignUpData }) => {
+export const CreateAccountForm = ({ newAccountData }: { newAccountData: NewAccountData }) => {
   const t = useTranslations('translation');
 
   const {
@@ -23,17 +23,17 @@ export const AccountForm = ({ signUpData }: { signUpData: SignUpData }) => {
     setFocus,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpFields>({
-    resolver: zodResolver(signUpSchema),
-    defaultValues: DEFAULT_SIGN_UP_VALUES,
+  } = useForm<AccountFields>({
+    resolver: zodResolver(accountSchema),
+    defaultValues: DEFAULT_ACCOUNT_VALUES,
   });
 
   const onSubmit = handleSubmit((values) => {
     console.log({
       login: values.login,
-      email: signUpData.email,
+      email: newAccountData.email,
       password: values.password,
-      code: signUpData.code,
+      code: newAccountData.code,
     });
   });
 
@@ -41,7 +41,7 @@ export const AccountForm = ({ signUpData }: { signUpData: SignUpData }) => {
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <AuthLayout title={t('auth.title.account')}>
+      <AuthLayout title={t('auth.title.createAccount')}>
         <div className={styles.inputs}>
           <span>
             <TextInput
