@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const signUpSchema = z
+export const accountSchema = z
   .object({
     login: z
       .string()
@@ -26,7 +26,7 @@ export const codeSchema = z.object({
   code: z.string().nonempty({ error: 'auth.placeholder.enterCode' }),
 });
 
-export const emailSchema = z.object({
+export const signUpSchema = z.object({
   email: z
     .email({ error: 'auth.text.emailWrong' })
     .nonempty({ error: 'auth.placeholder.enterEmail' }),

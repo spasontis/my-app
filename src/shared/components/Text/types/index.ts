@@ -14,7 +14,7 @@ export type TextVariant =
 
 export type TextColor = 'primary' | 'black' | 'white' | 'content1' | 'content2' | 'error';
 
-export type TextWeight = 400 | 500 | 600 | 700;
+export type TextWeight = 400 | 500 | 600 | 700 | 800;
 
 type HeadingElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
