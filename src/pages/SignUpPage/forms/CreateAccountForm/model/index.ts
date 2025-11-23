@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const accountSchema = z
+export const createAccountSchema = z
   .object({
     login: z
       .string()
@@ -21,13 +21,3 @@ export const accountSchema = z
     error: 'auth.text.passwordMismatch',
     path: ['repeatPassword'],
   });
-
-export const codeSchema = z.object({
-  code: z.string().nonempty({ error: 'auth.placeholder.enterCode' }),
-});
-
-export const signUpSchema = z.object({
-  email: z
-    .email({ error: 'auth.text.emailWrong' })
-    .nonempty({ error: 'auth.placeholder.enterEmail' }),
-});

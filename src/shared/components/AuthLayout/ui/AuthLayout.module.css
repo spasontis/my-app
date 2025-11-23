@@ -3,15 +3,29 @@
   flex-direction: column;
 }
 
-.logo {
+.header {
   display: flex;
   justify-content: center;
+}
+
+.logo {
+  display: flex;
+  text-align: center;
   align-items: center;
-  width: 100%;
+  gap: 6px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .img {
-  width: 160px;
+  width: 26px;
+}
+
+.brand {
+  position: relative;
+  top: -2;
 }
 
 .card {
@@ -30,7 +44,7 @@
 .title {
   display: flex;
   justify-content: center;
-  padding-inline: var(--space-16);
+  text-align: center;
 }
 
 .agreement {
