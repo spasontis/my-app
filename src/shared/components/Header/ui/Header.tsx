@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
+import { BRAND } from '@/shared/constants';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,8 +15,11 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.side}>
-        <Link href={'./'}>
-          <Image src='/big-logo.png' alt='logo' width={460} height={78} className={styles.logo} />
+        <Link href={'./'} className={styles.logo}>
+          <Image src='/logo.png' alt='logo' width={96} height={96} className={styles.img} />
+          <Text variant='title2' weight={600} className={styles.brand}>
+            {BRAND}
+          </Text>
         </Link>
         <div className={styles.nav}>
           <Link href={'./blog'}>

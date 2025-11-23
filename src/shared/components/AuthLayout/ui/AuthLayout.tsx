@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import React, { FC } from 'react';
 
 import { Text } from '@/shared/components/Text';
+import { BRAND } from '@/shared/constants';
 
 import styles from './AuthLayout.module.css';
 import { AuthLayoutProps } from '../types';
@@ -13,15 +14,12 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ title, children }) => {
 
   return (
     <div className={styles.layout}>
-      <div className={styles.logo}>
-        <Link href={'./'}>
-          <Image
-            width={254}
-            height={52}
-            src='/big-logo.png'
-            alt='big-logo'
-            className={styles.img}
-          />
+      <div className={styles.header}>
+        <Link href={'./'} className={styles.logo}>
+          <Image width={64} height={26} src='/logo.png' alt={BRAND} className={styles.img} />
+          <Text variant='title3' weight={600} className={styles.brand}>
+            {BRAND}
+          </Text>
         </Link>
       </div>
       <div className={styles.card}>

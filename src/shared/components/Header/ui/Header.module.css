@@ -18,7 +18,23 @@
 }
 
 .logo {
-  height: 36px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.img {
+  width: 32px;
+}
+
+.brand {
+  position: relative;
+  top: -2;
 }
 
 .nav {

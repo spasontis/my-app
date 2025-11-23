@@ -12,23 +12,24 @@
         "email": "Email",
         "login": "Login",
         "password": "Password",
-        "repeatPassword": "Repeat password"
+        "repeatPassword": "Repeat password",
+        "verificationCode": "Verification сode"
       },
       "placeholder": {
-        "email": "Invalid email address",
         "enterCode": "Enter code",
         "enterEmail": "Enter email",
         "enterLogin": "Enter account name",
-        "enterPassword": "Enter password"
+        "enterPassword": "Enter password",
+        "enterVerificationCode": "Enter verification code"
       },
       "text": {
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
         "captchaInvalid": "You must complete the CAPTCHA",
-        "codeRequirements": "Please check your email and enter the code below",
+        "codeRequirements": "Please check your email and enter the verification code above",
         "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address",
         "loginRequirements": "Account name must contain at least 6 characters and include both letters and numbers",
         "loginSymbols": "Account name may contain only Latin letters and numbers.",
-        "emailWrong": "Email must be valid",
+        "emailInvalid": "Email must be valid",
         "forgotPassword": "Forgot password?",
         "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
@@ -47,11 +48,12 @@
         "createAccount": "Сreate Account",
         "signIn": "Sign in",
         "signUp": "Sign up",
-        "verifyEmail": "Verify email"
+        "verifyEmail": "Verify email",
+        "twoFactorAuthentication": "Two-Factor Authentication"
       }
     },
     "common": {
-      "accept": "Continue",
+      "confirm": "Confirm",
       "close": "Close",
       "continue": "Continue",
       "send": "Send"

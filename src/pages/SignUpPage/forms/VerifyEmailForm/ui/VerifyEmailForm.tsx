@@ -9,19 +9,21 @@ import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 
-import { DEFAULT_CODE_VALUES } from '../constants';
-import { codeSchema } from '../model';
-import { CodeFields, NewAccountData } from '../types';
+import { SignUpData } from '../../../types';
 
-import styles from './SignUpPage.module.css';
+import { DEFAULT_VERIFY_EMAIL_VALUES } from '../constants';
+import { verifyEmailSchema } from '../model';
+import { VerifyEmailFields } from '../types';
 
-export const CodeForm = ({
-  newAccountData,
-  setNewAccountData,
+import styles from '../../../ui/SignUpPage.module.css';
+
+export const VerifyEmailForm = ({
+  signUpData,
+  setSignUpData,
   onNext,
 }: {
-  newAccountData: NewAccountData;
-  setNewAccountData: React.Dispatch<React.SetStateAction<NewAccountData>>;
+  signUpData: SignUpData;
+  setSignUpData: React.Dispatch<React.SetStateAction<SignUpData>>;
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
@@ -31,14 +33,14 @@ export const CodeForm = ({
     setFocus,
     handleSubmit,
     formState: { errors },
-  } = useForm<CodeFields>({
-    resolver: zodResolver(codeSchema),
-    defaultValues: DEFAULT_CODE_VALUES,
+  } = useForm<VerifyEmailFields>({
+    resolver: zodResolver(verifyEmailSchema),
+    defaultValues: DEFAULT_VERIFY_EMAIL_VALUES,
   });
 
   const onCodeSubmit = handleSubmit((values) => {
-    console.log({ email: newAccountData.email, ...values });
-    setNewAccountData((prev) => ({ ...prev, code: values.code }));
+    console.log({ email: signUpData.email, ...values });
+    setSignUpData((prev) => ({ ...prev, code: values.code }));
     onNext();
   });
 
@@ -58,7 +60,7 @@ export const CodeForm = ({
           {t('auth.text.codeRequirements')}
         </Text>
         <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
-          {t('common.accept')}
+          {t('common.confirm')}
         </Button>
         <Stepper className={styles.stepper} steps={3} current={2}></Stepper>
       </AuthLayout>

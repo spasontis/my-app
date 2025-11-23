@@ -13,21 +13,22 @@ import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 
-import { DEFAULT_SIGN_UP_VALUES } from '../constants';
-import { signUpSchema } from '../model';
+import { SignUpData } from '../../../types';
 
-import { SignUpFields, NewAccountData } from '../types';
+import { DEFAULT_ENTER_EMAIL_VALUES } from '../constants';
+import { enterEmailSchema } from '../model';
+import { EnterEmailFields } from '../types';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
-import styles from './SignUpPage.module.css';
+import styles from '../../../ui/SignUpPage.module.css';
 
-export const SignUpForm = ({
-  setNewAccountData,
+export const EnterEmailForm = ({
+  setSignUpData,
   onNext,
 }: {
-  setNewAccountData: React.Dispatch<React.SetStateAction<NewAccountData>>;
+  setSignUpData: React.Dispatch<React.SetStateAction<SignUpData>>;
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
@@ -40,15 +41,15 @@ export const SignUpForm = ({
     setFocus,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpFields>({
-    resolver: zodResolver(signUpSchema),
-    defaultValues: DEFAULT_SIGN_UP_VALUES,
+  } = useForm<EnterEmailFields>({
+    resolver: zodResolver(enterEmailSchema),
+    defaultValues: DEFAULT_ENTER_EMAIL_VALUES,
   });
 
   const onEmailSubmit = handleSubmit((values) => {
     if (recaptchaValue) {
       console.log(values);
-      setNewAccountData((prev) => ({ ...prev, email: values.email }));
+      setSignUpData((prev) => ({ ...prev, email: values.email }));
       onNext();
     } else {
       setRecaptchaInvalid(true);
