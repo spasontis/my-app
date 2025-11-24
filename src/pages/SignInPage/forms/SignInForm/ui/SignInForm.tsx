@@ -14,7 +14,7 @@ import { Text } from '@/shared/components/Text';
 import { DEFAULT_SIGN_IN_VALUES } from '../constants';
 import { signInSchema } from '../model';
 import { SignInFields } from '../types';
-// import { useSignIn } from '../api';
+import { useSignIn } from '../api';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,9 +22,8 @@ import Link from 'next/link';
 import styles from '../../../ui/SignInPage.module.css';
 
 import { SignInData } from '@/pages/SignInPage/types';
-import { useSignIn } from '../api';
 
-export const EnterAccountForm = ({
+export const SignInForm = ({
   onNext,
   setSignInData,
 }: {

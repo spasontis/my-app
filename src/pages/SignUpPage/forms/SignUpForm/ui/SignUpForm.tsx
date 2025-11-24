@@ -16,15 +16,16 @@ import { Stepper } from '@/shared/components/Stepper';
 import { SignUpData } from '../../../types';
 
 import { DEFAULT_ENTER_EMAIL_VALUES } from '../constants';
-import { enterEmailSchema } from '../model';
-import { EnterEmailFields } from '../types';
+import { signUpSchema } from '../model';
+import { SignUpFields } from '../types';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from '../../../ui/SignUpPage.module.css';
+import { useSignUp } from '../api';
 
-export const EnterEmailForm = ({
+export const SignUpForm = ({
   setSignUpData,
   onNext,
 }: {
@@ -32,6 +33,8 @@ export const EnterEmailForm = ({
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
+
+  const signUpMutation = useSignUp();
 
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const [recaptchaInvalid, setRecaptchaInvalid] = useState<boolean>(false);
@@ -41,16 +44,22 @@ export const EnterEmailForm = ({
     setFocus,
     handleSubmit,
     formState: { errors },
-  } = useForm<EnterEmailFields>({
-    resolver: zodResolver(enterEmailSchema),
+  } = useForm<SignUpFields>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: DEFAULT_ENTER_EMAIL_VALUES,
   });
 
-  const onEmailSubmit = handleSubmit((values) => {
+  const onSubmit = handleSubmit((values) => {
     if (recaptchaValue) {
-      console.log(values);
-      setSignUpData((prev) => ({ ...prev, email: values.email }));
-      onNext();
+      signUpMutation.mutate(
+        { email: values.email },
+        {
+          onSuccess: () => {
+            setSignUpData((prev) => ({ ...prev, email: values.email }));
+            onNext();
+          },
+        },
+      );
     } else {
       setRecaptchaInvalid(true);
     }
@@ -59,7 +68,7 @@ export const EnterEmailForm = ({
   useEffect(() => setFocus('email'), [setFocus]);
 
   return (
-    <form onSubmit={onEmailSubmit} className={styles.form} noValidate>
+    <form onSubmit={onSubmit} className={styles.form} noValidate>
       <AuthLayout title={t('auth.title.signUp')}>
         <div className={styles.socials}>
           <Button

@@ -26,7 +26,9 @@
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
         "captchaInvalid": "You must complete the CAPTCHA",
         "codeRequirements": "Please check your email and enter the verification code above",
+        "codeNumber": "Code must contain only numbers",
         "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address",
+        "loginLength": "Login must be at least 6 characters long",
         "loginRequirements": "Account name must contain at least 6 characters and include both letters and numbers",
         "loginSymbols": "Account name may contain only Latin letters and numbers.",
         "emailInvalid": "Email must be valid",
@@ -73,7 +75,7 @@
       },
       "description": {
         "partOne": "Improve your development skills by training on code tasks that",
-        "partTwo": "continously challenge and push your coding practice."
+        "partTwo": "continously challenge and push your coding practice"
       },
       "label": {
         "achieveMastery": "Achieve Mastery",
@@ -81,18 +83,50 @@
       }
     },
     "notifications": {
-      "invalidCredentials": {
-        "title": "Invalid credentials",
-        "description": "Incorrect login or password"
+      "auth": {
+        "loginExist": {
+          "title": "Account already exists",
+          "description": "An account with this email or username already exists."
+        },
+        "accountCreated": {
+          "title": "Account created",
+          "description": "Your account has been successfully registered."
+        },
+        "invalidCode": {
+          "title": "Invalid code",
+          "description": "The verification code you entered is incorrect. Please try again"
+        },
+        "codeExpired": {
+          "title": "Code expired",
+          "description": "The verification code has expired. Please request a new one"
+        },
+        "codeVerified": {
+          "title": "Code verified",
+          "description": "Now enter your account details"
+        },
+        "verificationCodeSent": {
+          "title": "Code sent",
+          "description": "A verification code has been successfully sent to your email"
+        },
+        "emailExists": {
+          "title": "Email already in use",
+          "description": "An account with this email already exists"
+        },
+        "twoFactorRequired": {
+          "title": "Two-Factor Authentication Required",
+          "description": "A code has been sent to your email. Please enter it to complete login"
+        },
+        "invalidCredentials": {
+          "title": "Invalid credentials",
+          "description": "Incorrect login or password"
+        },
+
+        "successfulAuth": {
+          "title": "Authorization successful",
+          "description": "You have been successfully logged in"
+        }
       },
-      "rateLimitExceeded": "Too many requests",
-      "internalServer": "Internal server error",
-      "unknownError": "Unknown error",
-      "successfulAuth": {
-        "title": "Authorization successful",
-        "description": "You have been successfully logged in"
-      },
-      "tryLater": "Please try again later"
+      "common": { "unknownError": "Unknown error" }
     },
     "project": {
       "name": "My App"

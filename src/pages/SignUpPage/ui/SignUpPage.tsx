@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { usePageTitle } from '@/shared/hooks';
 
 import { CreateAccountForm } from '../forms/CreateAccountForm';
-import { EnterEmailForm } from '../forms/EnterEmailForm';
+import { SignUpForm } from '../forms/SignUpForm';
 import { VerifyEmailForm } from '../forms/VerifyEmailForm';
 
 import { DEFAULT_SIGN_UP_DATA } from '../constants';
@@ -22,7 +22,7 @@ export const SignUpPage = () => {
 
   return (
     <>
-      {step === 1 && <EnterEmailForm setSignUpData={setSignUpData} onNext={onNext} />}
+      {step === 1 && <SignUpForm setSignUpData={setSignUpData} onNext={onNext} />}
       {step === 2 && (
         <VerifyEmailForm signUpData={signUpData} setSignUpData={setSignUpData} onNext={onNext} />
       )}

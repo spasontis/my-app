@@ -5,5 +5,7 @@ import { ToastProps } from '../types';
 import { Toast } from '../ui';
 
 export function showToast(toast: Omit<ToastProps, 'id'>) {
-  return sonnerToast.custom(() => <Toast title={toast.title} description={toast.description} />);
+  return sonnerToast.custom(() => (
+    <Toast variant={toast.variant} title={toast.title} description={toast.description} />
+  ));
 }

@@ -16,6 +16,7 @@ import { verifyEmailSchema } from '../model';
 import { VerifyEmailFields } from '../types';
 
 import styles from '../../../ui/SignUpPage.module.css';
+import { useVerifyEmail } from '../api/useVerifyEmail';
 
 export const VerifyEmailForm = ({
   signUpData,
@@ -28,6 +29,8 @@ export const VerifyEmailForm = ({
 }) => {
   const t = useTranslations('translation');
 
+  const verifyEmailMutation = useVerifyEmail();
+
   const {
     register,
     setFocus,
@@ -38,16 +41,22 @@ export const VerifyEmailForm = ({
     defaultValues: DEFAULT_VERIFY_EMAIL_VALUES,
   });
 
-  const onCodeSubmit = handleSubmit((values) => {
-    console.log({ email: signUpData.email, ...values });
-    setSignUpData((prev) => ({ ...prev, code: values.code }));
-    onNext();
+  const onSubmit = handleSubmit((values) => {
+    verifyEmailMutation.mutate(
+      { email: signUpData.email, token: values.code },
+      {
+        onSuccess: () => {
+          setSignUpData((prev) => ({ ...prev, code: values.code }));
+          onNext();
+        },
+      },
+    );
   });
 
   useEffect(() => setFocus('code'), [setFocus]);
 
   return (
-    <form onSubmit={onCodeSubmit} className={styles.form} noValidate>
+    <form onSubmit={onSubmit} className={styles.form} noValidate>
       <AuthLayout title={t('auth.title.verifyEmail')}>
         <TextInput
           label={t('auth.label.code')}
