@@ -1,34 +1,29 @@
 import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import axios from 'axios';
 
-import { showToast } from '@/shared/components/Toast/actions';
+import { showToast } from '@/shared/components/Toast';
 import { HttpStatus } from '@/shared/constants';
 import { setAuth } from '@/shared/stores/app';
 import { publicApi } from '@/shared/api';
 
-import { SignInFields } from '../types';
+import { TwoFactorData } from '../types';
 
-export const useSignIn = () => {
+export const useVerifyEmail = () => {
   const t = useTranslations('translation.notifications');
+  const router = useRouter();
 
   return useMutation({
-    mutationFn: (dto: SignInFields) => publicApi.api.authControllerLogin(dto),
+    mutationFn: (dto: TwoFactorData) => publicApi.api.authControllerTwoFactor(dto),
     onSuccess: (data) => {
-      if ('accessToken' in data) {
-        setAuth(data.accessToken);
-        showToast({
-          variant: 'success',
-          title: t('auth.successfulAuth.title'),
-          description: t('auth.successfulAuth.description'),
-        });
-      } else {
-        showToast({
-          variant: 'success',
-          title: t('auth.twoFactorRequired.title'),
-          description: t('auth.twoFactorRequired.description'),
-        });
-      }
+      setAuth(data.accessToken);
+      showToast({
+        variant: 'success',
+        title: t('auth.successfulAuth.title'),
+        description: t('auth.successfulAuth.description'),
+      });
+      router.push('/dashboard');
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {
@@ -36,8 +31,8 @@ export const useSignIn = () => {
         if (status === HttpStatus.Unauthorized) {
           showToast({
             variant: 'failed',
-            title: t('auth.invalidCredentials.title'),
-            description: t('auth.invalidCredentials.description'),
+            title: t('auth.invalidTwoFactor.title'),
+            description: t('auth.invalidTwoFactor.description'),
           });
         }
       } else {

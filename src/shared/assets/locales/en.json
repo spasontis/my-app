@@ -84,6 +84,10 @@
     },
     "notifications": {
       "auth": {
+        "invalidTwoFactor": {
+          "title": "Invalid two-factor code",
+          "description": "The entered two-factor authentication code is incorrect."
+        },
         "loginExist": {
           "title": "Account already exists",
           "description": "An account with this email or username already exists."

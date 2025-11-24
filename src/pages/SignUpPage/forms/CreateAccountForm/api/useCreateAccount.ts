@@ -1,18 +1,22 @@
 import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import axios from 'axios';
 
-import { HttpStatus } from '@/shared/constants';
-import { CreateAccountData } from '../types';
+import { showToast } from '@/shared/components/Toast';
 import { publicApi } from '@/shared/api';
-import { useTranslations } from 'next-intl';
-import { showToast } from '@/shared/components/Toast/actions';
+import { HttpStatus } from '@/shared/constants';
+
+import { CreateAccountData } from '../types';
 
 export const useCreateAccount = () => {
   const t = useTranslations('translation.notifications');
+  const router = useRouter();
 
   return useMutation({
     mutationFn: (dto: CreateAccountData) => publicApi.api.authControllerRegister(dto),
     onSuccess: () => {
+      router.push('/sign-in');
       showToast({
         variant: 'success',
         title: t('auth.accountCreated.title'),

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import GoogleImg from '@/shared/assets/icons/google.png';
 import YandexImg from '@/shared/assets/icons/yandex.png';
 
+import { SignInData } from '@/pages/SignInPage/types';
 import { AuthLayout } from '@/shared/components/AuthLayout';
 import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
@@ -21,8 +23,6 @@ import Link from 'next/link';
 
 import styles from '../../../ui/SignInPage.module.css';
 
-import { SignInData } from '@/pages/SignInPage/types';
-
 export const SignInForm = ({
   onNext,
   setSignInData,
@@ -31,6 +31,7 @@ export const SignInForm = ({
   setSignInData: React.Dispatch<React.SetStateAction<SignInData>>;
 }) => {
   const t = useTranslations('translation');
+  const router = useRouter();
 
   const signInMutation = useSignIn();
 
@@ -49,8 +50,12 @@ export const SignInForm = ({
     signInMutation.mutate(
       { login: values.login, password: values.password },
       {
-        onSuccess: () => {
-          onNext();
+        onSuccess: (data) => {
+          if ('accessToken' in data) {
+            router.push('/dashboard');
+          } else {
+            onNext();
+          }
         },
       },
     );
