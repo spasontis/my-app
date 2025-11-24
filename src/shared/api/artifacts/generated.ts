@@ -10,10 +10,18 @@
  * ---------------------------------------------------------------
  */
 
+export interface EmailDto {
+  /**
+   * User email
+   * @example "user12345@gmail.com"
+   */
+  email: string;
+}
+
 export interface LoginDto {
   /**
    * User login
-   * @example "login"
+   * @example "user"
    */
   login: string;
   /**
@@ -39,11 +47,29 @@ export interface RegisterDto {
    * @example "password"
    */
   password: string;
+  /**
+   * Register token
+   * @example "token"
+   */
+  token: string;
 }
 
 export interface TokensResponse {
   /** JWT token */
   accessToken: string;
+}
+
+export interface VerifyDto {
+  /**
+   * User email
+   * @example "email"
+   */
+  email: string;
+  /**
+   * Email token
+   * @example "token"
+   */
+  token: string;
 }
 
 import type {
@@ -241,7 +267,7 @@ export class Api<
      * @summary User login
      * @request POST:/api/auth/login
      * @response `200` `TokensResponse` User successful autheticated
-     * @response `401` `void` Wrong user credentials
+     * @response `401` `void` Invalid login or password
      */
     authControllerLogin: (data: LoginDto, params: RequestParams = {}) =>
       this.request<TokensResponse, void>({
@@ -258,10 +284,10 @@ export class Api<
      *
      * @tags Auth
      * @name AuthControllerRegister
-     * @summary User registration
+     * @summary Step 3: Complete registration and create account
      * @request POST:/api/auth/register
-     * @response `200` `TokensResponse` User successful registered
-     * @response `400` `void` Validation error
+     * @response `200` `TokensResponse` Account successfully created and autheticated
+     * @response `400` `void` Validation error.
      */
     authControllerRegister: (data: RegisterDto, params: RequestParams = {}) =>
       this.request<TokensResponse, void>({
@@ -270,6 +296,67 @@ export class Api<
         body: data,
         type: ContentType.Json,
         format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Auth
+     * @name AuthControllerSendVerificationToken
+     * @summary Step 1: Enter email & send verification code
+     * @request POST:/api/auth/register/send-code
+     * @response `200` `void` Verification code was successfully sent to the email.
+     * @response `400` `void` Invalid email format.
+     */
+    authControllerSendVerificationToken: (
+      data: EmailDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, void>({
+        path: `/api/auth/register/send-code`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Auth
+     * @name AuthControllerTwoFactor
+     * @summary Two factor login
+     * @request POST:/api/auth/login/two-factor
+     * @response `200` `TokensResponse` User successful autheticated
+     * @response `401` `void` Invalid Two-Factor Token
+     */
+    authControllerTwoFactor: (data: LoginDto, params: RequestParams = {}) =>
+      this.request<TokensResponse, void>({
+        path: `/api/auth/login/two-factor`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Auth
+     * @name AuthControllerVerifyEmail
+     * @summary Step 2: Verify email with received code
+     * @request POST:/api/auth/register/verify-email
+     * @response `200` `void` Email successfully verified.
+     * @response `400` `void` Invalid verification code.
+     */
+    authControllerVerifyEmail: (data: VerifyDto, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/auth/register/verify-email`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         ...params,
       }),
   };

@@ -22,6 +22,7 @@ import Link from 'next/link';
 import styles from '../../../ui/SignInPage.module.css';
 
 import { SignInData } from '@/pages/SignInPage/types';
+import { useSignIn } from '../api';
 
 export const EnterAccountForm = ({
   onNext,
@@ -32,7 +33,7 @@ export const EnterAccountForm = ({
 }) => {
   const t = useTranslations('translation');
 
-  // const signInMutation = useSignIn();
+  const signInMutation = useSignIn();
 
   const {
     register,
@@ -46,7 +47,14 @@ export const EnterAccountForm = ({
 
   const onSubmit = handleSubmit((values) => {
     setSignInData((prev) => ({ ...prev, login: values.login, password: values.password }));
-    onNext();
+    signInMutation.mutate(
+      { login: values.login, password: values.password },
+      {
+        onSuccess: () => {
+          onNext();
+        },
+      },
+    );
   });
 
   useEffect(() => {

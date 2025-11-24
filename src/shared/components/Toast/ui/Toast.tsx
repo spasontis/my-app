@@ -1,55 +1,26 @@
-import React, { FC } from 'react';
-import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
-import { Close, Description, Root, Title } from '@radix-ui/react-toast';
-
 import { Text } from '@/shared/components/Text';
 
 import { DEFAULT_VARIANT, VARIANT_ICONS } from '../constants';
 import { ToastProps } from '../types';
 
-import { X } from 'lucide-react';
-
+import styles from './Toast.module.css';
 import clsx from 'clsx';
 
-import styles from './Toast.module.css';
-
-export const Toast: FC<ToastProps> = ({
-  variant = DEFAULT_VARIANT,
-  text1,
-  text2,
-  className,
-  ...props
-}) => {
-  const t = useTranslations('translation');
+export function Toast({ variant = DEFAULT_VARIANT, title, description }: ToastProps) {
   const Icon = VARIANT_ICONS[variant];
-  const iconVariantClass = styles[`${variant}Icon`];
+  const variantClass = styles[`${variant}`];
 
   return (
-    <Root {...props} asChild>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        className={clsx(styles.container, styles[variant], className)}
-      >
-        <div className={styles.iconWrapper}>
-          <Icon aria-hidden className={clsx(styles.icon, iconVariantClass)} />
+    <div className={clsx(styles.toast, variantClass)}>
+      <div className={styles.icon}>
+        <Icon aria-hidden />
+      </div>
+      {(title || description) && (
+        <div className={clsx(styles.label, (title || description) && styles.size)}>
+          <Text variant='text1'>{title}</Text>
+          <Text variant='text2'>{description}</Text>
         </div>
-        <div className={styles.textWrapper}>
-          <Title asChild>
-            <Text variant='text1'>{text1}</Text>
-          </Title>
-          {text2 && (
-            <Description asChild>
-              <Text variant='text2'>{text2}</Text>
-            </Description>
-          )}
-        </div>
-        <Close aria-label={t('common.close')}>
-          <X aria-hidden className={styles.icon} />
-        </Close>
-      </motion.div>
-    </Root>
+      )}
+    </div>
   );
-};
+}
