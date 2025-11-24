@@ -11,6 +11,7 @@ import { Stepper } from '@/shared/components/Stepper';
 
 import { SignUpData } from '../../../types';
 
+import { useCreateAccount } from '../api';
 import { DEFAULT_CREATE_ACCOUNT_VALUES } from '../constants';
 import { createAccountSchema } from '../model';
 import { CreateAccountFields } from '../types';
@@ -19,6 +20,8 @@ import styles from '../../../ui/SignUpPage.module.css';
 
 export const CreateAccountForm = ({ signUpData }: { signUpData: SignUpData }) => {
   const t = useTranslations('translation');
+
+  const createAccountMutation = useCreateAccount();
 
   const {
     register,
@@ -31,11 +34,11 @@ export const CreateAccountForm = ({ signUpData }: { signUpData: SignUpData }) =>
   });
 
   const onSubmit = handleSubmit((values) => {
-    console.log({
+    createAccountMutation.mutate({
       login: values.login,
       email: signUpData.email,
       password: values.password,
-      code: signUpData.code,
+      token: signUpData.code,
     });
   });
 

@@ -1,11 +1,12 @@
-import { useTranslations } from 'next-intl';
-
-import { usePageTitle } from '@/shared/hooks';
-import { EnterAccountForm } from '../forms/EnterAccountForm';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { usePageTitle } from '@/shared/hooks';
+
+import { SignInForm } from '../forms/SignInForm';
+import { TwoFactorForm } from '../forms/TwoFactorForm';
+
 import { DEFAULT_SIGN_IN_DATA } from '../constants';
 import { SignInData } from '../types';
-import { TwoFactorForm } from '../forms/TwoFactorForm';
 
 export const SignInPage = () => {
   const t = useTranslations('translation');
@@ -19,7 +20,7 @@ export const SignInPage = () => {
 
   return (
     <>
-      {step === 1 && <EnterAccountForm onNext={onNext} setSignInData={setSignInData} />}
+      {step === 1 && <SignInForm onNext={onNext} setSignInData={setSignInData} />}
       {step === 2 && <TwoFactorForm signInData={signInData} />}
     </>
   );

@@ -266,7 +266,7 @@ export class Api<
      * @name AuthControllerLogin
      * @summary User login
      * @request POST:/api/auth/login
-     * @response `200` `TokensResponse` User successful autheticated
+     * @response `200` `TokensResponse` User successful logined
      * @response `401` `void` Invalid login or password
      */
     authControllerLogin: (data: LoginDto, params: RequestParams = {}) =>
@@ -286,8 +286,9 @@ export class Api<
      * @name AuthControllerRegister
      * @summary Step 3: Complete registration and create account
      * @request POST:/api/auth/register
-     * @response `200` `TokensResponse` Account successfully created and autheticated
-     * @response `400` `void` Validation error.
+     * @response `200` `TokensResponse` Account successfully registered
+     * @response `400` `void` Validation error
+     * @response `409` `void` Login already exists
      */
     authControllerRegister: (data: RegisterDto, params: RequestParams = {}) =>
       this.request<TokensResponse, void>({
@@ -303,13 +304,14 @@ export class Api<
      * No description
      *
      * @tags Auth
-     * @name AuthControllerSendVerificationToken
-     * @summary Step 1: Enter email & send verification code
+     * @name AuthControllerSendRegisterVerificationToken
+     * @summary Step 1: Enter email & send Verification Token
      * @request POST:/api/auth/register/send-code
-     * @response `200` `void` Verification code was successfully sent to the email.
+     * @response `200` `void` Verification Token was successfully sent to the email.
      * @response `400` `void` Invalid email format.
+     * @response `409` `void` Email already exists
      */
-    authControllerSendVerificationToken: (
+    authControllerSendRegisterVerificationToken: (
       data: EmailDto,
       params: RequestParams = {},
     ) =>
@@ -326,10 +328,10 @@ export class Api<
      *
      * @tags Auth
      * @name AuthControllerTwoFactor
-     * @summary Two factor login
+     * @summary Two-Factor Verification
      * @request POST:/api/auth/login/two-factor
-     * @response `200` `TokensResponse` User successful autheticated
-     * @response `401` `void` Invalid Two-Factor Token
+     * @response `200` `TokensResponse` Two-Factor Token successful verified
+     * @response `401` `void` Invalid Verification Token
      */
     authControllerTwoFactor: (data: LoginDto, params: RequestParams = {}) =>
       this.request<TokensResponse, void>({
@@ -346,10 +348,10 @@ export class Api<
      *
      * @tags Auth
      * @name AuthControllerVerifyEmail
-     * @summary Step 2: Verify email with received code
+     * @summary Step 2: Verify email with received Token
      * @request POST:/api/auth/register/verify-email
      * @response `200` `void` Email successfully verified.
-     * @response `400` `void` Invalid verification code.
+     * @response `400` `void` Invalid verification Token.
      */
     authControllerVerifyEmail: (data: VerifyDto, params: RequestParams = {}) =>
       this.request<void, void>({
