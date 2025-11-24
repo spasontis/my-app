@@ -1,11 +1,12 @@
 import { useMutation } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import axios from 'axios';
 
-import { HttpStatus } from '@/shared/constants';
-import { VerifyData } from '../types';
-import { publicApi } from '@/shared/api';
-import { useTranslations } from 'next-intl';
 import { showToast } from '@/shared/components/Toast/actions';
+import { publicApi } from '@/shared/api';
+import { HttpStatus } from '@/shared/constants';
+
+import { VerifyData } from '../types';
 
 export const useVerifyEmail = () => {
   const t = useTranslations('translation.notifications');

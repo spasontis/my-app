@@ -3,6 +3,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import GoogleImg from '@/shared/assets/icons/google.png';
 import YandexImg from '@/shared/assets/icons/yandex.png';
@@ -15,15 +17,12 @@ import { Stepper } from '@/shared/components/Stepper';
 
 import { SignUpData } from '../../../types';
 
+import { useSignUp } from '../api';
 import { DEFAULT_ENTER_EMAIL_VALUES } from '../constants';
 import { signUpSchema } from '../model';
 import { SignUpFields } from '../types';
 
-import Image from 'next/image';
-import Link from 'next/link';
-
 import styles from '../../../ui/SignUpPage.module.css';
-import { useSignUp } from '../api';
 
 export const SignUpForm = ({
   setSignUpData,

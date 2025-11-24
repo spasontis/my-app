@@ -59,6 +59,19 @@ export interface TokensResponse {
   accessToken: string;
 }
 
+export interface TwoFactorDto {
+  /**
+   * User login
+   * @example "user"
+   */
+  login: string;
+  /**
+   * Two-Factor Token
+   * @example "665092"
+   */
+  token: string;
+}
+
 export interface VerifyDto {
   /**
    * User email
@@ -333,7 +346,7 @@ export class Api<
      * @response `200` `TokensResponse` Two-Factor Token successful verified
      * @response `401` `void` Invalid Verification Token
      */
-    authControllerTwoFactor: (data: LoginDto, params: RequestParams = {}) =>
+    authControllerTwoFactor: (data: TwoFactorDto, params: RequestParams = {}) =>
       this.request<TokensResponse, void>({
         path: `/api/auth/login/two-factor`,
         method: "POST",

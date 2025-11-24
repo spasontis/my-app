@@ -8,15 +8,19 @@ import { useTranslations } from 'next-intl';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { SignInData } from '@/pages/SignInPage/types';
+
 import { DEFAULT_TWO_FACTOR_VALUES } from '../constants';
 import { twoFactorSchema } from '../model';
 import { TwoFactorFields } from '../types';
 
 import styles from '../../../ui/SignInPage.module.css';
-import { SignInData } from '@/pages/SignInPage/types';
+import { useVerifyEmail } from '../api';
 
 export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
   const t = useTranslations('translation');
+
+  const verifyEmailMutation = useVerifyEmail();
 
   const {
     register,
@@ -29,7 +33,7 @@ export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
   });
 
   const onSubmit = handleSubmit((values) => {
-    console.log({ ...signInData, values });
+    verifyEmailMutation.mutate({ login: signInData.login, token: values.code });
   });
 
   useEffect(() => {
