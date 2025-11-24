@@ -94,7 +94,7 @@ export const EnterEmailForm = ({
         </Text>
         <ReCAPTCHA
           className={styles.captcha}
-          sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA_SECRET_KEY as string}
+          sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA_SITE_KEY as string}
           onChange={setRecaptchaValue}
         ></ReCAPTCHA>
         {recaptchaInvalid && !recaptchaValue && (

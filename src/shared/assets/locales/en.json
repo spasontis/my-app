@@ -81,10 +81,18 @@
       }
     },
     "notifications": {
-      "internalServer": "Internal server",
-      "invalidCredentials": "Invalid credentials",
-      "rateLimitExceeded": "Rate limit exceeded",
-      "unknownError": "Something happened and it's like unknown error"
+      "invalidCredentials": {
+        "title": "Invalid credentials",
+        "description": "Incorrect login or password"
+      },
+      "rateLimitExceeded": "Too many requests",
+      "internalServer": "Internal server error",
+      "unknownError": "Unknown error",
+      "successfulAuth": {
+        "title": "Authorization successful",
+        "description": "You have been successfully logged in"
+      },
+      "tryLater": "Please try again later"
     },
     "project": {
       "name": "My App"

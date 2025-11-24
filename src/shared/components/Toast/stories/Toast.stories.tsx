@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { DEFAULT_VARIANT } from '../constants';
 import { Toast } from '../ui';
-import { ToastProvider, ToastViewport } from '@radix-ui/react-toast';
+import { useTranslations } from 'next-intl';
 
 const meta = {
   title: 'Example/Toast',
@@ -14,14 +14,6 @@ const meta = {
       options: ['success', 'failed'],
     },
   },
-  decorators: [
-    (Story) => (
-      <ToastProvider>
-        <Story />
-        <ToastViewport />
-      </ToastProvider>
-    ),
-  ],
 } satisfies Meta<typeof Toast>;
 
 export default meta;
@@ -30,23 +22,36 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: DEFAULT_VARIANT,
-    text1: '',
-    text2: '',
+    title: '',
+    description: '',
+  },
+};
+
+export const WithTranslations: Story = {
+  render: (args) => {
+    const t = useTranslations('translation');
+
+    return (
+      <Toast title={t(args.title as string)} description={t(args.description as string)}></Toast>
+    );
+  },
+  args: {
+    title: 'white',
+    description: 'notifications.signIn',
   },
 };
 
 export const Success: Story = {
   args: {
     variant: 'success',
-    text1: 'Успешно',
-    text2: 'Вы были успешно авторизованы',
+    title: 'Вы были успешно авторизованы',
   },
 };
 
 export const Failed: Story = {
   args: {
     variant: 'failed',
-    text1: 'Ошибка',
-    text2: 'Произошла ошибка',
+    title: 'Ошибка',
+    description: 'Произошла ошибка',
   },
 };

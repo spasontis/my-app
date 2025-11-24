@@ -7,6 +7,7 @@ import { setAuth } from '@/shared/stores/app';
 import { SignInFields } from '../types';
 import { publicApi } from '@/shared/api';
 import { useTranslations } from 'next-intl';
+import { showToast } from '@/shared/components/Toast/actions';
 
 export const useSignIn = () => {
   const t = useTranslations('translation');
@@ -15,22 +16,47 @@ export const useSignIn = () => {
     mutationFn: (dto: SignInFields) => publicApi.api.authControllerLogin(dto),
     onSuccess: ({ accessToken }) => {
       setAuth(accessToken);
-      console.log(accessToken);
+      showToast({
+        variant: 'success',
+        title: t('notifications.successfulAuth.title'),
+        description: t('notifications.successfulAuth.description'),
+      });
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {
         const status = error.response?.status;
 
-        if (status === HttpStatus.Unauthorized)
-          console.log(t('notifications.invalidCredentials'), status);
-        if (status === HttpStatus.TooManyRequests)
-          console.log(t('notifications.rateLimitExceeded'), status);
-        if (status !== undefined && status >= HttpStatus.InternalServerError)
-          console.log(t('notifications.internalServer'), status);
-        if (status !== HttpStatus.TooManyRequests && status !== HttpStatus.Unauthorized)
-          console.log(t('notifications.unknownError'), error.message);
+        if (status === HttpStatus.Unauthorized) {
+          showToast({
+            variant: 'failed',
+            title: t('notifications.invalidCredentials.title'),
+            description: t('notifications.invalidCredentials.description'),
+          });
+        } else if (status === HttpStatus.TooManyRequests) {
+          showToast({
+            variant: 'failed',
+            title: t('notifications.rateLimitExceeded'),
+            description: t('notifications.tryLater'),
+          });
+        } else if (status !== undefined && status >= HttpStatus.InternalServerError) {
+          showToast({
+            variant: 'failed',
+            title: t('notifications.internalServer'),
+            description: t('notifications.tryLater'),
+          });
+        } else {
+          showToast({
+            variant: 'failed',
+            title: t('notifications.unknownError'),
+            description: error.message,
+          });
+        }
       } else {
-        console.log('Unknown error', error);
+        showToast({
+          variant: 'failed',
+          title: t('notifications.unknownError'),
+          description: String(error),
+        });
       }
     },
   });
