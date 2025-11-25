@@ -43,6 +43,15 @@ export const Default: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Button',
+    as: 'button',
+    loading: true,
+  },
+};
+
 export const With_Icon: Story = {
   args: {
     children: 'Sign In',

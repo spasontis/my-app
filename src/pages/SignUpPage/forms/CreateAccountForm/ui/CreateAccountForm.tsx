@@ -78,7 +78,14 @@ export const CreateAccountForm = ({ signUpData }: { signUpData: SignUpData }) =>
           className={styles.margin}
           {...register('repeatPassword')}
         ></TextInput>
-        <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
+        <Button
+          type='submit'
+          size='md'
+          variant='primary'
+          className={styles.button}
+          loading={createAccountMutation.isPending}
+          fullWidth
+        >
           {t('auth.button.signUp')}
         </Button>
         <Stepper className={styles.stepper} steps={3} current={3}></Stepper>

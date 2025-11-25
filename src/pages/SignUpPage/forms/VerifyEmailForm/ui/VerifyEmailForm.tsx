@@ -68,7 +68,14 @@ export const VerifyEmailForm = ({
         <Text variant='text2' color='content1' className={styles.container}>
           {t('auth.text.codeRequirements')}
         </Text>
-        <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
+        <Button
+          type='submit'
+          size='md'
+          variant='primary'
+          className={styles.button}
+          loading={verifyEmailMutation.isPending}
+          fullWidth
+        >
           {t('common.confirm')}
         </Button>
         <Stepper className={styles.stepper} steps={3} current={2}></Stepper>

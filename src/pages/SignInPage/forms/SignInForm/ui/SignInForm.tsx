@@ -112,7 +112,14 @@ export const SignInForm = ({
             <Link href={'./recover'}>{t('auth.text.forgotPassword')}</Link>
           </Text>
         </div>
-        <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
+        <Button
+          type='submit'
+          size='md'
+          variant='primary'
+          className={styles.button}
+          loading={signInMutation.isPending}
+          fullWidth
+        >
           {t('auth.button.signIn')}
         </Button>
         <div className={styles.footer}>
