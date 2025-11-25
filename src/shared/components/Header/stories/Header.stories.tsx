@@ -6,9 +6,18 @@ const meta = {
   title: 'Example/Header',
   component: Header,
   tags: ['autodocs'],
-  parameters: {
-    layout: 'fullscreen',
-  },
+  decorators: [
+    (Story) => (
+      <>
+        <style>{`
+        header {
+          position: static !important;
+        }
+      `}</style>
+        <Story />
+      </>
+    ),
+  ],
 } satisfies Meta<typeof Header>;
 
 export default meta;
