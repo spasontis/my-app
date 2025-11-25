@@ -110,7 +110,14 @@ export const SignUpForm = ({
             {t('auth.text.captchaInvalid')}
           </Text>
         )}
-        <Button type='submit' size='md' variant='primary' className={styles.button} fullWidth>
+        <Button
+          type='submit'
+          size='md'
+          variant='primary'
+          className={styles.button}
+          loading={signUpMutation.isPending}
+          fullWidth
+        >
           {t('common.continue')}
         </Button>
         <Stepper className={styles.stepper} steps={3} current={1}></Stepper>

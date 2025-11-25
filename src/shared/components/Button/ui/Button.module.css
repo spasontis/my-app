@@ -24,12 +24,11 @@
 
 .icon {
   flex-shrink: 0;
-  display: block;
   inline-size: 24px;
   block-size: 24px;
 }
 
-.trasparent {
+.transparent {
   opacity: 0;
 }
 

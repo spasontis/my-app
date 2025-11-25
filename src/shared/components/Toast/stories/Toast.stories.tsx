@@ -29,15 +29,15 @@ export const Default: Story = {
 
 export const WithTranslations: Story = {
   render: (args) => {
-    const t = useTranslations('translation');
+    const t = useTranslations('translation.notifications');
 
     return (
       <Toast title={t(args.title as string)} description={t(args.description as string)}></Toast>
     );
   },
   args: {
-    title: 'white',
-    description: 'notifications.signIn',
+    title: 'auth.successfulAuth.title',
+    description: 'auth.successfulAuth.description',
   },
 };
 
