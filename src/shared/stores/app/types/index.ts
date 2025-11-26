@@ -1,4 +1,3 @@
-import { ToastVariant } from '@/shared/components/Toast';
 import { UserRole } from '@/shared/constants';
 
 export type GuestStatus = 'guest';
@@ -28,14 +27,6 @@ export type AuthenticatedUser = {
 
 export type User = AuthenticatedUser | Guest;
 
-export type Notification = {
-  id: number;
-  variant: ToastVariant;
-  text1: string;
-  text2: string;
-};
-
 export interface AppState {
   user: User;
-  notifications: Notification;
 }

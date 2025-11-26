@@ -9,7 +9,6 @@ import Link from 'next/link';
 import GoogleImg from '@/shared/assets/icons/google.png';
 import YandexImg from '@/shared/assets/icons/yandex.png';
 
-import { AuthLayout } from '@/shared/components/AuthLayout';
 import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
@@ -68,66 +67,64 @@ export const SignUpForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <AuthLayout title={t('auth.title.signUp')}>
-        <div className={styles.socials}>
-          <Button
-            icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
-            variant='transparentWhite'
-            size='sm'
-            fullWidth
-          >
-            <Text>Google</Text>
-          </Button>
-          <Button
-            icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
-            variant='transparentWhite'
-            size='sm'
-            fullWidth
-          >
-            <Text>Яндекс</Text>
-          </Button>
-        </div>
-        <div className={styles.line}>
-          <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
-        </div>
-        <TextInput
-          label={t('auth.label.email')}
-          placeholder={t('auth.placeholder.enterEmail')}
-          invalid={!!errors.email}
-          hint={errors.email?.message && t(errors.email.message)}
-          {...register('email')}
-        ></TextInput>
-        <Text variant='text2' color='content1' className={styles.container}>
-          {t('auth.text.emailRequirements')}
-        </Text>
-        <ReCAPTCHA
-          className={styles.captcha}
-          sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA_SITE_KEY as string}
-          onChange={setRecaptchaValue}
-        ></ReCAPTCHA>
-        {recaptchaInvalid && !recaptchaValue && (
-          <Text variant='text2' color='error' className={styles.captcha}>
-            {t('auth.text.captchaInvalid')}
-          </Text>
-        )}
+      <div className={styles.socials}>
         <Button
-          type='submit'
-          size='md'
-          variant='primary'
-          className={styles.button}
-          loading={signUpMutation.isPending}
+          icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
+          variant='transparentWhite'
+          size='sm'
           fullWidth
         >
-          {t('common.continue')}
+          <Text>Google</Text>
         </Button>
-        <Stepper className={styles.stepper} steps={3} current={1}></Stepper>
-        <div className={styles.footer}>
-          <Text color='content1'>{t('auth.text.haveAccount')}</Text>
-          <Text>
-            <Link href={'./sign-in'}>{t('auth.text.signIn')}</Link>
-          </Text>
-        </div>
-      </AuthLayout>
+        <Button
+          icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
+          variant='transparentWhite'
+          size='sm'
+          fullWidth
+        >
+          <Text>Яндекс</Text>
+        </Button>
+      </div>
+      <div className={styles.line}>
+        <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
+      </div>
+      <TextInput
+        label={t('auth.label.email')}
+        placeholder={t('auth.placeholder.enterEmail')}
+        invalid={!!errors.email}
+        hint={errors.email?.message && t(errors.email.message)}
+        {...register('email')}
+      ></TextInput>
+      <Text variant='text2' color='content1' className={styles.container}>
+        {t('auth.text.emailRequirements')}
+      </Text>
+      <ReCAPTCHA
+        className={styles.captcha}
+        sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA_SITE_KEY as string}
+        onChange={setRecaptchaValue}
+      ></ReCAPTCHA>
+      {recaptchaInvalid && !recaptchaValue && (
+        <Text variant='text2' color='error' className={styles.captcha}>
+          {t('auth.text.captchaInvalid')}
+        </Text>
+      )}
+      <Button
+        type='submit'
+        size='md'
+        variant='primary'
+        className={styles.button}
+        loading={signUpMutation.isPending}
+        fullWidth
+      >
+        {t('common.continue')}
+      </Button>
+      <Stepper className={styles.stepper} steps={3} current={1}></Stepper>
+      <div className={styles.footer}>
+        <Text color='content1'>{t('auth.text.haveAccount')}</Text>
+        <Text>
+          <Link href={'./sign-in'}>{t('auth.text.signIn')}</Link>
+        </Text>
+      </div>
     </form>
   );
 };

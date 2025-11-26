@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { AuthLayout } from '@/shared/components/AuthLayout';
+import { AuthLayout } from '@/shared/components/AuthCard';
 import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';

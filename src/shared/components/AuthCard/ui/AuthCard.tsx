@@ -6,10 +6,10 @@ import React, { FC } from 'react';
 import { Text } from '@/shared/components/Text';
 import { BRAND } from '@/shared/constants';
 
-import styles from './AuthLayout.module.css';
+import styles from './AuthCard.module.css';
 import { AuthLayoutProps } from '../types';
 
-export const AuthLayout: FC<AuthLayoutProps> = ({ title, children }) => {
+export const AuthCard: FC<AuthLayoutProps> = ({ title, children }) => {
   const t = useTranslations('translation');
 
   return (

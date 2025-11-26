@@ -1,16 +1,21 @@
 .header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  padding-inline: var(--space-20);
+  padding-inline: var(--space-16);
   align-items: center;
   font-size: small;
   width: 100%;
-  min-height: 72px;
+  min-height: 44px;
   border-bottom: var(--border-1) solid var(--border-color-1);
   background-color: var(--black);
   gap: var(--space-16);
+}
+
+.home {
+  position: fixed;
+  padding-inline: var(--space-20);
   z-index: 1000;
+  min-height: 72px;
 }
 
 .side {
@@ -20,7 +25,6 @@
 
 .logo {
   display: flex;
-  text-align: center;
   align-items: center;
   gap: 8px;
 
@@ -29,13 +33,12 @@
   }
 }
 
-.img {
-  width: 32px;
+.sm {
+  width: 21px;
 }
 
-.brand {
-  position: relative;
-  top: -2;
+.lg {
+  width: 32px;
 }
 
 .nav {

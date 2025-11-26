@@ -1,21 +1,19 @@
-import { AuthLayout } from '@/shared/components/AuthLayout';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+
+import { SignInData } from '@/pages/SignInPage/types';
 import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
 import { Text } from '@/shared/components/Text';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-import { useTranslations } from 'next-intl';
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-
-import { SignInData } from '@/pages/SignInPage/types';
 
 import { DEFAULT_TWO_FACTOR_VALUES } from '../constants';
 import { twoFactorSchema } from '../model';
 import { TwoFactorFields } from '../types';
+import { useVerifyEmail } from '../api';
 
 import styles from '../../../ui/SignInPage.module.css';
-import { useVerifyEmail } from '../api';
 
 export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
   const t = useTranslations('translation');
@@ -42,28 +40,26 @@ export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <AuthLayout title={t('auth.title.twoFactorAuthentication')}>
-        <TextInput
-          label={t('auth.label.verificationCode')}
-          placeholder={t('auth.placeholder.enterVerificationCode')}
-          invalid={!!errors.code}
-          hint={errors.code?.message && t(errors.code.message)}
-          {...register('code')}
-        ></TextInput>
-        <Text variant='text2' color='content1' className={styles.container}>
-          {t('auth.text.codeRequirements')}
-        </Text>
-        <Button
-          type='submit'
-          size='md'
-          variant='primary'
-          className={styles.button}
-          loading={verifyEmailMutation.isPending}
-          fullWidth
-        >
-          {t('common.confirm')}
-        </Button>
-      </AuthLayout>
+      <TextInput
+        label={t('auth.label.verificationCode')}
+        placeholder={t('auth.placeholder.enterVerificationCode')}
+        invalid={!!errors.code}
+        hint={errors.code?.message && t(errors.code.message)}
+        {...register('code')}
+      ></TextInput>
+      <Text variant='text2' color='content1' className={styles.container}>
+        {t('auth.text.codeRequirements')}
+      </Text>
+      <Button
+        type='submit'
+        size='md'
+        variant='primary'
+        className={styles.button}
+        loading={verifyEmailMutation.isPending}
+        fullWidth
+      >
+        {t('common.confirm')}
+      </Button>
     </form>
   );
 };
