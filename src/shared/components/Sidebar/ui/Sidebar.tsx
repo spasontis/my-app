@@ -1,33 +1,44 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
-import { BOTTOM_ITEMS, TOP_ITEMS } from '../constants';
+import { TOP_CONTROLLERS, BOTTOM_CONTROLLERS } from '../constants';
 
 import styles from './Sidebar.module.css';
-import { SidebarProps, Tab } from '../types';
+import { ControllerData, SidebarProps, Tab } from '../types';
 
-export const Sidebar: FC<SidebarProps> = ({ activeTab }) => {
-  const [choice, setChoice] = useState(activeTab || 'menu');
+export const Sidebar: FC<SidebarProps> = ({ activeTab, onChange }) => {
+  const [selected, setSelected] = useState(activeTab);
 
   const handleClick = (id: Tab) => {
-    setChoice(id);
+    setSelected(id);
+    onChange?.(id);
   };
 
-  const renderItems = (items: any[]) =>
-    items.map(({ id, Icon }) => (
-      <div key={id} className={clsx(styles.button, choice === id && styles.selected)}>
-        <button onClick={() => handleClick(id)}>
-          <Icon className={clsx(styles.icon, choice === id && styles.white)} />
-        </button>
-      </div>
-    ));
+  const renderItems = (controllers: ControllerData[]) =>
+    controllers.map(({ id, icon }) => {
+      const IconComponent = icon;
+      return (
+        <div key={id} className={clsx(styles.button, selected === id && styles.selected)}>
+          <button onClick={() => handleClick(id)}>
+            <IconComponent
+              aria-label={id}
+              className={clsx(styles.icon, selected === id && styles.white)}
+            />
+          </button>
+        </div>
+      );
+    });
+
+  useEffect(() => {
+    setSelected(activeTab);
+  }, [activeTab]);
 
   return (
     <div className={styles.sidebar}>
-      <div className={styles.top}>{renderItems(TOP_ITEMS)}</div>
-      <div className={styles.bottom}>{renderItems(BOTTOM_ITEMS)}</div>
+      <div className={styles.top}>{renderItems(TOP_CONTROLLERS)}</div>
+      <div className={styles.bottom}>{renderItems(BOTTOM_CONTROLLERS)}</div>
     </div>
   );
 };

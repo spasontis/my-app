@@ -8,42 +8,59 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './Header.module.css';
+import clsx from 'clsx';
+import { privateNav, publicNav } from '../constants';
+import { HeaderProps } from '../types';
 
-export const Header = () => {
+export const Header = ({ login }: HeaderProps) => {
   const t = useTranslations('translation.header');
 
   return (
-    <header className={styles.header}>
+    <header className={clsx(styles.header, !login && styles.home)}>
       <div className={styles.side}>
-        <Link href={'./'} className={styles.logo}>
-          <Image src='/logo.png' alt='logo' width={96} height={96} className={styles.img} />
-          <Text variant='title2' weight={600} className={styles.brand}>
-            {BRAND}
-          </Text>
-        </Link>
+        {login ? (
+          <Link href={'./'} className={styles.logo}>
+            <Image src='/logo.png' alt='logo' width={48} height={48} className={styles.sm} />
+            <Text variant='title5' weight={700}>
+              {BRAND}
+            </Text>
+          </Link>
+        ) : (
+          <Link href={'./'} className={styles.logo}>
+            <Image src='/logo.png' alt='logo' width={96} height={96} className={styles.lg} />
+            <Text variant='title2' weight={800}>
+              {BRAND}
+            </Text>
+          </Link>
+        )}
+
         <div className={styles.nav}>
-          <Link href={'./blog'}>
-            <Text>{t('buttons.blog')}</Text>
-          </Link>
-          <Link href={'./for-educators'}>
-            <Text>{t('buttons.forEducators')}</Text>
-          </Link>
-          <Link href={'./for-companies'}>
-            <Text> {t('buttons.forCompanies')}</Text>
-          </Link>
+          {(login ? privateNav : publicNav).map((nav) => (
+            <Link key={nav.id} href={nav.link}>
+              <Text>{t(nav.text)}</Text>
+            </Link>
+          ))}
         </div>
       </div>
       <div className={styles.side}>
-        <Link href={'./sign-in'}>
-          <Button variant='transparentWhite' size='sm'>
-            {t('buttons.signIn')}
+        {login ? (
+          <Button variant='transparentWhite' size='xs'>
+            {login}
           </Button>
-        </Link>
-        <Link href={'./sign-up'}>
-          <Button size='sm' className={styles.join}>
-            {t('buttons.join')}
-          </Button>{' '}
-        </Link>
+        ) : (
+          <>
+            <Link href={'./sign-in'}>
+              <Button variant='transparentWhite' size='sm'>
+                {t('buttons.signIn')}
+              </Button>
+            </Link>
+            <Link href={'./sign-up'}>
+              <Button size='sm' className={styles.join}>
+                {t('buttons.join')}
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
     </header>
   );

@@ -1,1 +1,1 @@
-export const BRAND = 'codeways';
+export const BRAND = 'CODEWAYS';

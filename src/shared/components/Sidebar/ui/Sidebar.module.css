@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 48px;
-  height: 95vh;
-  background-color: var(--base-300);
+  height: 100%;
+  border-right: var(--border-1) solid var(--border-color-1);
 }
 
 .top {
