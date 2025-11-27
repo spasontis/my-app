@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { AuthLayout } from '@/shared/components/AuthCard';
+import { AuthCard } from '@/shared/components/AuthCard';
 import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
@@ -57,7 +57,7 @@ export const VerifyEmailForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <AuthLayout title={t('auth.title.verifyEmail')}>
+      <AuthCard title={t('auth.title.verifyEmail')}>
         <TextInput
           label={t('auth.label.code')}
           placeholder={t('auth.placeholder.enterCode')}
@@ -79,7 +79,7 @@ export const VerifyEmailForm = ({
           {t('common.confirm')}
         </Button>
         <Stepper className={styles.stepper} steps={3} current={2}></Stepper>
-      </AuthLayout>
+      </AuthCard>
     </form>
   );
 };

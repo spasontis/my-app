@@ -1,1 +1,1 @@
-export { useSignUp } from './useVerifyEmail';
+export { useVerifyEmail } from './useVerifyEmail';

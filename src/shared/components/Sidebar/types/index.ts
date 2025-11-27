@@ -1,4 +1,4 @@
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { ComponentType, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { LucideProps } from 'lucide-react';
 
 export type Tab = 'menu' | 'store' | 'library' | 'task' | 'friends' | 'dailys';
@@ -14,14 +14,21 @@ export interface BaseSidebarProps {
 
 export interface ControllerData {
   id: Tab;
+  modal: boolean;
   icon: Icon;
 }
 
-export interface TabData {
+export interface TabData<P = object> {
   id: number;
-  content: string;
+  modal: boolean;
+  component: ComponentType<P>;
   icon: Icon;
   section: Section;
+}
+
+export interface ModalData {
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export type SidebarProps = BaseSidebarProps;
