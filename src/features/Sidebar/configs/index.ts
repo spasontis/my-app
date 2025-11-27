@@ -1,53 +1,39 @@
-import {
-  Menu,
-  ShoppingBasket,
-  LayoutDashboard,
-  ClipboardList,
-  Users,
-  BookMarked,
-} from 'lucide-react';
+import { Menu, ShoppingBasket, LayoutDashboard, Users, BookMarked } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { ModalData, Tab, TabData } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const tabs: Record<string, TabData<any>> = {
   menu: {
-    id: 1,
+    id: 'menu',
     modal: true,
     component: dynamic<ModalData>(() => import('@/shared/components/Menu')),
     icon: Menu,
     section: 'top',
   },
   store: {
-    id: 2,
+    id: 'store',
     modal: false,
     component: dynamic(() => import('@/features/Store')),
     icon: ShoppingBasket,
     section: 'top',
   },
   library: {
-    id: 3,
+    id: 'library',
     modal: false,
     component: dynamic(() => import('@/features/Library')),
     icon: LayoutDashboard,
     section: 'top',
   },
-  task: {
-    id: 4,
-    modal: false,
-    component: dynamic(() => import('@/features/Task')),
-    icon: ClipboardList,
-    section: 'top',
-  },
   friends: {
-    id: 5,
+    id: 'friends',
     modal: true,
     component: dynamic<ModalData>(() => import('@/shared/components/Friends')),
     icon: Users,
     section: 'bottom',
   },
   dailys: {
-    id: 6,
+    id: 'dailys',
     modal: true,
     component: dynamic<ModalData>(() => import('@/shared/components/DailyChallenges')),
     icon: BookMarked,
@@ -67,7 +53,6 @@ export const tabComponents: Record<Tab, React.ComponentType> = {
   menu: tabs.menu.component,
   store: tabs.store.component,
   library: tabs.library.component,
-  task: tabs.task.component,
   friends: tabs.friends.component,
   dailys: tabs.dailys.component,
 };

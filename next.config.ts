@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY,
   },
+  devIndicators: false,
 };
 
 const withNextIntl = createNextIntlPlugin('./src/shared/configs/i18n/configs/index.ts');

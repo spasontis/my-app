@@ -3,12 +3,11 @@
 import { ComponentType, FC, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
-import { ModalCardData } from '@/shared/components/ModalCard';
-
 import { top_controllers, bottom_controllers, tabs } from '../configs';
-import { ControllerData, SidebarProps, Tab } from '../types';
+import { ControllerData, ModalData, SidebarProps, Tab } from '../types';
 
 import styles from './Sidebar.module.css';
+import React from 'react';
 
 export const Sidebar: FC<SidebarProps> = ({ activeTab, onChange }) => {
   const [selectedTab, setSelectedTab] = useState(activeTab);
@@ -27,17 +26,20 @@ export const Sidebar: FC<SidebarProps> = ({ activeTab, onChange }) => {
     controllers.map(({ id, icon, modal }) => {
       const IconComponent = icon;
       return (
-        <div key={id} className={clsx(styles.button, selectedTab === id && styles.selected)}>
-          <button onClick={() => handleClick(id, modal)}>
-            <IconComponent
-              aria-label={id}
-              className={clsx(
-                styles.icon,
-                (selectedTab === id || selectedModal === id) && styles.white,
-              )}
-            />
-          </button>
-        </div>
+        <React.Fragment key={id}>
+          <div className={clsx(styles.button, selectedTab === id && styles.selected)}>
+            <button onClick={() => handleClick(id, modal)}>
+              <IconComponent
+                aria-label={id}
+                className={clsx(
+                  styles.icon,
+                  (selectedTab === id || selectedModal === id) && styles.white,
+                )}
+              />
+            </button>
+          </div>
+          {id === 'menu' && <div className={styles.line}></div>}
+        </React.Fragment>
       );
     });
 
@@ -53,7 +55,7 @@ export const Sidebar: FC<SidebarProps> = ({ activeTab, onChange }) => {
       </div>
       {selectedModal &&
         (() => {
-          const Modal = tabs[selectedModal].component as ComponentType<ModalCardData>;
+          const Modal = tabs[selectedModal].component as ComponentType<ModalData>;
           return <Modal isOpen={true} onClose={() => setSelectedModal(null)} />;
         })()}
     </>
