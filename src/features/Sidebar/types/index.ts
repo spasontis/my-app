@@ -29,6 +29,7 @@ export interface TabData<P = object> {
 export interface ModalData {
   isOpen: boolean;
   onClose: () => void;
+  children?: React.ReactNode;
 }
 
 export type SidebarProps = BaseSidebarProps;

@@ -3,8 +3,10 @@
 import { ComponentType, FC, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
-import { top_controllers, bottom_controllers, tabs } from '../constants';
-import { ControllerData, ModalData, SidebarProps, Tab } from '../types';
+import { ModalCardData } from '@/shared/components/ModalCard';
+
+import { top_controllers, bottom_controllers, tabs } from '../configs';
+import { ControllerData, SidebarProps, Tab } from '../types';
 
 import styles from './Sidebar.module.css';
 
@@ -51,7 +53,7 @@ export const Sidebar: FC<SidebarProps> = ({ activeTab, onChange }) => {
       </div>
       {selectedModal &&
         (() => {
-          const Modal = tabs[selectedModal].component as ComponentType<ModalData>;
+          const Modal = tabs[selectedModal].component as ComponentType<ModalCardData>;
           return <Modal isOpen={true} onClose={() => setSelectedModal(null)} />;
         })()}
     </>

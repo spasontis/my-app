@@ -1,1 +1,0 @@
-export { DailysModal } from './DailysModal';

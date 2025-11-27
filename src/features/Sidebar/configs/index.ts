@@ -7,51 +7,49 @@ import {
   BookMarked,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { Tab, TabData, ModalData } from '../types';
-
-export const DEFAULT_TAB: Tab = 'library';
+import { ModalData, Tab, TabData } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const tabs: Record<string, TabData<any>> = {
   menu: {
     id: 1,
     modal: true,
-    component: dynamic(() => import('@/shared/components/MenuModal')),
+    component: dynamic<ModalData>(() => import('@/shared/components/Menu')),
     icon: Menu,
     section: 'top',
   },
   store: {
     id: 2,
     modal: false,
-    component: dynamic(() => import('@/pages/StorePage')),
+    component: dynamic(() => import('@/features/Store')),
     icon: ShoppingBasket,
     section: 'top',
   },
   library: {
     id: 3,
     modal: false,
-    component: dynamic(() => import('@/pages/LibraryPage')),
+    component: dynamic(() => import('@/features/Library')),
     icon: LayoutDashboard,
     section: 'top',
   },
   task: {
     id: 4,
     modal: false,
-    component: dynamic(() => import('@/pages/TaskPage')),
+    component: dynamic(() => import('@/features/Task')),
     icon: ClipboardList,
     section: 'top',
   },
   friends: {
     id: 5,
     modal: true,
-    component: dynamic<ModalData>(() => import('@/shared/components/FriendsModal')),
+    component: dynamic<ModalData>(() => import('@/shared/components/Friends')),
     icon: Users,
     section: 'bottom',
   },
   dailys: {
     id: 6,
     modal: true,
-    component: dynamic(() => import('@/shared/components/DailysModal')),
+    component: dynamic<ModalData>(() => import('@/shared/components/DailyChallenges')),
     icon: BookMarked,
     section: 'bottom',
   },
