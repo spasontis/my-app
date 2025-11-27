@@ -8,3 +8,15 @@
   display: flex;
   flex: 1;
 }
+
+.footer {
+  border-top: var(--border-1) solid var(--border-color-1);
+  padding-inline: var(--space-20);
+  max-height: 22px;
+}
+
+.badge {
+  display: inline-block;
+  padding-inline: 12px;
+  background-color: var(--background-color-3);
+}
