@@ -6,6 +6,12 @@
   border-right: var(--border-1) solid var(--border-color-1);
 }
 
+.line {
+  margin-inline: 8px;
+  height: 1px;
+  background-color: var(--base-50);
+}
+
 .top {
   display: flex;
   flex-direction: column;

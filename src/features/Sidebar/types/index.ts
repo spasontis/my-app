@@ -1,7 +1,7 @@
 import { ComponentType, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { LucideProps } from 'lucide-react';
 
-export type Tab = 'menu' | 'store' | 'library' | 'task' | 'friends' | 'dailys';
+export type Tab = 'menu' | 'store' | 'library' | 'friends' | 'dailys';
 export type Section = 'top' | 'bottom';
 export type Icon = ForwardRefExoticComponent<
   Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
@@ -19,7 +19,7 @@ export interface ControllerData {
 }
 
 export interface TabData<P = object> {
-  id: number;
+  id: string;
   modal: boolean;
   component: ComponentType<P>;
   icon: Icon;
