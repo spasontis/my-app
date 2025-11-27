@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
+import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/features/Sidebar';
 import { Header } from '@/shared/components/Header';
-import { Sidebar, Tab, DEFAULT_TAB, tabComponents } from '@/shared/components/Sidebar';
 import { Footer } from '@/shared/components/Footer';
 
 import styles from './DashboardPage.module.css';

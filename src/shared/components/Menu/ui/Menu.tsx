@@ -1,7 +1,8 @@
-import { ModalData } from '../../Sidebar/types';
-import styles from './FriendsModal.module.css';
+import { ModalData } from '@/features/Sidebar';
 
-export const FriendsModal = ({ isOpen, onClose }: ModalData) => {
+import styles from './Menu.module.css';
+
+export const Menu = ({ isOpen, onClose }: ModalData) => {
   if (!isOpen) return null;
 
   return (
@@ -10,7 +11,7 @@ export const FriendsModal = ({ isOpen, onClose }: ModalData) => {
         <button className={styles.closeBtn} onClick={onClose}>
           ×
         </button>
-        FriendsModal
+        <h1>Menu</h1>
       </div>
     </div>
   );
