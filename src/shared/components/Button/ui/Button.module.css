@@ -117,8 +117,8 @@
 
   @media (hover: hover) {
     &:hover:not(:disabled) {
-      color: var(--purple-300);
-      background-color: hsl(from var(--white) h s l / 10%);
+      color: var(--white);
+      border: var(--border-1) solid var(--border-color-2);
       backdrop-filter: blur(64px);
     }
   }

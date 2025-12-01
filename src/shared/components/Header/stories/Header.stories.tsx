@@ -23,4 +23,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    login: '',
+  },
+};
+
+export const Authenticated: Story = {
+  args: {
+    login: 'username',
+  },
+};

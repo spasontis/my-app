@@ -21,6 +21,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from '../../../ui/SignInPage.module.css';
+import { publicApi } from '@/shared/api';
 
 export const SignInForm = ({
   onNext,
@@ -43,6 +44,13 @@ export const SignInForm = ({
     resolver: zodResolver(signInSchema),
     defaultValues: DEFAULT_SIGN_IN_VALUES,
   });
+
+  const onGoogle = async () => {
+    const res = await publicApi.api.authControllerConnect('google');
+    if (res?.url) {
+      window.location.href = res.url;
+    }
+  };
 
   const onSubmit = handleSubmit((values) => {
     setSignInData((prev) => ({ ...prev, login: values.login, password: values.password }));
@@ -68,6 +76,7 @@ export const SignInForm = ({
     <form onSubmit={onSubmit} className={styles.form} noValidate>
       <div className={styles.socials}>
         <Button
+          onClick={onGoogle}
           icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
           variant='transparentWhite'
           size='sm'

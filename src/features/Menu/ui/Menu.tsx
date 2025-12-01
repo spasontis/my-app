@@ -1,4 +1,5 @@
-import { ModalData } from '@/features/Sidebar';
+import { ModalData } from '@/shared/components/Sidebar';
+import { Text } from '@/shared/components/Text';
 
 import styles from './Menu.module.css';
 
@@ -8,10 +9,7 @@ export const Menu = ({ isOpen, onClose }: ModalData) => {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeBtn} onClick={onClose}>
-          ×
-        </button>
-        <h1>Menu</h1>
+        <Text> Menu</Text>
       </div>
     </div>
   );
