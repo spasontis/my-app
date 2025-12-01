@@ -47,6 +47,33 @@
   text-align: center;
 }
 
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  padding-top: var(--space-20);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-block: var(--space-16);
+  color: var(--base-75);
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--base-75);
+  }
+}
+
+.or {
+  padding-inline: var(--space-8);
+}
+
 .agreement {
   margin-top: var(--space-12);
   text-align: center;

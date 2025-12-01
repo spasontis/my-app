@@ -1,4 +1,8 @@
-import { ModalData } from '@/features/Sidebar';
+import { X } from 'lucide-react';
+
+import { ModalData } from '@/shared/components/Sidebar';
+import { Button } from '@/shared/components/Button';
+import { Text } from '@/shared/components/Text';
 
 import styles from './DailyChallenges.module.css';
 
@@ -8,10 +12,10 @@ export const DailyChallenges = ({ isOpen, onClose }: ModalData) => {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeBtn} onClick={onClose}>
-          ×
-        </button>
-        <h1> DailyChallenges</h1>
+        <Button className={styles.close} onClick={onClose}>
+          <X />
+        </Button>
+        <Text>DailyChallenges</Text>
       </div>
     </div>
   );

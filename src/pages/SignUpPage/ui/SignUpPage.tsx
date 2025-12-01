@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
+import { AuthCard } from '@/shared/components/AuthCard';
 import { usePageTitle } from '@/shared/hooks';
 
-import { CreateAccountForm } from '../forms/CreateAccountForm';
-import { SignUpForm } from '../forms/SignUpForm';
-import { VerifyEmailForm } from '../forms/VerifyEmailForm';
-
+import { SignUpForm, VerifyEmailForm, CreateAccountForm } from '../forms';
 import { DEFAULT_SIGN_UP_DATA } from '../constants';
 import { SignUpData } from '../types';
 
@@ -21,12 +19,12 @@ export const SignUpPage = () => {
   usePageTitle(t('auth.title.signUp'));
 
   return (
-    <>
+    <AuthCard title={t('auth.title.signUp')} oauth={step === 1}>
       {step === 1 && <SignUpForm setSignUpData={setSignUpData} onNext={onNext} />}
       {step === 2 && (
         <VerifyEmailForm signUpData={signUpData} setSignUpData={setSignUpData} onNext={onNext} />
       )}
       {step === 3 && <CreateAccountForm signUpData={signUpData} />}
-    </>
+    </AuthCard>
   );
 };

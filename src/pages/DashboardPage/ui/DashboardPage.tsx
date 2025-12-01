@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/features/Sidebar';
+import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/shared/components/Sidebar';
 import { Header } from '@/shared/components/Header';
 import { Footer } from '@/shared/components/Footer';
 
