@@ -3,11 +3,6 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import GoogleImg from '@/shared/assets/icons/google.png';
-import YandexImg from '@/shared/assets/icons/yandex.png';
 
 import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
@@ -20,6 +15,8 @@ import { useSignUp } from '../api';
 import { DEFAULT_ENTER_EMAIL_VALUES } from '../constants';
 import { signUpSchema } from '../model';
 import { SignUpFields } from '../types';
+
+import Link from 'next/link';
 
 import styles from '../../../ui/SignUpPage.module.css';
 
@@ -67,27 +64,6 @@ export const SignUpForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <div className={styles.socials}>
-        <Button
-          icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
-          variant='transparentWhite'
-          size='sm'
-          fullWidth
-        >
-          <Text>Google</Text>
-        </Button>
-        <Button
-          icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
-          variant='transparentWhite'
-          size='sm'
-          fullWidth
-        >
-          <Text>Яндекс</Text>
-        </Button>
-      </div>
-      <div className={styles.line}>
-        <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
-      </div>
       <TextInput
         label={t('auth.label.email')}
         placeholder={t('auth.placeholder.enterEmail')}

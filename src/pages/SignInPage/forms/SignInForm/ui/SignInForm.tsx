@@ -4,9 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-import GoogleImg from '@/shared/assets/icons/google.png';
-import YandexImg from '@/shared/assets/icons/yandex.png';
-
 import { SignInData } from '@/pages/SignInPage/types';
 import { Button } from '@/shared/components/Button';
 import { TextInput } from '@/shared/components/TextInput';
@@ -17,11 +14,9 @@ import { signInSchema } from '../model';
 import { SignInFields } from '../types';
 import { useSignIn } from '../api';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from '../../../ui/SignInPage.module.css';
-import { publicApi } from '@/shared/api';
 
 export const SignInForm = ({
   onNext,
@@ -45,36 +40,6 @@ export const SignInForm = ({
     defaultValues: DEFAULT_SIGN_IN_VALUES,
   });
 
-  const onGoogle = async () => {
-    const res = await publicApi.api.authControllerConnect('google');
-    if (res?.url) {
-      const width = 500;
-      const height = 600;
-      const left = window.screenX + (window.innerWidth - width) / 2;
-      const top = window.screenY + (window.innerHeight - height) / 2;
-
-      const popup = window.open(
-        res.url,
-        'oauthPopup',
-        `width=${width},height=${height},left=${left},top=${top}`,
-      );
-
-      const handleMessage = (event: MessageEvent) => {
-        if (event.origin !== window.location.origin) return;
-
-        const { accessToken } = event.data;
-        if (accessToken) {
-          localStorage.setItem('accessToken', accessToken);
-          window.removeEventListener('message', handleMessage);
-          router.push('/dashboard');
-        }
-      };
-      window.addEventListener('message', handleMessage);
-
-      if (!popup) return;
-    }
-  };
-
   const onSubmit = handleSubmit((values) => {
     setSignInData((prev) => ({ ...prev, login: values.login, password: values.password }));
     signInMutation.mutate(
@@ -97,31 +62,6 @@ export const SignInForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <div className={styles.socials}>
-        <Button
-          type='button'
-          onClick={onGoogle}
-          icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
-          variant='transparentWhite'
-          size='sm'
-          fullWidth
-        >
-          <Text>Google</Text>
-        </Button>
-        <Button
-          type='button'
-          icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
-          variant='transparentWhite'
-          size='sm'
-          fullWidth
-        >
-          <Text>Яндекс</Text>
-        </Button>
-      </div>
-      <div className={styles.line}>
-        <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
-      </div>
-
       <TextInput
         label={t('auth.label.login')}
         placeholder={t('auth.placeholder.enterLogin')}

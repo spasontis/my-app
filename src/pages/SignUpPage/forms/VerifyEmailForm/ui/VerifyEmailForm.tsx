@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { AuthCard } from '@/shared/components/AuthCard';
 import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
@@ -57,29 +56,27 @@ export const VerifyEmailForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <AuthCard title={t('auth.title.verifyEmail')}>
-        <TextInput
-          label={t('auth.label.code')}
-          placeholder={t('auth.placeholder.enterCode')}
-          invalid={!!errors.code}
-          hint={errors.code?.message && t(errors.code?.message)}
-          {...register('code')}
-        ></TextInput>
-        <Text variant='text2' color='content1' className={styles.container}>
-          {t('auth.text.codeRequirements')}
-        </Text>
-        <Button
-          type='submit'
-          size='md'
-          variant='primary'
-          className={styles.button}
-          loading={verifyEmailMutation.isPending}
-          fullWidth
-        >
-          {t('common.confirm')}
-        </Button>
-        <Stepper className={styles.stepper} steps={3} current={2}></Stepper>
-      </AuthCard>
+      <TextInput
+        label={t('auth.label.code')}
+        placeholder={t('auth.placeholder.enterCode')}
+        invalid={!!errors.code}
+        hint={errors.code?.message && t(errors.code?.message)}
+        {...register('code')}
+      ></TextInput>
+      <Text variant='text2' color='content1' className={styles.container}>
+        {t('auth.text.codeRequirements')}
+      </Text>
+      <Button
+        type='submit'
+        size='md'
+        variant='primary'
+        className={styles.button}
+        loading={verifyEmailMutation.isPending}
+        fullWidth
+      >
+        {t('common.confirm')}
+      </Button>
+      <Stepper className={styles.stepper} steps={3} current={2}></Stepper>
     </form>
   );
 };
