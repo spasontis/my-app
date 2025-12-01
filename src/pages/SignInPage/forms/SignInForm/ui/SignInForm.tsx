@@ -48,7 +48,30 @@ export const SignInForm = ({
   const onGoogle = async () => {
     const res = await publicApi.api.authControllerConnect('google');
     if (res?.url) {
-      window.location.href = res.url;
+      const width = 500;
+      const height = 600;
+      const left = window.screenX + (window.innerWidth - width) / 2;
+      const top = window.screenY + (window.innerHeight - height) / 2;
+
+      const popup = window.open(
+        res.url,
+        'oauthPopup',
+        `width=${width},height=${height},left=${left},top=${top}`,
+      );
+
+      const handleMessage = (event: MessageEvent) => {
+        if (event.origin !== window.location.origin) return;
+
+        const { accessToken } = event.data;
+        if (accessToken) {
+          localStorage.setItem('accessToken', accessToken);
+          window.removeEventListener('message', handleMessage);
+          router.push('/dashboard');
+        }
+      };
+      window.addEventListener('message', handleMessage);
+
+      if (!popup) return;
     }
   };
 
@@ -76,6 +99,7 @@ export const SignInForm = ({
     <form onSubmit={onSubmit} className={styles.form} noValidate>
       <div className={styles.socials}>
         <Button
+          type='button'
           onClick={onGoogle}
           icon={<Image src={GoogleImg} alt='Google' width={20} height={20} />}
           variant='transparentWhite'
@@ -85,6 +109,7 @@ export const SignInForm = ({
           <Text>Google</Text>
         </Button>
         <Button
+          type='button'
           icon={<Image src={YandexImg} alt='Yandex' width={50} height={50} />}
           variant='transparentWhite'
           size='sm'
