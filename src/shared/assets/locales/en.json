@@ -51,7 +51,8 @@
         "signIn": "Sign in",
         "signUp": "Sign up",
         "verifyEmail": "Verify email",
-        "twoFactorAuthentication": "Two-Factor Authentication"
+        "twoFactorAuthentication": "Two-Factor Authentication",
+        "recover": "Recover"
       }
     },
     "common": {

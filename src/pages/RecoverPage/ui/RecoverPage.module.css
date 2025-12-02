@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.margin {
+  margin-top: 20px;
+}
+
+.container {
+  margin-top: 4px;
+}
+
+.stepper {
+  justify-content: center;
+  margin-top: var(--space-24);
+}
+
+.captcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-16);
+}
+
+.button {
+  margin-top: var(--space-28);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-16);
+  gap: 8px;
+}

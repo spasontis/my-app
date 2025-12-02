@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,27 +10,26 @@ import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 
-import { SignUpData } from '../../../types';
+import { RecoverData } from '../../../types';
 
-import { useVerifyEmail } from '../api';
 import { DEFAULT_VERIFY_EMAIL_VALUES } from '../constants';
 import { verifyEmailSchema } from '../model';
 import { VerifyEmailFields } from '../types';
 
-import styles from '../../../ui/SignUpPage.module.css';
+import styles from '../../../ui/RecoverPage.module.css';
 
-export const VerifyEmailForm = ({
-  signUpData,
-  setSignUpData,
+export const VerifyRecoverForm = ({
+  recoverData,
+  setRecoverData,
   onNext,
 }: {
-  signUpData: SignUpData;
-  setSignUpData: React.Dispatch<React.SetStateAction<SignUpData>>;
+  recoverData: RecoverData;
+  setRecoverData: React.Dispatch<React.SetStateAction<RecoverData>>;
   onNext: () => void;
 }) => {
   const t = useTranslations('translation');
 
-  const verifyEmailMutation = useVerifyEmail();
+  // const verifyRecoverMutation = useVerifyRecover();
 
   const {
     register,
@@ -41,15 +42,18 @@ export const VerifyEmailForm = ({
   });
 
   const onSubmit = handleSubmit((values) => {
-    verifyEmailMutation.mutate(
-      { email: signUpData.email, token: values.code },
-      {
-        onSuccess: () => {
-          setSignUpData((prev) => ({ ...prev, code: values.code }));
-          onNext();
-        },
-      },
-    );
+    // verifyRecoverMutation.mutate(
+    //   { email: signUpData.email, token: values.code },
+    //   {
+    //     onSuccess: () => {
+    //       setRecoverData((prev) => ({ ...prev, code: values.code }));
+    //       onNext();
+    //     },
+    //   },
+    // );
+    setRecoverData((prev) => ({ ...prev, code: values.code }));
+    console.log(recoverData);
+    onNext();
   });
 
   useEffect(() => setFocus('code'), [setFocus]);
@@ -71,7 +75,7 @@ export const VerifyEmailForm = ({
         size='md'
         variant='primary'
         className={styles.button}
-        loading={verifyEmailMutation.isPending}
+        // loading={verifyRecoverMutation.isPending}
         fullWidth
       >
         {t('common.confirm')}
