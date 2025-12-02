@@ -15,9 +15,9 @@ import { Button } from '../../Button';
 import { AuthLayoutProps, ProviderTypes } from '../types';
 
 import styles from './AuthCard.module.css';
-import { POPUP_HEIGHT, POPUP_WIDTH } from '../constants';
+import { DEFAULT_OAUTH_VALUE, POPUP_HEIGHT, POPUP_WIDTH } from '../constants';
 
-export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth, children }) => {
+export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VALUE, children }) => {
   const t = useTranslations('translation');
   const router = useRouter();
 

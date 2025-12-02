@@ -1,0 +1,1 @@
+export { VerifyRecoverForm } from './VerifyRecoverForm';

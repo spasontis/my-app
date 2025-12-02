@@ -51,7 +51,8 @@
         "signIn": "Войти",
         "signUp": "Зарегистрироваться",
         "verifyEmail": "Подтвердите почту",
-        "twoFactorAuthentication": "Двух-факторная аутентификация"
+        "twoFactorAuthentication": "Двух-факторная аутентификация",
+        "recover": "Восстановить аккаунт"
       }
     },
     "common": {
