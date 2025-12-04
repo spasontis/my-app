@@ -9,14 +9,14 @@ import { TextInput } from '@/shared/components/TextInput';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
-
-import { RecoverData } from '../../../types';
+import { RecoverData } from '@/pages/RecoverPage/types';
 
 import { DEFAULT_VERIFY_EMAIL_VALUES } from '../constants';
 import { verifyEmailSchema } from '../model';
 import { VerifyEmailFields } from '../types';
 
 import styles from '../../../ui/RecoverPage.module.css';
+import { useVerifyRecover } from '../api';
 
 export const VerifyRecoverForm = ({
   recoverData,
@@ -29,7 +29,7 @@ export const VerifyRecoverForm = ({
 }) => {
   const t = useTranslations('translation');
 
-  // const verifyRecoverMutation = useVerifyRecover();
+  const verifyRecoverMutation = useVerifyRecover();
 
   const {
     register,
@@ -42,18 +42,15 @@ export const VerifyRecoverForm = ({
   });
 
   const onSubmit = handleSubmit((values) => {
-    // verifyRecoverMutation.mutate(
-    //   { email: signUpData.email, token: values.code },
-    //   {
-    //     onSuccess: () => {
-    //       setRecoverData((prev) => ({ ...prev, code: values.code }));
-    //       onNext();
-    //     },
-    //   },
-    // );
-    setRecoverData((prev) => ({ ...prev, code: values.code }));
-    console.log(recoverData);
-    onNext();
+    verifyRecoverMutation.mutate(
+      { email: recoverData.email, token: values.code },
+      {
+        onSuccess: () => {
+          setRecoverData((prev) => ({ ...prev, token: values.code }));
+          onNext();
+        },
+      },
+    );
   });
 
   useEffect(() => setFocus('code'), [setFocus]);
@@ -75,7 +72,7 @@ export const VerifyRecoverForm = ({
         size='md'
         variant='primary'
         className={styles.button}
-        // loading={verifyRecoverMutation.isPending}
+        loading={verifyRecoverMutation.isPending}
         fullWidth
       >
         {t('common.confirm')}

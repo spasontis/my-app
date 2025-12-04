@@ -23,6 +23,7 @@
         "enterVerificationCode": "Enter verification code"
       },
       "text": {
+        "recoverRequirements": "Please enter your account email address. A recover code will be sent to confirm this address.",
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
         "captchaInvalid": "You must complete the CAPTCHA",
         "codeRequirements": "Please check your email and enter the verification code above",
@@ -86,17 +87,33 @@
     },
     "notifications": {
       "auth": {
+        "passwordChanged": {
+          "title": "Password changed",
+          "description": "Your password has been successfully updated"
+        },
+        "recoverVerified": {
+          "title": "Recover verified",
+          "description": "Now enter your new account password"
+        },
+        "userNotFound": {
+          "title": "User not found",
+          "description": "No account exists with the provided information"
+        },
+        "socialAccount": {
+          "title": "Social account",
+          "description": "The password cannot be restored because the account was created via a social network"
+        },
         "invalidTwoFactor": {
           "title": "Invalid two-factor code",
-          "description": "The entered two-factor authentication code is incorrect."
+          "description": "The entered two-factor authentication code is incorrect"
         },
         "loginExist": {
           "title": "Account already exists",
-          "description": "An account with this email or username already exists."
+          "description": "An account with this email or username already exists"
         },
         "accountCreated": {
           "title": "Account created",
-          "description": "Your account has been successfully registered."
+          "description": "Your account has been successfully registered"
         },
         "invalidCode": {
           "title": "Invalid code",

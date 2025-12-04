@@ -1,36 +1,40 @@
 import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import axios from 'axios';
 
 import { showToast } from '@/shared/components/Toast';
-import { publicApi } from '@/shared/api';
 import { HttpStatus } from '@/shared/constants';
+import { publicApi } from '@/shared/api';
 
-import { SignUpData } from '../../../types';
+import { RecoverFields } from '../types';
 
-export const useCreateAccount = () => {
+export const useRecover = () => {
   const t = useTranslations('translation.notifications');
-  const router = useRouter();
 
   return useMutation({
-    mutationFn: (dto: SignUpData) => publicApi.api.authControllerRegister(dto),
+    mutationFn: (dto: RecoverFields) => publicApi.api.authControllerSendRecoverToken(dto),
     onSuccess: () => {
-      router.push('/sign-in');
       showToast({
-        variant: 'success',
-        title: t('auth.accountCreated.title'),
-        description: t('auth.accountCreated.description'),
+        variant: 'default',
+        title: t('auth.сodeSent.title'),
+        description: t('auth.сodeSent.description'),
       });
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {
         const status = error.response?.status;
+        if (status === HttpStatus.NotFound) {
+          showToast({
+            variant: 'failed',
+            title: t('auth.userNotFound.title'),
+            description: t('auth.userNotFound.description'),
+          });
+        }
         if (status === HttpStatus.Conflict) {
           showToast({
             variant: 'failed',
-            title: t('auth.loginExist.title'),
-            description: t('auth.loginExist.description'),
+            title: t('auth.socialAccount.title'),
+            description: t('auth.socialAccount.description'),
           });
         }
       } else {
