@@ -12,8 +12,7 @@ export const useSignUp = () => {
   const t = useTranslations('translation.notifications');
 
   return useMutation({
-    mutationFn: (dto: SignUpFields) =>
-      publicApi.api.authControllerSendRegisterVerificationToken(dto),
+    mutationFn: (dto: SignUpFields) => publicApi.api.authControllerSendVerificationToken(dto),
     onSuccess: () => {
       showToast({
         variant: 'default',

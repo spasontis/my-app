@@ -12,11 +12,11 @@ import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 import { RecoverData } from '@/pages/RecoverPage/types';
 
+import { useRecover } from '../api/useRecover';
+
 import { DEFAULT_ENTER_EMAIL_VALUES } from '../constants';
 import { recoverSchema } from '../model';
 import { RecoverFields } from '../types';
-
-import Link from 'next/link';
 
 import styles from '../../../ui/RecoverPage.module.css';
 
@@ -29,7 +29,7 @@ export const RecoverForm = ({
 }) => {
   const t = useTranslations('translation');
 
-  // const recoverMutation = useRecover();
+  const recoverMutation = useRecover();
 
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const [recaptchaInvalid, setRecaptchaInvalid] = useState<boolean>(false);
@@ -45,22 +45,19 @@ export const RecoverForm = ({
   });
 
   const onSubmit = handleSubmit((values) => {
-    // if (recaptchaValue) {
-    //   recoverMutation.mutate(
-    //     { email: values.email },
-    //     {
-    //       onSuccess: () => {
-    //         setRecoverData((prev) => ({ ...prev, email: values.email }));
-    //         onNext();
-    //       },
-    //     },
-    //   );
-    // } else {
-    //   setRecaptchaInvalid(true);
-    // }
-    setRecoverData((prev) => ({ ...prev, email: values.email }));
-    console.log(values);
-    onNext();
+    if (recaptchaValue) {
+      recoverMutation.mutate(
+        { email: values.email },
+        {
+          onSuccess: () => {
+            setRecoverData((prev) => ({ ...prev, email: values.email }));
+            onNext();
+          },
+        },
+      );
+    } else {
+      setRecaptchaInvalid(true);
+    }
   });
 
   useEffect(() => setFocus('email'), [setFocus]);
@@ -75,7 +72,7 @@ export const RecoverForm = ({
         {...register('email')}
       ></TextInput>
       <Text variant='text2' color='content1' className={styles.container}>
-        {t('auth.text.emailRequirements')}
+        {t('auth.text.recoverRequirements')}
       </Text>
       <ReCAPTCHA
         className={styles.captcha}
@@ -92,18 +89,12 @@ export const RecoverForm = ({
         size='md'
         variant='primary'
         className={styles.button}
-        // loading={recoverMutation.isPending}
+        loading={recoverMutation.isPending}
         fullWidth
       >
         {t('common.continue')}
       </Button>
       <Stepper className={styles.stepper} steps={3} current={1}></Stepper>
-      <div className={styles.footer}>
-        <Text color='content1'>{t('auth.text.haveAccount')}</Text>
-        <Text>
-          <Link href={'./sign-in'}>{t('auth.text.signIn')}</Link>
-        </Text>
-      </div>
     </form>
   );
 };

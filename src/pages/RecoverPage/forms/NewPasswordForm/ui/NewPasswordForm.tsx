@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { AuthCard } from '@/shared/components/AuthCard';
 import { TextInput } from '@/shared/components/TextInput';
 import { Text } from '@/shared/components/Text';
 import { Button } from '@/shared/components/Button';
 import { Stepper } from '@/shared/components/Stepper';
 import { RecoverData } from '@/pages/RecoverPage/types';
 
+import { useNewPassword } from '../api';
 import { DEFAULT_NEW_PASSWORD_VALUES } from '../constants';
 import { newPasswordSchema } from '../model';
 import { NewPasswordFields } from '../types';
@@ -21,7 +21,7 @@ import styles from '../../../ui/RecoverPage.module.css';
 export const NewPasswordForm = ({ recoverData }: { recoverData: RecoverData }) => {
   const t = useTranslations('translation');
 
-  //   const newPasswordMutation = useNewPassword();
+  const newPasswordMutation = useNewPassword();
 
   const {
     register,
@@ -34,11 +34,11 @@ export const NewPasswordForm = ({ recoverData }: { recoverData: RecoverData }) =
   });
 
   const onSubmit = handleSubmit((values) => {
-    // newPasswordMutation.mutate({
-    //   email: recoverData.email,
-    //   password: values.password,
-    // });
-    console.log(values);
+    newPasswordMutation.mutate({
+      email: recoverData.email,
+      password: values.password,
+      token: recoverData.token,
+    });
   });
 
   useEffect(() => setFocus('password'), [setFocus]);
