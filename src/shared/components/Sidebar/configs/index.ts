@@ -7,7 +7,7 @@ export const tabs: Record<string, TabData<any>> = {
   menu: {
     id: 'menu',
     modal: true,
-    component: dynamic<ModalData>(() => import('@/features/Menu')),
+    component: dynamic<ModalData>(() => import('@/widgets/Menu')),
     icon: Menu,
     section: 'top',
   },
@@ -28,14 +28,14 @@ export const tabs: Record<string, TabData<any>> = {
   friends: {
     id: 'friends',
     modal: true,
-    component: dynamic<ModalData>(() => import('@/features/Friends')),
+    component: dynamic<ModalData>(() => import('@/widgets/Friends')),
     icon: Users,
     section: 'bottom',
   },
   dailys: {
     id: 'dailys',
     modal: true,
-    component: dynamic<ModalData>(() => import('@/features/DailyChallenges')),
+    component: dynamic<ModalData>(() => import('@/widgets/DailyChallenges')),
     icon: BookMarked,
     section: 'bottom',
   },
