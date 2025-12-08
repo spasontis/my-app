@@ -157,6 +157,9 @@
       "text": {
         "progress": "Прогресс"
       }
+    },
+    "components": {
+      "codeInput": { "sentTo": "Код был отправлен на" }
     }
   }
 }
