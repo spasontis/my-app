@@ -11,60 +11,39 @@
   align-items: center;
 }
 
-.destination {
-  color: white;
-}
-
-.input {
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-sizing: content-box;
-
-  cursor: default;
-
-  &:focus-within {
-    box-shadow: inset 0 0 0 2px var(--primary);
-  }
-}
-
-.control {
-  flex: 1;
-  background-color: transparent;
-  outline: none;
-  padding-inline-end: var(--space-2);
-  caret-color: var(--primary);
-}
-
-.disabled {
-  opacity: 0.4;
-}
-
-.otpWrapper {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
 .cells {
   display: flex;
+  position: relative;
   gap: 4px;
 }
 
 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 58px;
   height: 56px;
   border-radius: 10px;
   border: 1px solid var(--border-color-1);
   transition: box-shadow 0.15s ease;
   font-size: 28px;
-  font-family: monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
   font-weight: 600;
+}
+
+.control {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.destination {
+  color: white;
+}
+
+.disabled {
+  opacity: 0.4;
 }
 
 .active {
@@ -94,25 +73,4 @@
   100% {
     opacity: 1;
   }
-}
-
-.realInput {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-
-  background: transparent;
-  border: none;
-  outline: none;
-
-  color: transparent;
-  caret-color: transparent;
-
-  letter-spacing: -0.5em;
-  font-family: monospace;
-  font-size: 40px;
-  font-variant-numeric: tabular-nums;
-
-  pointer-events: all;
 }

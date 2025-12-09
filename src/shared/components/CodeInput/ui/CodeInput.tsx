@@ -9,6 +9,7 @@ import { Hint } from '@/shared/components/Hint';
 import { CodeInputProps } from '../types';
 
 import clsx from 'clsx';
+
 import styles from './CodeInput.module.css';
 
 export const CodeInput: FC<CodeInputProps> = ({
@@ -50,29 +51,28 @@ export const CodeInput: FC<CodeInputProps> = ({
         </Text>
         {hint && <Hint variant={invalid ? 'error' : 'default'}>{hint}</Hint>}
       </div>
-      <div className={clsx(styles.otpWrapper)}>
-        <div className={styles.cells} onClick={() => document.getElementById(inputId)?.focus()}>
-          {Array.from({ length: length }).map((_, i) => {
-            const char = digits[i];
-            const isEmpty = char === ' ';
-            const isActive = i === activeIndex;
-            const showCursor = isFocused && isEmpty && isActive && !disabled;
-            return (
-              <div
-                key={i}
-                className={clsx(
-                  styles.cell,
-                  invalid && styles.invalid,
-                  isActive && isFocused && styles.active,
-                )}
-                tabIndex={0}
-              >
-                {!isEmpty && char}
-                {showCursor && <div className={styles.cursor} />}
-              </div>
-            );
-          })}
-        </div>
+      <div className={styles.cells} onClick={() => document.getElementById(inputId)?.focus()}>
+        {Array.from({ length: length }).map((_, i) => {
+          const char = digits[i];
+          const isEmpty = char === ' ';
+          const isActive = i === activeIndex;
+          const showCursor = isFocused && isEmpty && isActive && !disabled;
+          return (
+            <div
+              key={i}
+              className={clsx(
+                styles.cell,
+                invalid && styles.invalid,
+                isActive && isFocused && styles.active,
+              )}
+              tabIndex={0}
+            >
+              {!isEmpty && char}
+              {showCursor && <div className={styles.cursor} />}
+            </div>
+          );
+        })}
+
         <input
           id={inputId}
           maxLength={length}
@@ -82,7 +82,7 @@ export const CodeInput: FC<CodeInputProps> = ({
           onBlur={() => setIsFocused(false)}
           onChange={onChange}
           aria-invalid={invalid}
-          className={clsx(styles.realInput, 'hidden')}
+          className={clsx(styles.control)}
           {...props}
         />
       </div>

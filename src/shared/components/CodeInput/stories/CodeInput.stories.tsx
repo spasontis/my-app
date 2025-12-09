@@ -8,9 +8,26 @@ const meta = {
   component: CodeInput,
   tags: ['autodocs'],
   argTypes: {
-    type: {
-      control: 'select',
-      options: ['text', 'password', 'email', 'search', 'tel', 'url', 'number'],
+    length: {
+      control: 'number',
+    },
+    destination: {
+      control: 'text',
+    },
+    value: {
+      control: 'text',
+    },
+    hint: {
+      control: 'text',
+    },
+    hideLabel: {
+      control: 'boolean',
+    },
+    invalid: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
     },
   },
   render: (args) => {
