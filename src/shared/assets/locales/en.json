@@ -158,6 +158,9 @@
       "text": {
         "progress": "Progress"
       }
+    },
+    "components": {
+      "codeInput": { "sentTo": "A code has been sent to" }
     }
   }
 }
