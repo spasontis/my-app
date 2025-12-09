@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useId } from 'react';
+import React, { FC, useState, useId, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Text } from '@/shared/components/Text';
@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import styles from './CodeInput.module.css';
 
 export const CodeInput: FC<CodeInputProps> = ({
+  length,
   destination,
   hint,
   value = '',
@@ -25,11 +26,20 @@ export const CodeInput: FC<CodeInputProps> = ({
   const classes = clsx(styles.wrapper, className, disabled && styles.disabled);
 
   const t = useTranslations('translation.components');
+  const [isFocused, setIsFocused] = useState(false);
   const inputId = useId();
 
   const stringValue = String(value);
-  const digits = stringValue.padEnd(4, ' ');
-  const activeIndex = Math.min(stringValue.length, 3);
+  const digits = stringValue.padEnd(length, ' ');
+  const activeIndex = Math.min(stringValue.length, length - 1);
+
+  useEffect(() => {
+    if (stringValue.length === length) {
+      setIsFocused(false);
+      const input = document.getElementById(inputId) as HTMLInputElement | null;
+      input?.blur();
+    }
+  }, [stringValue, length, inputId]);
 
   return (
     <label className={classes}>
@@ -40,16 +50,23 @@ export const CodeInput: FC<CodeInputProps> = ({
         </Text>
         {hint && <Hint variant={invalid ? 'error' : 'default'}>{hint}</Hint>}
       </div>
-      <div className={clsx(styles.otpWrapper, invalid && styles.invalid)}>
+      <div className={clsx(styles.otpWrapper)}>
         <div className={styles.cells} onClick={() => document.getElementById(inputId)?.focus()}>
-          {Array.from({ length: 4 }).map((_, i) => {
+          {Array.from({ length: length }).map((_, i) => {
             const char = digits[i];
             const isEmpty = char === ' ';
             const isActive = i === activeIndex;
-            const showCursor = isEmpty && isActive && !disabled;
-
+            const showCursor = isFocused && isEmpty && isActive && !disabled;
             return (
-              <div key={i} className={clsx(styles.cell, isActive && styles.active)}>
+              <div
+                key={i}
+                className={clsx(
+                  styles.cell,
+                  invalid && styles.invalid,
+                  isActive && isFocused && styles.active,
+                )}
+                tabIndex={0}
+              >
                 {!isEmpty && char}
                 {showCursor && <div className={styles.cursor} />}
               </div>
@@ -58,17 +75,14 @@ export const CodeInput: FC<CodeInputProps> = ({
         </div>
         <input
           id={inputId}
-          name='otp'
-          data-1p-ignore='true'
-          data-lpignore='true'
-          data-input-otp='true'
-          inputMode='numeric'
-          maxLength={4}
+          maxLength={length}
           disabled={disabled}
           value={value}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           onChange={onChange}
           aria-invalid={invalid}
-          className={styles.realInput}
+          className={clsx(styles.realInput, 'hidden')}
           {...props}
         />
       </div>

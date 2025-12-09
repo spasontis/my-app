@@ -30,11 +30,57 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    length: 4,
     destination: 'usermail@gmail.com',
-    value: '234',
+    value: '',
     hint: 'Enter it below to complete your sign in.',
     hideLabel: false,
     invalid: false,
     disabled: false,
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    length: 4,
+    destination: 'usermail@gmail.com',
+    value: '1',
+    hint: 'Enter it below to complete your sign in.',
+    invalid: true,
+  },
+};
+
+export const NotFull: Story = {
+  args: {
+    length: 4,
+    destination: 'usermail@gmail.com',
+    value: '234',
+    hint: 'Enter it below to complete your sign in.',
+  },
+};
+
+export const Filled: Story = {
+  args: {
+    length: 4,
+    destination: 'usermail@gmail.com',
+    value: '2343',
+    hint: 'Enter it below to complete your sign in.',
+  },
+};
+
+export const Hided: Story = {
+  args: {
+    length: 4,
+    destination: 'usermail@gmail.com',
+    value: '2343',
+    hideLabel: true,
+  },
+};
+
+export const Big: Story = {
+  args: {
+    length: 6,
+    destination: 'usermail@gmail.com',
+    hint: 'Enter it below to complete your sign in.',
   },
 };
