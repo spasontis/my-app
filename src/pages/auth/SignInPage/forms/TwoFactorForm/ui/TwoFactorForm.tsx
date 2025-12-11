@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
 import { SignInData } from '@/pages/auth/SignInPage/types';
+import { CodeInput } from '@/shared/components/CodeInput';
 import { Button } from '@/shared/components/Button';
-import { TextInput } from '@/shared/components/TextInput';
-import { Text } from '@/shared/components/Text';
 
 import { DEFAULT_TWO_FACTOR_VALUES } from '../constants';
 import { twoFactorSchema } from '../model';
@@ -20,6 +19,9 @@ export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
 
   const verifyEmailMutation = useVerifyEmail();
 
+  const [code, setCode] = useState('');
+  const [active, setActive] = useState(true);
+
   const {
     register,
     setFocus,
@@ -29,6 +31,15 @@ export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
     resolver: zodResolver(twoFactorSchema),
     defaultValues: DEFAULT_TWO_FACTOR_VALUES,
   });
+
+  const { name, ref, onChange, onBlur } = register('token', {
+    onChange: (e) => {
+      setCode(e.target.value);
+    },
+    onBlur: () => setActive(false),
+  });
+
+  const onFocus = () => setActive(true);
 
   const onSubmit = handleSubmit((values) => {
     verifyEmailMutation.mutate({ login: signInData.login, token: values.token });
@@ -40,16 +51,20 @@ export const TwoFactorForm = ({ signInData }: { signInData: SignInData }) => {
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <TextInput
-        label={t('auth.label.verificationCode')}
+      <CodeInput
+        destination='usermail@gmail.com'
+        length={6}
         placeholder={t('auth.placeholder.enterVerificationCode')}
         invalid={!!errors.token}
         hint={errors.token?.message && t(errors.token.message)}
-        {...register('token')}
-      ></TextInput>
-      <Text variant='text2' color='content1' className={styles.container}>
-        {t('auth.text.codeRequirements')}
-      </Text>
+        name={name}
+        value={code}
+        active={active}
+        inputRef={ref}
+        onFocus={onFocus}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
       <Button
         type='submit'
         size='md'

@@ -20,8 +20,8 @@ export const SignInPage = () => {
 
   return (
     <AuthCard title={t('auth.title.signIn')} oauth={step === 1}>
-      {step === 1 && <SignInForm onNext={onNext} setSignInData={setSignInData} />}
-      {step === 2 && <TwoFactorForm signInData={signInData} />}
+      {step === 2 && <SignInForm onNext={onNext} setSignInData={setSignInData} />}
+      {step === 1 && <TwoFactorForm signInData={signInData} />}
     </AuthCard>
   );
 };

@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 
-import { TextInput } from '@/shared/components/TextInput';
+import { CodeInput } from '@/shared/components/CodeInput';
 import { Button } from '@/shared/components/Button';
-import { Text } from '@/shared/components/Text';
 import { Stepper } from '@/shared/components/Stepper';
 
 import { SignUpData } from '../../../types';
@@ -28,6 +27,9 @@ export const VerifyEmailForm = ({
 }) => {
   const t = useTranslations('translation');
 
+  const [code, setCode] = useState('');
+  const [active, setActive] = useState(true);
+
   const verifyEmailMutation = useVerifyEmail();
 
   const {
@@ -39,6 +41,15 @@ export const VerifyEmailForm = ({
     resolver: zodResolver(verifyEmailSchema),
     defaultValues: DEFAULT_VERIFY_EMAIL_VALUES,
   });
+
+  const { name, ref, onChange, onBlur } = register('token', {
+    onChange: (e) => {
+      setCode(e.target.value);
+    },
+    onBlur: () => setActive(false),
+  });
+
+  const onFocus = () => setActive(true);
 
   const onSubmit = handleSubmit((values) => {
     verifyEmailMutation.mutate(
@@ -56,16 +67,20 @@ export const VerifyEmailForm = ({
 
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
-      <TextInput
-        label={t('auth.label.code')}
+      <CodeInput
+        destination='usermail@gmail.com'
+        length={6}
         placeholder={t('auth.placeholder.enterCode')}
         invalid={!!errors.token}
-        hint={errors.token?.message && t(errors.token?.message)}
-        {...register('token')}
-      ></TextInput>
-      <Text variant='text2' color='content1' className={styles.container}>
-        {t('auth.text.codeRequirements')}
-      </Text>
+        hint={errors.token?.message && t(errors.token.message)}
+        name={name}
+        value={code}
+        active={active}
+        inputRef={ref}
+        onFocus={onFocus}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
       <Button
         type='submit'
         size='md'

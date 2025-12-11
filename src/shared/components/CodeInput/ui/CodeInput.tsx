@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useState, useId, useEffect } from 'react';
+import React, { FC, useId } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Text } from '@/shared/components/Text';
@@ -17,30 +17,26 @@ export const CodeInput: FC<CodeInputProps> = ({
   destination,
   hint,
   value = '',
+  active = false,
   invalid,
   hideLabel,
   disabled,
+  inputRef,
   className,
+  onFocus,
+  onBlur,
   onChange,
   ...props
 }) => {
   const classes = clsx(styles.wrapper, className, disabled && styles.disabled);
 
   const t = useTranslations('translation.components');
-  const [isFocused, setIsFocused] = useState(false);
+
   const inputId = useId();
 
   const stringValue = String(value);
   const digits = stringValue.padEnd(length, ' ');
   const activeIndex = Math.min(stringValue.length, length - 1);
-
-  useEffect(() => {
-    if (stringValue.length === length) {
-      setIsFocused(false);
-      const input = document.getElementById(inputId) as HTMLInputElement | null;
-      input?.blur();
-    }
-  }, [stringValue, length, inputId]);
 
   return (
     <label className={classes}>
@@ -56,14 +52,14 @@ export const CodeInput: FC<CodeInputProps> = ({
           const char = digits[i];
           const isEmpty = char === ' ';
           const isActive = i === activeIndex;
-          const showCursor = isFocused && isEmpty && isActive && !disabled;
+          const showCursor = active && isEmpty && isActive && !disabled;
           return (
             <div
               key={i}
               className={clsx(
                 styles.cell,
                 invalid && styles.invalid,
-                isActive && isFocused && styles.active,
+                isActive && active && styles.active,
               )}
               tabIndex={0}
             >
@@ -78,11 +74,12 @@ export const CodeInput: FC<CodeInputProps> = ({
           maxLength={length}
           disabled={disabled}
           value={value}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          onChange={onChange}
+          ref={inputRef}
           aria-invalid={invalid}
           className={clsx(styles.control)}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={onChange}
           {...props}
         />
       </div>
