@@ -62,19 +62,14 @@
       "continue": "Continue",
       "send": "Send"
     },
-    "header": {
-      "buttons": {
+    "home": {
+      "button": {
+        "getStarted": "Get started",
         "blog": "Blog",
         "forCompanies": "For Companies",
         "forEducators": "For Educators",
         "join": "Join",
-        "signIn": "Sign In",
-        "help": "Help"
-      }
-    },
-    "home": {
-      "button": {
-        "getStarted": "Get started"
+        "signIn": "Sign In"
       },
       "description": {
         "partOne": "Improve your development skills by training on code tasks that",
@@ -83,6 +78,11 @@
       "label": {
         "achieveMastery": "Achieve Mastery",
         "throughChallenge": "through challenge"
+      }
+    },
+    "dashboard": {
+      "button": {
+        "help": "Help"
       }
     },
     "notifications": {

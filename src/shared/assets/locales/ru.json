@@ -62,19 +62,14 @@
       "continue": "Продолжить",
       "send": "Отправить"
     },
-    "header": {
-      "buttons": {
+    "home": {
+      "button": {
+        "getStarted": "Начать",
         "blog": "Блог",
         "forCompanies": "Для компаний",
         "forEducators": "Для педагогов",
         "join": "Присоединиться",
-        "signIn": "Войти",
-        "help": "Помощь"
-      }
-    },
-    "home": {
-      "button": {
-        "getStarted": "Начать"
+        "signIn": "Войти"
       },
       "description": {
         "partOne": "Улучшите свои навыки разработки, тр енируясь над задачами, которые",
@@ -83,6 +78,11 @@
       "label": {
         "achieveMastery": "Достигните мастерства",
         "throughChallenge": "через вызов"
+      }
+    },
+    "dashboard": {
+      "button": {
+        "help": "Помощь"
       }
     },
     "notifications": {
