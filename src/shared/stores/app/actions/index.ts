@@ -1,8 +1,10 @@
 import { queryClient } from '@/shared/configs/queryClient';
 import { jwtDecode } from 'jwt-decode';
+
+import { TokenPayload } from '../types/index';
+
 import { INITIAL_STATE, ONE_SECOND } from '../constants';
 import { useAppStore } from '../hooks';
-import { TokenPayload } from '../types/index';
 import { mapTokenPayload } from '../mappers';
 
 export const setAuth = (accessToken: string) => {
