@@ -23,18 +23,17 @@
         "enterVerificationCode": "Enter verification code"
       },
       "text": {
-        "recoverRequirements": "Please enter your account email address. A recover code will be sent to confirm this address.",
         "agreement": "By continuing, you agree to the <privacy >privacy policy</privacy > and <cookie >cookie policy</cookie >, and accept <terms>the terms of the license agreement</terms>.",
         "captchaInvalid": "You must complete the CAPTCHA",
-        "codeRequirements": "Please check your email and enter the verification code above",
         "codeNumber": "Code must contain only numbers",
+        "codeRequirements": "Please check your email and enter the verification code above",
+        "emailInvalid": "Email must be valid",
         "emailRequirements": "Please enter a valid email address. A verification code will be sent to this address",
+        "forgotPassword": "Forgot password?",
+        "haveAccount": "Already have account?",
         "loginLength": "Login must be at least 6 characters long",
         "loginRequirements": "Account name must contain at least 6 characters and include both letters and numbers",
         "loginSymbols": "Account name may contain only Latin letters and numbers.",
-        "emailInvalid": "Email must be valid",
-        "forgotPassword": "Forgot password?",
-        "haveAccount": "Already have account?",
         "noAccount": "Don't have an account?",
         "orContinueWith": "Or continue with",
         "passwordLatin": "Only Latin letters and digits are allowed",
@@ -44,30 +43,41 @@
         "passwordNumber": "Must contain at least one digit",
         "passwordRequirements": "Must contain 8 characters, lowercase and uppercase Latin letters, and numbers",
         "passwordUpperCase": "Must contain at least one uppercase letter",
+        "recoverRequirements": "Please enter your account email address. A recover code will be sent to confirm this address.",
         "signIn": "Sign in",
         "signUp": "Sign up"
       },
       "title": {
         "createAccount": "Сreate Account",
+        "recover": "Recover",
         "signIn": "Sign in",
         "signUp": "Sign up",
-        "verifyEmail": "Verify email",
         "twoFactorAuthentication": "Two-Factor Authentication",
-        "recover": "Recover"
+        "verifyEmail": "Verify email"
       }
     },
     "common": {
-      "confirm": "Confirm",
       "close": "Close",
+      "confirm": "Confirm",
       "continue": "Continue",
       "send": "Send"
     },
+    "components": {
+      "codeInput": {
+        "sentTo": "A code has been sent to"
+      }
+    },
+    "dashboard": {
+      "button": {
+        "help": "Help"
+      }
+    },
     "home": {
       "button": {
-        "getStarted": "Get started",
         "blog": "Blog",
         "forCompanies": "For Companies",
         "forEducators": "For Educators",
+        "getStarted": "Get started",
         "join": "Join",
         "signIn": "Sign In"
       },
@@ -80,76 +90,72 @@
         "throughChallenge": "through challenge"
       }
     },
-    "dashboard": {
-      "button": {
-        "help": "Help"
-      }
-    },
     "notifications": {
       "auth": {
-        "passwordChanged": {
-          "title": "Password changed",
-          "description": "Your password has been successfully updated"
-        },
-        "recoverVerified": {
-          "title": "Recover verified",
-          "description": "Now enter your new account password"
-        },
-        "userNotFound": {
-          "title": "User not found",
-          "description": "No account exists with the provided information"
-        },
-        "socialAccount": {
-          "title": "Social account",
-          "description": "The password cannot be restored because the account was created via a social network"
-        },
-        "invalidTwoFactor": {
-          "title": "Invalid two-factor code",
-          "description": "The entered two-factor authentication code is incorrect"
-        },
-        "loginExist": {
-          "title": "Account already exists",
-          "description": "An account with this email or username already exists"
-        },
         "accountCreated": {
-          "title": "Account created",
-          "description": "Your account has been successfully registered"
-        },
-        "invalidCode": {
-          "title": "Invalid code",
-          "description": "The verification code you entered is incorrect. Please try again"
+          "description": "Your account has been successfully registered",
+          "title": "Account created"
         },
         "codeExpired": {
-          "title": "Code expired",
-          "description": "The verification code has expired. Please request a new one"
+          "description": "The verification code has expired. Please request a new one",
+          "title": "Code expired"
+        },
+        "codeSent": {
+          "description": "The verification code has been successfully sent to your email address",
+          "title": "Code sent"
         },
         "codeVerified": {
-          "title": "Code verified",
-          "description": "Now enter your account details"
-        },
-        "verificationCodeSent": {
-          "title": "Code sent",
-          "description": "A verification code has been successfully sent to your email"
+          "description": "Now enter your account details",
+          "title": "Code verified"
         },
         "emailExists": {
-          "title": "Email already in use",
-          "description": "An account with this email already exists"
+          "description": "An account with this email already exists",
+          "title": "Email already in use"
         },
-        "twoFactorRequired": {
-          "title": "Two-Factor Authentication Required",
-          "description": "A code has been sent to your email. Please enter it to complete login"
+        "invalidCode": {
+          "description": "The verification code you entered is incorrect. Please try again",
+          "title": "Invalid code"
         },
         "invalidCredentials": {
-          "title": "Invalid credentials",
-          "description": "Incorrect login or password"
+          "description": "Incorrect login or password",
+          "title": "Invalid credentials"
         },
-
+        "invalidTwoFactor": {
+          "description": "The entered two-factor authentication code is incorrect",
+          "title": "Invalid two-factor code"
+        },
+        "loginExist": {
+          "description": "An account with this email or username already exists",
+          "title": "Account already exists"
+        },
+        "passwordChanged": {
+          "description": "Your password has been successfully updated",
+          "title": "Password changed"
+        },
+        "recoverVerified": {
+          "description": "Now enter your new account password",
+          "title": "Recover verified"
+        },
+        "socialAccount": {
+          "description": "The password cannot be restored because the account was created via a social network",
+          "title": "Social account"
+        },
         "successfulAuth": {
-          "title": "Authorization successful",
-          "description": "You have been successfully logged in"
+          "description": "You have been successfully logged in",
+          "title": "Authorization successful"
+        },
+        "twoFactorRequired": {
+          "description": "A code has been sent to your email. Please enter it to complete login",
+          "title": "Two-Factor Authentication Required"
+        },
+        "userNotFound": {
+          "description": "No account exists with the provided information",
+          "title": "User not found"
         }
       },
-      "common": { "unknownError": "Unknown error" }
+      "common": {
+        "unknownError": "Unknown error"
+      }
     },
     "project": {
       "name": "My App"
@@ -158,9 +164,6 @@
       "text": {
         "progress": "Progress"
       }
-    },
-    "components": {
-      "codeInput": { "sentTo": "A code has been sent to" }
     }
   }
 }

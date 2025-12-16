@@ -1,23 +1,42 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from 'eslint-plugin-storybook';
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
+import i18nJsonPlugin from 'eslint-plugin-i18n-json';
+import path from 'node:path';
 
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+export default defineConfig([
+  tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
   {
-    ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
   },
-  ...storybook.configs['flat/recommended'],
-];
-
-export default eslintConfig;
+  {
+    files: ['**/*.json'],
+    plugins: { 'i18n-json': i18nJsonPlugin },
+    processor: {
+      meta: { name: '.json' },
+      ...i18nJsonPlugin.processors['.json'],
+    },
+    rules: {
+      'i18n-json/identical-keys': [
+        'error',
+        {
+          filePath: path.resolve('src/shared/assets/locales/ru.json'),
+        },
+      ],
+      'i18n-json/identical-placeholders': [
+        'error',
+        {
+          filePath: path.resolve('src/shared/assets/locales/ru.json'),
+        },
+      ],
+      'i18n-json/sorted-keys': 'error',
+      'i18n-json/valid-json': 'error',
+    },
+  },
+]);
