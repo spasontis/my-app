@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/shared/components/Sidebar';
+import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/widgets/Sidebar';
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { BRAND } from '@/shared/constants';

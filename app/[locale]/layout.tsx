@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { hasLocale } from 'next-intl';
 
+import { ClientProviders, ServerProviders } from '@/shared/providers';
 import { routing } from '@/shared/configs/i18n';
-
-import { ClientProviders } from './ClientProviders';
 
 import '@/shared/theme/index.css';
 
@@ -23,9 +22,9 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider locale={locale}>
+        <ServerProviders locale={locale}>
           <ClientProviders>{children}</ClientProviders>
-        </NextIntlClientProvider>
+        </ServerProviders>
       </body>
     </html>
   );
