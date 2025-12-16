@@ -7,7 +7,7 @@
     "dev": "next dev --turbopack -p 4200",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint --fix --ext .json --format node_modules/eslint-plugin-i18n-json/formatter.js src/shared/assets/locales",
     "storybook": "storybook dev -p 4100",
     "build-storybook": "storybook build"
   },
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
     "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.39.2",
     "@storybook/addon-a11y": "^9.1.10",
     "@storybook/addon-docs": "^9.1.10",
     "@storybook/addon-vitest": "^9.1.10",
@@ -45,15 +46,19 @@
     "@types/react-google-recaptcha": "^2.1.9",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9",
+    "eslint": "^9.39.2",
     "eslint-config-next": "15.5.4",
+    "eslint-plugin-i18n-json": "^4.0.1",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-storybook": "^9.1.10",
+    "globals": "^16.5.0",
     "playwright": "^1.56.0",
     "prettier": "3.6.2",
     "storybook": "^9.1.10",
     "storybook-next-intl": "^2.0.13",
     "swagger-typescript-api": "^13.2.16",
     "typescript": "^5",
+    "typescript-eslint": "^8.50.0",
     "vitest": "^3.2.4"
   }
 }
