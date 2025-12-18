@@ -8,7 +8,17 @@ import path from 'node:path';
 
 export default defineConfig([
   tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  {
+    plugins: { react: pluginReact },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+    settings: {
+      react: {
+        runtime: 'automatic',
+      },
+    },
+  },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: { js },
