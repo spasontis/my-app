@@ -16,8 +16,8 @@ export const useSignUp = () => {
     onSuccess: () => {
       showToast({
         variant: 'default',
-        title: t('auth.verificationCodeSent.title'),
-        description: t('auth.verificationCodeSent.description'),
+        title: t('auth.codeSent.title'),
+        description: t('auth.codeSent.description'),
       });
     },
     onError: (error) => {

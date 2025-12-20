@@ -30,6 +30,7 @@ interface ButtonAsButtonProps extends BaseButtonProps, ComponentProps<'button'> 
 
 interface ButtonAsAnchorProps extends BaseButtonProps, ComponentProps<'a'> {
   as: 'a';
+
 }
 
 interface ButtonAsLinkProps extends BaseButtonProps, LinkProps {

@@ -40,7 +40,8 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (props.as === 'Link') {
-    const { ...rest } = props;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+    const { as, ...rest } = props;
     return (
       <Link className={classes} {...rest}>
         {content}

@@ -70,7 +70,7 @@ export const VerifyRecoverForm = ({
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
       <CodeInput
-        destination='usermail@gmail.com'
+        destination={recoverData.email}
         length={6}
         placeholder={t('auth.placeholder.enterCode')}
         invalid={!!errors.token}
