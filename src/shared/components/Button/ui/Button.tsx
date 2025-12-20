@@ -1,3 +1,4 @@
+import type React from 'react';
 import Link from 'next/link';
 
 import { clsx } from 'clsx';
@@ -60,18 +61,18 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button className={classes} disabled={disabled || loading} aria-busy={loading} {...rest}>
       {icon && iconSide === 'start' && (
-        <span className={clsx(styles.icon, { [styles.transparent]: loading })}>{icon}</span>
+        <span className={clsx(styles.icon, { [styles.hide]: loading })}>{icon}</span>
       )}
-      {loading && <Loader aria-hidden className={styles.spinner}></Loader>}{' '}
+      {loading && <Loader aria-hidden className={styles.spinner}></Loader>}
       <Text
         as='span'
         variant='button'
-        className={clsx(styles[`${size}Text`], { [styles.transparent]: loading })}
+        className={clsx(styles[`${size}Text`], { [styles.hide]: loading })}
       >
         {children}
       </Text>
       {icon && iconSide === 'end' && (
-        <span className={clsx(styles.icon, { [styles.transparent]: loading })}>{icon}</span>
+        <span className={clsx(styles.icon, { [styles.hide]: loading })}>{icon}</span>
       )}
     </button>
   );

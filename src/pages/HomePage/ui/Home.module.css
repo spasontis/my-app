@@ -39,15 +39,14 @@
   width: 32px;
 }
 
+.sideNav {
+  display: none;
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-}
-
-.join {
-  color: var(--white);
 }
 
 .main {
@@ -96,4 +95,16 @@
 .start {
   padding-inline: 26px;
   min-width: 162px;
+}
+
+@media (max-width: 992px) {
+  .sideNav {
+    display: flex;
+  }
+  .nav {
+    display: none;
+  }
+  .join {
+    display: none;
+  }
 }

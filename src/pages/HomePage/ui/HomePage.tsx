@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from './Home.module.css';
+import { Menu } from 'lucide-react';
 
 export const HomePage = () => {
   const t = useTranslations('translation.home');
@@ -17,61 +18,54 @@ export const HomePage = () => {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
+        <div className={styles.sideNav}>
+          <Button variant='transparentWhite' icon={<Menu />}></Button>
+        </div>
         <div className={styles.side}>
           <Link href={'./'} className={styles.logo}>
             <Image src='/logo.png' alt='logo' width={96} height={96} className={styles.icon} />
-            <Text variant='title2' weight={800}>
-              {BRAND}
-            </Text>
+            <Text variant='title2'>{BRAND}</Text>
           </Link>
           <div className={styles.nav}>
-            <Link href='./blog'>
-              <Text>{t('button.blog')}</Text>
-            </Link>
-            <Link href='./for-educators'>
-              <Text>{t('button.forEducators')}</Text>
-            </Link>
-            <Link href='./for-companies'>
-              <Text>{t('button.forCompanies')}</Text>
-            </Link>
+            <Button as='Link' href={'./blog'} variant='transparent'>
+              {t('button.blog')}
+            </Button>
+            <Button as='Link' href={'./for-educators'} variant='transparent'>
+              {t('button.forEducators')}
+            </Button>
+            <Button as='Link' href={'./for-companies'} variant='transparent'>
+              {t('button.forCompanies')}
+            </Button>
           </div>
         </div>
         <div className={styles.side}>
-          <Link href={'./sign-in'}>
-            <Button variant='transparentWhite' size='sm'>
-              {t('button.signIn')}
-            </Button>
-          </Link>
-          <Link href={'./sign-up'}>
-            <Button size='sm' className={styles.join}>
-              {t('button.join')}
-            </Button>
-          </Link>
+          <Button as='Link' variant='transparentWhite' href={'./sign-in'} size='sm'>
+            {t('button.signIn')}
+          </Button>
+          <Button as='Link' size='sm' variant='primary' href={'./sign-up'} className={styles.join}>
+            {t('button.join')}
+          </Button>
         </div>
       </header>
       <main className={styles.main}>
         <div className={styles.welcome}>
           <div className={styles.label}>
             <div className={styles.text}>
-              <Text variant='label' weight={800} className={styles.gradient}>
+              <Text variant='label' className={styles.gradient}>
                 {t('label.achieveMastery')}
               </Text>
             </div>
-            <Text variant='label' weight={800}>
-              {t('label.throughChallenge')}
-            </Text>
+            <Text variant='label'>{t('label.throughChallenge')}</Text>
           </div>
-          <Text variant='title3' className={styles.description}>
+          <Text variant='title4' className={styles.description}>
             {t('description.partOne')}
             <br />
             {t('description.partTwo')}
           </Text>
           <div>
-            <Link href={'./sign-up'}>
-              <Button size='md' className={styles.start}>
-                <Text variant='title4'>{t('button.getStarted')}</Text>
-              </Button>
-            </Link>
+            <Button size='md' className={styles.start} href={'./sign-up'}>
+              {t('button.getStarted')}
+            </Button>
           </div>
         </div>
       </main>

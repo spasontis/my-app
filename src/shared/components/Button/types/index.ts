@@ -4,6 +4,7 @@ import { LinkProps } from 'next/link';
 export type ButtonVariant =
   | 'primary'
   | 'whitePrimary'
+  | 'transparent'
   | 'transparentPrimary'
   | 'transparentWhite'
   | 'transparentGray';

@@ -28,7 +28,7 @@
   block-size: 24px;
 }
 
-.transparent {
+.hide {
   opacity: 0;
 }
 
@@ -40,6 +40,18 @@
   block-size: 24px;
   translate: -50% -50%;
   animation: spin 1s linear infinite;
+}
+
+.transparent {
+  color: var(--base-25);
+  border: none;
+  background-color: transparent;
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      color: var(--white);
+    }
+  }
 }
 
 .primary {
@@ -173,6 +185,16 @@
 .smText {
   font-size: 16px;
   line-height: 20px;
+}
+
+.mdText {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.lgText {
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .fullWidth {
