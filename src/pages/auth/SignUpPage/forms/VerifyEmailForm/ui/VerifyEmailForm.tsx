@@ -68,7 +68,7 @@ export const VerifyEmailForm = ({
   return (
     <form onSubmit={onSubmit} className={styles.form} noValidate>
       <CodeInput
-        destination='usermail@gmail.com'
+        destination={signUpData.email}
         length={6}
         placeholder={t('auth.placeholder.enterCode')}
         invalid={!!errors.token}

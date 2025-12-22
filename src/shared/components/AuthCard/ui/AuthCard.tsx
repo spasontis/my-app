@@ -6,19 +6,24 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
-import { Text } from '@/shared/components/Text';
+import { setAuth } from '@/shared/stores/app';
 import { BRAND } from '@/shared/constants';
+import { publicApi } from '@/shared/api';
+
+import { Button } from '@/shared/components/Button';
+import { Text } from '@/shared/components/Text';
+
 import GoogleImg from '@/shared/assets/icons/google.png';
 import YandexImg from '@/shared/assets/icons/yandex.png';
-import { publicApi } from '@/shared/api';
-import { Button } from '../../Button';
+
+import { DEFAULT_OAUTH_VALUE, POPUP_HEIGHT, POPUP_WIDTH } from '../constants';
 import { AuthLayoutProps, ProviderTypes } from '../types';
 
 import styles from './AuthCard.module.css';
-import { DEFAULT_OAUTH_VALUE, POPUP_HEIGHT, POPUP_WIDTH } from '../constants';
 
 export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VALUE, children }) => {
   const t = useTranslations('translation');
+
   const router = useRouter();
 
   const createOAuthHandler = (provider: ProviderTypes) => async () => {
@@ -39,7 +44,7 @@ export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VAL
 
       const { accessToken } = event.data;
       if (accessToken) {
-        localStorage.setItem('accessToken', accessToken);
+        setAuth(accessToken);
         window.removeEventListener('message', handleMessage);
         router.push('/dashboard');
       }
@@ -63,13 +68,11 @@ export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VAL
           </Text>
         </Link>
       </div>
-
       <div className={styles.card}>
         <div className={styles.content}>
           <Text variant='title1' className={styles.title}>
             {title}
           </Text>
-
           {oauth && (
             <>
               <div className={styles.socials}>
@@ -83,7 +86,6 @@ export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VAL
                 >
                   <Text>Google</Text>
                 </Button>
-
                 <Button
                   type='button'
                   onClick={onYandex}
@@ -95,17 +97,14 @@ export const AuthCard: FC<AuthLayoutProps> = ({ title, oauth = DEFAULT_OAUTH_VAL
                   <Text>Яндекс</Text>
                 </Button>
               </div>
-
               <div className={styles.line}>
                 <Text className={styles.or}>{t('auth.text.orContinueWith')}</Text>
               </div>
             </>
           )}
-
           {children}
         </div>
       </div>
-
       <Text variant='caption' className={styles.agreement}>
         {t.rich('auth.text.agreement', {
           privacy: (chunks) => (
