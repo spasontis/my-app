@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Tab, DEFAULT_TAB, tabComponents, Sidebar } from '@/widgets/Sidebar';

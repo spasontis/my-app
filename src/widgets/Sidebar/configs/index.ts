@@ -1,5 +1,6 @@
-import { Menu, ShoppingBasket, LayoutDashboard, Users, BookMarked } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import type React from 'react';
+import { Menu, ShoppingBasket, LayoutDashboard, Users, BookMarked } from 'lucide-react';
 import { ModalData, Tab, TabData } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

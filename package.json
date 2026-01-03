@@ -7,7 +7,9 @@
     "dev": "next dev --turbopack -p 4200",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint --fix --ext .json --format node_modules/eslint-plugin-i18n-json/formatter.js src/shared/assets/locales",
+    "lint": "eslint --report-unused-disable-directives",
+    "lint:fix": "eslint --fix ",
+    "lint:inspect": "npx @eslint/config-inspector",
     "storybook": "storybook dev -p 4100",
     "build-storybook": "storybook build"
   },
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
+    "@eslint/config-inspector": "^1.4.2",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.39.2",
     "@storybook/addon-a11y": "^9.1.10",
