@@ -3,40 +3,35 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import i18nJsonPlugin from 'eslint-plugin-i18n-json';
+import eslintCommentsPlugin from 'eslint-plugin-eslint-comments';
 import path from 'node:path';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    ignores: ['.next/**', '**/*.d.ts', '**/*.config.ts'],
+    name: 'ignores',
+    ignores: ['.next/**', '**/*.d.ts', '**/*.config.ts', 'src/shared/api/artifacts/generated.ts'],
   },
   {
+    name: 'globals',
     languageOptions: {
       globals: {
         process: 'readonly',
+        ...globals.browser,
       },
     },
   },
-  tseslint.configs.recommended,
-  {
-    name: 'react/recommended',
-    ...react.configs.flat.recommended,
-    settings: {
-      react: { version: 'detect' },
-    },
-  },
-  {
-    name: 'react/jsx-runtime',
-    ...react.configs.flat['jsx-runtime'],
-  },
+  ...tseslint.configs.recommended,
   {
     name: '@eslint-js',
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser },
-    rules: {
-      'no-unused-vars': 'warn',
+    ...js.configs.recommended,
+  },
+  {
+    name: 'eslint-plugin-react',
+    ...react.configs.flat.recommended,
+    ...react.configs.flat['jsx-runtime'],
+    settings: {
+      react: { version: 'detect' },
     },
   },
   {
@@ -62,6 +57,22 @@ export default defineConfig([
       ],
       'i18n-json/sorted-keys': 'error',
       'i18n-json/valid-json': 'error',
+    },
+  },
+  {
+    name: 'eslint-plugin-eslint-comments',
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    plugins: { 'eslint-comments': eslintCommentsPlugin },
+    rules: {
+      'eslint-comments/no-use': 'error',
+    },
+  },
+  {
+    name: 'project-rules',
+    rules: {
+      'no-console': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true }],
     },
   },
 ]);

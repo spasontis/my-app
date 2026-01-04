@@ -3,8 +3,17 @@ import type React from 'react';
 import { Menu, ShoppingBasket, LayoutDashboard, Users, BookMarked } from 'lucide-react';
 import { ModalData, Tab, TabData } from '../types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const tabs: Record<string, TabData<any>> = {
+// связь: таб → тип пропсов компонента
+type TabProps = {
+  menu: ModalData;
+  friends: ModalData;
+  dailys: ModalData;
+  store: void;
+  library: void;
+};
+
+// типизируем через satisfies (не даёт “расползтись” типам)
+export const tabs = {
   menu: {
     id: 'menu',
     modal: true,
@@ -40,8 +49,9 @@ export const tabs: Record<string, TabData<any>> = {
     icon: BookMarked,
     section: 'bottom',
   },
-} as const;
+} satisfies Record<Tab, TabData<TabProps[Tab]>>;
 
+// остальное работает как и раньше
 export const top_controllers = Object.entries(tabs)
   .filter(([, v]) => v.section === 'top')
   .map(([id, v]) => ({ id: id as Tab, icon: v.icon, modal: v.modal }));
