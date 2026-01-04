@@ -13,8 +13,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const defaultMessage = (await import(`../../../assets/locales/${DEFAULT_LOCALE}.json`)).default;
   const localeMessage = (await import(`../../../assets/locales/${locale}.json`)).default;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mergedMessage: any = deepmerge(defaultMessage, localeMessage);
+  const mergedMessage: Record<string, string> = deepmerge(defaultMessage, localeMessage);
 
   return {
     locale,

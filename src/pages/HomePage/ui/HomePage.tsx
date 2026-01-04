@@ -95,9 +95,9 @@ export const HomePage = () => {
             <Text variant='label'>{t('label.throughChallenge')}</Text>
           </div>
           <Text variant='title4' className={styles.description}>
-            {t('description.partOne')}
-            <br />
-            {t('description.partTwo')}
+            {t.rich('text.description', {
+              br: () => <br />,
+            })}
           </Text>
           <div>
             <Button

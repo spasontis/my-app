@@ -1,3 +1,4 @@
+import type React from 'react';
 import { ComponentType, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { LucideProps } from 'lucide-react';
 
@@ -9,7 +10,7 @@ export type Icon = ForwardRefExoticComponent<
 
 export interface BaseSidebarProps {
   activeTab?: Tab;
-  onChange?: (tab: Tab) => void;
+  onChange?: () => void;
 }
 
 export interface ControllerData {

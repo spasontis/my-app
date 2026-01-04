@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { StepperProps } from '../types';
 import clsx from 'clsx';
 

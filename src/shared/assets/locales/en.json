@@ -81,13 +81,12 @@
         "join": "Join",
         "signIn": "Sign In"
       },
-      "description": {
-        "partOne": "Improve your development skills by training on code tasks that",
-        "partTwo": "continously challenge and push your coding practice"
-      },
       "label": {
         "achieveMastery": "Achieve Mastery",
         "throughChallenge": "through challenge"
+      },
+      "text": {
+        "description": "Improve your development skills by training on code tasks that<br></br>continously challenge and push your coding practice"
       }
     },
     "notifications": {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useId } from 'react';
+import { FC, useId } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Text } from '@/shared/components/Text';

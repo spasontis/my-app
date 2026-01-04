@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
+import type React from 'react';
 
 import { ClientProviders, ServerProviders } from '@/shared/providers';
 import { routing } from '@/shared/configs/i18n';
