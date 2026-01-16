@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { setAuth } from '@/shared/stores/app';
 import { BRAND } from '@/shared/constants';
