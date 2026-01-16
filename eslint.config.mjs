@@ -5,6 +5,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import i18nJsonPlugin from 'eslint-plugin-i18n-json';
 import eslintCommentsPlugin from 'eslint-plugin-eslint-comments';
+import storybook from 'eslint-plugin-storybook';
 import path from 'node:path';
 import { defineConfig } from 'eslint/config';
 
@@ -40,6 +41,7 @@ export default defineConfig([
     },
   },
   reactHooks.configs.flat['recommended-latest'],
+  ...storybook.configs['flat/recommended'],
   {
     name: 'eslint-plugin-i18n-json',
     files: ['src/shared/assets/locales/*.json'],
