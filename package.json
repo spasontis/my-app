@@ -54,6 +54,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-i18n-json": "^4.0.1",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^9.1.10",
     "globals": "^16.5.0",
     "playwright": "^1.56.0",

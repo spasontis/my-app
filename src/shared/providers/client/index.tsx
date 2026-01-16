@@ -8,10 +8,10 @@ import { queryClient } from '@/shared/configs/queryClient';
 import { Toaster } from 'sonner';
 
 export const ClientProviders: FC<{ children: ReactNode }> = ({ children }) => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster />
-      {children}
+    return (
+        <QueryClientProvider client= { queryClient } >
+        <Toaster />
+    { children }
     </QueryClientProvider>
   );
 };
