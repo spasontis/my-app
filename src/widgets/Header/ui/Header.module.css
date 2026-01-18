@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: var(--space-16);
+  align-items: center;
+  font-size: small;
+  z-index: 1000;
+  width: 100%;
+  min-height: 44px;
+  border-bottom: var(--border-1) solid var(--border-color-1);
+  background-color: var(--black);
+  gap: var(--space-16);
+}
+
+.side {
+  display: flex;
+  gap: 8px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.icon {
+  width: 21px;
+}
