@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 4px;
+  gap: 12px;
+}
+
+@media (max-width: 992px) {
+  .breadcrumbs {
+    display: none;
+  }
+}

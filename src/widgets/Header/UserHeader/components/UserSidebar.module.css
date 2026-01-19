@@ -1,0 +1,81 @@
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 320px;
+  height: 100vh;
+  background: var(--black);
+  border-right: 1px solid var(--border-color-1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.menuButton {
+  padding: var(--space-4);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--space-16);
+  padding-block: var(--space-8);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.logoIcon {
+  width: auto;
+  height: 38px;
+}
+
+.close {
+  &:hover:not(:disabled) {
+    color: var(--base-25);
+    background-color: hsl(from var(--white) h s l / 10%);
+    backdrop-filter: blur(64px);
+  }
+
+  &:active:not(:disabled) {
+    background-color: hsl(from var(--white) h s l / 30%);
+    backdrop-filter: blur(64px);
+  }
+}
+
+.link {
+  justify-content: start;
+  padding-inline: var(--space-16);
+
+  &:hover:not(:disabled) {
+    color: var(--base-25);
+    background-color: hsl(from var(--white) h s l / 10%);
+    backdrop-filter: blur(64px);
+  }
+
+  &:active:not(:disabled) {
+    background-color: hsl(from var(--white) h s l / 30%);
+    backdrop-filter: blur(64px);
+  }
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  margin-inline: var(--space-8);
+  margin-block: var(--space-8);
+  background-color: var(--base-50);
+}

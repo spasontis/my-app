@@ -69,7 +69,17 @@
     },
     "dashboard": {
       "button": {
-        "help": "Помощь"
+        "clan": "Клан",
+        "community": "Сообщество",
+        "help": "Помощь",
+        "home": "Главная",
+        "library": "Библиотека",
+        "mentors": "Наставники",
+        "mutualAssistance": "Взаимопомощь",
+        "problems": "Задачи",
+        "reviews": "Отзывы",
+        "shop": "Магазин",
+        "tests": "Тесты"
       }
     },
     "home": {

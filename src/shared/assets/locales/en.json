@@ -69,7 +69,17 @@
     },
     "dashboard": {
       "button": {
-        "help": "Help"
+        "clan": "Clan",
+        "community": "Community",
+        "help": "Help",
+        "home": "Home",
+        "library": "Library",
+        "mentors": "Mentors",
+        "mutualAssistance": "Mutual assistance",
+        "problems": "Problems",
+        "reviews": "Reviews",
+        "shop": "Shop",
+        "tests": "Tests"
       }
     },
     "home": {
