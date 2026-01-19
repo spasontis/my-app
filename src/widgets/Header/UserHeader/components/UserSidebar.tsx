@@ -14,33 +14,28 @@ import {
   UserRound,
   X,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
 
+import { useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
+
+import { useClickOutside } from '@/shared/hooks';
 import { Button } from '@/shared/components/Button';
 
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import styles from './Sidebar.module.css';
+import styles from './UserSidebar.module.css';
 
-export const Sidebar = () => {
+export const UserSidebar = () => {
   const t = useTranslations('translation');
 
   const [active, setActive] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   const onClick = () => setActive(!active);
+  const onClose = () => setActive(false);
 
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setActive(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutSide);
-    return () => document.removeEventListener('mousedown', handleClickOutSide);
-  }, [active]);
+  useClickOutside(navRef, onClose);
 
   return (
     <div className={styles.sidebar}>

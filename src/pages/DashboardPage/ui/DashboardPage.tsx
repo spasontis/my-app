@@ -2,16 +2,21 @@
 
 import clsx from 'clsx';
 
-import { Header } from '@/widgets/Header/ui/Header';
 import { Text } from '@/shared/components/Text';
+
+import { UserHeader } from '@/widgets/Header/UserHeader';
+import { Breadcrumbs } from '@/widgets/Breadcrumbs';
+
 import styles from './DashboardPage.module.css';
 
 export const DashboardPage = () => {
   return (
     <div className={styles.page}>
-      <Header />
+      <UserHeader>
+        <Breadcrumbs />
+      </UserHeader>
       <main className={styles.main}>
-        <Text>Text</Text>
+        <Text>dashboard_page</Text>
       </main>
       <footer className={styles.footer}>
         <div className={clsx(styles.part, styles.left)} />

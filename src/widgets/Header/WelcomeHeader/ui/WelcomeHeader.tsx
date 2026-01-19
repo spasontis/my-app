@@ -1,13 +1,17 @@
+import { useTranslations } from 'next-intl';
+
 import { Button } from '@/shared/components/Button';
 import { Text } from '@/shared/components/Text';
 import { BRAND } from '@/shared/constants';
+
+import { MobileSidebar } from '../components/MobileSidebar';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Header.module.css';
-import { useTranslations } from 'next-intl';
-import { MobileSidebar } from './MobileSidebar';
 
-export const HomeHeader = () => {
+import styles from './WelcomeHeader.module.css';
+
+export const WelcomeHeader = () => {
   const t = useTranslations('translation.home');
   return (
     <header className={styles.header}>
@@ -19,17 +23,27 @@ export const HomeHeader = () => {
             {BRAND}
           </Text>
         </Link>
-        <div className={styles.nav}>
-          <Button as='a' href={'./blog'}>
-            {t('button.blog')}
-          </Button>
-          <Button as='a' href={'./for-educators'}>
-            {t('button.forEducators')}
-          </Button>
-          <Button as='a' href={'./for-companies'}>
-            {t('button.forCompanies')}
-          </Button>
-        </div>
+        <nav>
+          <ul className={styles.nav}>
+            <li>
+              <Button as='Link' href={'./blog'}>
+                {t('button.blog')}
+              </Button>
+            </li>
+            <span className={styles.divider} />
+            <li>
+              <Button as='Link' href={'./for-educators'}>
+                {t('button.forEducators')}
+              </Button>
+            </li>
+            <span className={styles.divider} />
+            <li>
+              <Button as='Link' href={'./for-companies'}>
+                {t('button.forCompanies')}
+              </Button>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className={styles.side}>
         <Button as='Link' variant='transparentWhite' href={'./sign-in'} size='sm'>

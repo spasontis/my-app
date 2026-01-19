@@ -30,3 +30,12 @@
 .icon {
   width: 21px;
 }
+
+.link {
+  padding: var(--space-4);
+}
+.account {
+  padding: var(--space-4);
+  width: 34px;
+  border-radius: 50%;
+}

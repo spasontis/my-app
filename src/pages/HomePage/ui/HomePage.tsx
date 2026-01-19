@@ -3,15 +3,16 @@ import { useTranslations } from 'next-intl';
 import { Text } from '@/shared/components/Text';
 import { Button } from '@/shared/components/Button';
 
+import { WelcomeHeader } from '@/widgets/Header/WelcomeHeader';
+
 import styles from './Home.module.css';
-import { HomeHeader } from './Header';
 
 export const HomePage = () => {
   const t = useTranslations('translation.home');
 
   return (
     <div className={styles.page}>
-      <HomeHeader />
+      <WelcomeHeader />
       <main className={styles.main}>
         <div className={styles.welcome}>
           <div className={styles.label}>

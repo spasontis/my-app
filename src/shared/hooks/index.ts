@@ -1,1 +1,3 @@
-export { usePageTitle } from './usePageTitle';
+export * from './usePageTitle';
+export * from './useClickOutside';
+
